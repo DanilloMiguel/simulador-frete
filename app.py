@@ -200,6 +200,224 @@ def secao_ranking(pedidos, tabela) -> None:
     )
 
 
+# -------------------------------------------------- aba: cobertura e competitividade
+def secao_cobertura(pedidos, tabela) -> None:
+    try:
+        opcoes = frete.calcular_opcoes(pedidos, tabela)
+    except ValueError as erro:
+        st.error(str(erro))
+        return
+    if opcoes.empty:
+        st.info("Nenhuma transportadora da tabela atende os pedidos.")
+        return
+
+    st.markdown("**Matriz de posição: Transportadora × Região**")
+    st.caption(
+        "Cada célula mostra a posição da transportadora na região "
+        "(1º = mais barata considerando todos os pedidos daquela região). "
+        "Média ponderada, não média das médias."
+    )
+    st.markdown(vz.legenda_cobertura(), unsafe_allow_html=True)
+
+    matriz_reg = frete.matriz_cobertura(opcoes)
+    st.dataframe(vz.estilizar_matriz_cobertura(matriz_reg), hide_index=True, width="stretch")
+
+    with st.expander("🔍 Ver detalhamento por UF"):
+        st.caption("Posição de cada transportadora em cada UF (1º = mais barata naquela UF).")
+        matriz_uf = frete.matriz_cobertura_uf(opcoes)
+        st.dataframe(
+            vz.estilizar_matriz_cobertura(matriz_uf),
+            hide_index=True,
+            width="stretch",
+            height=min(len(matriz_uf) * 38 + 40, 500),
+        )
+
+    # Resumo textual
+    st.markdown("**Resumo de cobertura**")
+    n_transp = opcoes["transportadora"].nunique()
+    n_regioes = opcoes["regiao"].nunique()
+    n_ufs = opcoes["uf"].nunique()
+    col1, col2, col3 = st.columns(3)
+    with col1.container(border=True):
+        st.metric("Transportadoras ativas", n_transp)
+    with col2.container(border=True):
+        st.metric("Regiões cobertas", f"{n_regioes} / 5")
+    with col3.container(border=True):
+        st.metric("UFs cobertas", f"{n_ufs} / 27")
+
+    # Lacunas
+    todas_ufs = set(frete.REGIAO_POR_UF.keys())
+    ufs_cobertas = set(opcoes["uf"].unique())
+    sem = todas_ufs - ufs_cobertas
+    if sem:
+        st.warning(f"UFs sem cobertura: {', '.join(sorted(sem))}")
+
+
+# -------------------------------------------------- aba: análise de sensibilidade
+def secao_sensibilidade(pedidos, tabela, prazo_max) -> None:
+    try:
+        base = frete.simular(pedidos, tabela, prazo_max)
+    except ValueError as erro:
+        st.error(str(erro))
+        return
+
+    transportadoras = sorted(tabela["transportadora"].dropna().unique())
+    if not transportadoras:
+        st.info("Nenhuma transportadora na tabela.")
+        return
+
+    st.caption(
+        "Ajuste o custo de uma transportadora em ±30% e veja quantos pedidos mudam de mão e o impacto no custo total."
+    )
+
+    col_t, col_s = st.columns([2, 3])
+    transp = col_t.selectbox("Transportadora para ajustar", transportadoras, key="sens_transp")
+    variacao = col_s.slider(
+        "Variação no custo (%)",
+        min_value=-30,
+        max_value=30,
+        value=0,
+        step=5,
+        key="sens_slider",
+        help="Negativo = desconto, positivo = aumento.",
+    )
+
+    if variacao == 0:
+        st.info("Mova o slider para simular um cenário de ajuste de custo.")
+        return
+
+    ajustado = frete.sensibilidade(pedidos, tabela, transp, variacao, prazo_max)
+    comp = frete.comparar_cenarios(base, ajustado)
+
+    sinal = "📉" if variacao < 0 else "📈"
+    st.markdown(f"**{sinal} Cenário: {transp} com {variacao:+d}% no custo**")
+
+    c1, c2, c3, c4 = st.columns(4)
+    with c1.container(border=True):
+        st.metric(
+            "Custo total",
+            vz.brl(comp["kpis_ajustado"]["custo_total"]),
+            delta=vz.delta_brl(comp["kpis_ajustado"]["custo_total"], comp["kpis_base"]["custo_total"]),
+            delta_color="inverse",
+        )
+    with c2.container(border=True):
+        st.metric(
+            "Custo médio",
+            vz.brl(comp["kpis_ajustado"]["custo_medio"]),
+            delta=vz.delta_brl(comp["kpis_ajustado"]["custo_medio"], comp["kpis_base"]["custo_medio"]),
+            delta_color="inverse",
+        )
+    with c3.container(border=True):
+        st.metric("Pedidos que trocaram", comp["pedidos_trocaram"])
+    with c4.container(border=True):
+        st.metric(
+            "Sem cobertura",
+            comp["kpis_ajustado"]["sem_cobertura"],
+            delta=(comp["kpis_ajustado"]["sem_cobertura"] - comp["kpis_base"]["sem_cobertura"]) or None,
+            delta_color="inverse",
+        )
+
+    if comp["pedidos_trocaram"] > 0:
+        trocas = comp["trocas"].copy()
+        trocas.columns = ["Pedido", "Antes", "Depois"]
+        with st.expander(f"📋 Ver {comp['pedidos_trocaram']} pedido(s) que trocaram de transportadora"):
+            st.dataframe(trocas, hide_index=True, width="stretch")
+
+    # Comparar distribuição antes × depois
+    st.markdown("**Distribuição de pedidos por transportadora: antes × depois**")
+    dist_antes = base.groupby("transportadora")["pedido_id"].count().reset_index()
+    dist_antes.columns = ["transportadora", "pedidos_antes"]
+    dist_depois = ajustado.groupby("transportadora")["pedido_id"].count().reset_index()
+    dist_depois.columns = ["transportadora", "pedidos_depois"]
+    dist = dist_antes.merge(dist_depois, on="transportadora", how="outer").fillna(0)
+    dist = dist[dist["transportadora"] != frete.SEM_COBERTURA].sort_values("pedidos_antes", ascending=False)
+    if not dist.empty:
+        st.altair_chart(vz.grafico_sensibilidade(dist))
+        st.caption("Barra clara = antes do ajuste · Barra escura = depois do ajuste")
+
+
+# -------------------------------------------------- aba: distribuição dos pedidos
+def secao_distribuicao(pedidos, tabela, prazo_max) -> None:
+    try:
+        resultado = frete.simular(pedidos, tabela, prazo_max)
+    except ValueError as erro:
+        st.error(str(erro))
+        return
+
+    cobertos = resultado[resultado["transportadora"] != frete.SEM_COBERTURA].copy()
+    if cobertos.empty:
+        st.info("Nenhum pedido coberto para analisar a distribuição.")
+        return
+
+    st.caption("Visão do perfil da base de pedidos: como se distribuem por região, peso, valor e representatividade do frete.")
+
+    # Distribuição por região
+    st.markdown("**Pedidos por região**")
+    por_regiao = cobertos.groupby("regiao")["pedido_id"].count().reset_index()
+    por_regiao.columns = ["regiao", "pedidos"]
+    por_regiao["pct"] = por_regiao["pedidos"] / por_regiao["pedidos"].sum() * 100
+    por_regiao = por_regiao.sort_values("pedidos", ascending=False)
+
+    col_g, col_t = st.columns([3, 4])
+    with col_g:
+        st.altair_chart(vz.grafico_pizza_regiao(por_regiao))
+    with col_t:
+        por_regiao_display = por_regiao.copy()
+        por_regiao_display["pct"] = por_regiao_display["pct"].round(1)
+        por_regiao_display.columns = ["Região", "Pedidos", "% do total"]
+        st.dataframe(por_regiao_display, hide_index=True, width="stretch")
+
+        # Custo médio por região
+        custo_regiao = cobertos.groupby("regiao").agg(
+            custo_medio=("custo_frete", "mean"),
+            prazo_medio=("prazo_dias", "mean"),
+        ).round(2).reset_index()
+        custo_regiao.columns = ["Região", "Frete médio (R$)", "Prazo médio (dias)"]
+        st.dataframe(custo_regiao, hide_index=True, width="stretch")
+
+    st.divider()
+
+    # Faixas de peso e valor lado a lado
+    col_peso, col_valor = st.columns(2)
+
+    with col_peso:
+        faixas_peso = [
+            (0, 2, "0–2 kg"), (2, 5, "2–5 kg"), (5, 10, "5–10 kg"),
+            (10, 20, "10–20 kg"), (20, 50, "20–50 kg"), (50, 999, "50+ kg"),
+        ]
+        dist_peso = frete.distribuicao_faixas(resultado, "peso_kg", faixas_peso)
+        st.altair_chart(vz.grafico_faixas(dist_peso, "Pedidos por faixa de peso"))
+
+    with col_valor:
+        faixas_valor = [
+            (0, 50, "0–50"), (50, 100, "50–100"), (100, 200, "100–200"),
+            (200, 500, "200–500"), (500, 1000, "500–1k"), (1000, 99999, "1k+"),
+        ]
+        dist_valor = frete.distribuicao_faixas(resultado, "valor_pedido", faixas_valor)
+        st.altair_chart(vz.grafico_faixas(dist_valor, "Pedidos por faixa de valor (R$)"))
+
+    st.divider()
+
+    # Frete como % do valor do pedido
+    st.markdown("**Representatividade do frete**")
+    scatter_data = cobertos[["pedido_id", "valor_pedido", "custo_frete"]].copy()
+    scatter_data["pct_frete"] = (scatter_data["custo_frete"] / scatter_data["valor_pedido"] * 100).round(1)
+    col_sc, col_kpi = st.columns([5, 2])
+    with col_sc:
+        st.altair_chart(vz.grafico_frete_sobre_valor(scatter_data))
+    with col_kpi:
+        media_pct = float(scatter_data["pct_frete"].mean())
+        mediana_pct = float(scatter_data["pct_frete"].median())
+        maximo_pct = float(scatter_data["pct_frete"].max())
+        with st.container(border=True):
+            st.metric("Frete médio / valor", f"{vz.num_br(media_pct, 1)}%")
+        with st.container(border=True):
+            st.metric("Mediana", f"{vz.num_br(mediana_pct, 1)}%")
+        with st.container(border=True):
+            st.metric("Máximo", f"{vz.num_br(maximo_pct, 1)}%")
+        st.caption("Pedidos com frete alto relativo ao valor são candidatos a negociação de custo.")
+
+
 # ---------------------------------------------------------------- barra lateral
 with st.sidebar:
     st.header("Dados")
@@ -262,8 +480,16 @@ tabela = st.data_editor(
     },
 )
 
-aba_simulacao, aba_ranking = st.tabs(["Simulação de pedidos", "Ranking por região"])
+aba_simulacao, aba_ranking, aba_cobertura, aba_sensibilidade, aba_distrib = st.tabs(
+    ["Simulação de pedidos", "Ranking por região", "Cobertura e Competitividade", "Análise de Sensibilidade", "Distribuição dos Pedidos"]
+)
 with aba_simulacao:
     secao_simulacao(pedidos, tabela_original, tabela, prazo_max)
 with aba_ranking:
     secao_ranking(pedidos, tabela)
+with aba_cobertura:
+    secao_cobertura(pedidos, tabela)
+with aba_sensibilidade:
+    secao_sensibilidade(pedidos, tabela, prazo_max)
+with aba_distrib:
+    secao_distribuicao(pedidos, tabela, prazo_max)

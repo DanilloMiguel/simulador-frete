@@ -214,6 +214,90 @@ def por_transportadora(resultado: pd.DataFrame) -> pd.DataFrame:
     return df.round(2).reset_index(drop=True)
 
 
+def matriz_cobertura(opcoes: pd.DataFrame) -> pd.DataFrame:
+    """Matriz transportadora × região: posição de cada transportadora em cada região.
+
+    Retorna um DataFrame com colunas [transportadora, <região1>, <região2>, ...].
+    Valores: 1 = mais barata, 2 = segunda, 3 = terceira, NaN = sem cobertura.
+    """
+    r = ranking(opcoes, ["regiao"], top=99)
+    pivot = r.pivot_table(index="transportadora", columns="regiao", values="posicao", aggfunc="first")
+    pivot = pivot.reindex(columns=ORDEM_REGIOES).reset_index()
+    pivot = pivot.sort_values(
+        [r for r in ORDEM_REGIOES if r in pivot.columns],
+        na_position="last",
+    )
+    return pivot
+
+
+def matriz_cobertura_uf(opcoes: pd.DataFrame) -> pd.DataFrame:
+    """Matriz transportadora × UF: posição de cada transportadora em cada UF."""
+    r = ranking(opcoes, ["uf"], top=99)
+    ufs_ordenadas = sorted(r["uf"].unique(), key=lambda u: (ORDEM_REGIOES.index(REGIAO_POR_UF[u]), u))
+    pivot = r.pivot_table(index="transportadora", columns="uf", values="posicao", aggfunc="first")
+    pivot = pivot.reindex(columns=ufs_ordenadas).reset_index()
+    return pivot
+
+
+def sensibilidade(
+    pedidos: pd.DataFrame,
+    tabela: pd.DataFrame,
+    transportadora: str,
+    variacao_pct: float,
+    prazo_max: float | None = None,
+) -> dict:
+    """Simula o impacto de ajustar os custos de uma transportadora em X%.
+
+    Retorna dict com resultado da simulação ajustada e métricas de comparação.
+    """
+    tabela_ajustada = tabela.copy()
+    mascara = tabela_ajustada["transportadora"] == transportadora
+    tabela_ajustada.loc[mascara, "custo_base"] *= 1 + variacao_pct / 100
+    tabela_ajustada.loc[mascara, "custo_por_kg"] *= 1 + variacao_pct / 100
+    return simular(pedidos, tabela_ajustada, prazo_max)
+
+
+def comparar_cenarios(
+    base: pd.DataFrame, ajustado: pd.DataFrame
+) -> dict:
+    """Compara dois resultados de simulação e retorna métricas de diferença."""
+    k_base = kpis(base)
+    k_ajust = kpis(ajustado)
+
+    # Pedidos que trocaram de transportadora
+    merged = base[["pedido_id", "transportadora"]].merge(
+        ajustado[["pedido_id", "transportadora"]],
+        on="pedido_id",
+        suffixes=("_antes", "_depois"),
+    )
+    trocaram = merged[merged["transportadora_antes"] != merged["transportadora_depois"]]
+
+    return {
+        "kpis_base": k_base,
+        "kpis_ajustado": k_ajust,
+        "delta_custo": k_ajust["custo_total"] - k_base["custo_total"],
+        "delta_medio": k_ajust["custo_medio"] - k_base["custo_medio"],
+        "pedidos_trocaram": len(trocaram),
+        "trocas": trocaram,
+    }
+
+
+def distribuicao_faixas(resultado: pd.DataFrame, coluna: str, faixas: list[tuple[float, float, str]]) -> pd.DataFrame:
+    """Distribui os pedidos em faixas customizadas de uma coluna numérica."""
+    cobertos = resultado[resultado["transportadora"] != SEM_COBERTURA].copy()
+    cobertos["faixa"] = pd.cut(
+        cobertos[coluna],
+        bins=[f[0] for f in faixas] + [faixas[-1][1]],
+        labels=[f[2] for f in faixas],
+        include_lowest=True,
+        right=True,
+    )
+    return cobertos.groupby("faixa", observed=False).agg(
+        pedidos=("pedido_id", "count"),
+        custo_medio=("custo_frete", "mean"),
+    ).reset_index()
+
+
 def exportar_excel(
     resultado: pd.DataFrame,
     resumo_df: pd.DataFrame,

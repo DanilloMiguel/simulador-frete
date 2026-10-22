@@ -34,6 +34,7 @@ CABECALHO = """
 """
 
 MEDALHAS = {1: "🥇", 2: "🥈", 3: "🥉"}
+COR_POSICAO = {1: "#63B95F", 2: "#F5C842", 3: "#F09A4A", 4: "#E07B6B"}  # verde, amarelo, laranja, vermelho
 
 
 # ------------------------------------------------------------------ formatação
@@ -178,4 +179,133 @@ def grafico_barras(df: pd.DataFrame, categoria: str, valor: str, rotulo: str, ti
         .properties(width="container", height=alt.Step(34))
         .configure_axis(gridColor=CINZA_CLARO, domain=False, labelColor=CINZA, titleColor=CINZA)
         .configure_view(stroke=None)
+    )
+
+
+# --------------------------------------------------------- matriz de cobertura
+def estilizar_matriz_cobertura(pivot: pd.DataFrame):
+    """Heatmap de posição: verde (1ª), amarelo (2ª), laranja (3ª), vermelho (4+), cinza (sem)."""
+
+    def _cor_posicao(val):
+        if pd.isna(val):
+            return "background-color: #E5E8EE; color: #999"
+        pos = int(val)
+        cor = COR_POSICAO.get(pos, "#D9534F")
+        return f"background-color: {cor}; color: #FFF; font-weight: 700; text-align: center"
+
+    def _formatar(val):
+        if pd.isna(val):
+            return "—"
+        pos = int(val)
+        return {1: "1º", 2: "2º", 3: "3º"}.get(pos, f"{pos}º")
+
+    regioes = [c for c in pivot.columns if c != "transportadora"]
+    estilo = pivot.style.map(_cor_posicao, subset=regioes)
+    estilo = estilo.format({r: _formatar for r in regioes})
+    return estilo
+
+
+def legenda_cobertura() -> str:
+    """HTML da legenda da matriz de cobertura."""
+    itens = [
+        ("#63B95F", "1º (mais barata)"),
+        ("#F5C842", "2º"),
+        ("#F09A4A", "3º"),
+        ("#E07B6B", "4º+"),
+        ("#E5E8EE", "Sem cobertura"),
+    ]
+    blocos = " ".join(
+        f'<span style="display:inline-block;width:14px;height:14px;background:{cor};'
+        f'border-radius:3px;vertical-align:middle;margin-right:3px"></span>'
+        f'<span style="font-size:0.82rem;color:#4A5568;margin-right:14px">{txt}</span>'
+        for cor, txt in itens
+    )
+    return f'<div style="margin:6px 0 10px">{blocos}</div>'
+
+
+# --------------------------------------------------------- sensibilidade
+def grafico_sensibilidade(dados: pd.DataFrame):
+    """Gráfico de barras comparando custo antes × depois por transportadora."""
+    base = alt.Chart(dados).encode(
+        y=alt.Y("transportadora:N", sort="-x", title=None, axis=alt.Axis(labelLimit=260, labelFontSize=12)),
+    )
+    barras_antes = base.mark_bar(color=CINZA_CLARO, size=18).encode(
+        x=alt.X("pedidos_antes:Q", title="Pedidos atendidos"),
+    )
+    barras_depois = base.mark_bar(color=AZUL, size=10).encode(
+        x=alt.X("pedidos_depois:Q"),
+    )
+    return (
+        (barras_antes + barras_depois)
+        .properties(width="container", height=alt.Step(34))
+        .configure_axis(gridColor=CINZA_CLARO, domain=False, labelColor=CINZA, titleColor=CINZA)
+        .configure_view(stroke=None)
+    )
+
+
+# ----------------------------------------------------------- distribuição
+def grafico_pizza_regiao(dados: pd.DataFrame):
+    """Donut chart de pedidos por região."""
+    base = alt.Chart(dados).encode(
+        theta=alt.Theta("pedidos:Q", stack=True),
+        color=alt.Color(
+            "regiao:N",
+            scale=alt.Scale(
+                domain=dados["regiao"].tolist(),
+                range=["#1F4E9C", "#3B7DD8", "#63B95F", "#F5C842", "#F09A4A"],
+            ),
+            legend=alt.Legend(title="Região", orient="right"),
+        ),
+        tooltip=[
+            alt.Tooltip("regiao:N", title="Região"),
+            alt.Tooltip("pedidos:Q", title="Pedidos"),
+            alt.Tooltip("pct:Q", title="% do total", format=".1f"),
+        ],
+    )
+    return (
+        base.mark_arc(innerRadius=45, outerRadius=100)
+        .properties(width=280, height=240)
+    )
+
+
+def grafico_faixas(dados: pd.DataFrame, titulo: str):
+    """Barras verticais de quantidade de pedidos por faixa."""
+    return (
+        alt.Chart(dados)
+        .mark_bar(color=AZUL, cornerRadiusEnd=3)
+        .encode(
+            x=alt.X("faixa:N", title=None, sort=None, axis=alt.Axis(labelAngle=-30, labelFontSize=11)),
+            y=alt.Y("pedidos:Q", title="Pedidos"),
+            tooltip=[
+                alt.Tooltip("faixa:N", title="Faixa"),
+                alt.Tooltip("pedidos:Q", title="Pedidos"),
+                alt.Tooltip("custo_medio:Q", title="Frete médio (R$)", format=".2f"),
+            ],
+        )
+        .properties(width="container", height=260, title=titulo)
+        .configure_axis(gridColor=CINZA_CLARO, domain=False, labelColor=CINZA, titleColor=CINZA)
+        .configure_view(stroke=None)
+        .configure_title(color=CINZA, fontSize=14)
+    )
+
+
+def grafico_frete_sobre_valor(dados: pd.DataFrame):
+    """Scatter de % frete sobre valor do pedido × valor do pedido."""
+    return (
+        alt.Chart(dados)
+        .mark_circle(color=AZUL, opacity=0.5, size=30)
+        .encode(
+            x=alt.X("valor_pedido:Q", title="Valor do pedido (R$)", axis=alt.Axis(format=",.0f")),
+            y=alt.Y("pct_frete:Q", title="Frete / valor do pedido (%)"),
+            tooltip=[
+                alt.Tooltip("pedido_id:N", title="Pedido"),
+                alt.Tooltip("valor_pedido:Q", title="Valor (R$)", format=",.2f"),
+                alt.Tooltip("custo_frete:Q", title="Frete (R$)", format=",.2f"),
+                alt.Tooltip("pct_frete:Q", title="% frete", format=".1f"),
+            ],
+        )
+        .properties(width="container", height=300, title="Frete como % do valor do pedido")
+        .configure_axis(gridColor=CINZA_CLARO, domain=False, labelColor=CINZA, titleColor=CINZA)
+        .configure_view(stroke=None)
+        .configure_title(color=CINZA, fontSize=14)
     )
