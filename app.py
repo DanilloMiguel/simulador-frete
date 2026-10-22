@@ -453,6 +453,13 @@ with st.sidebar:
         pedidos, tabela_original = carregar_exemplo()
         chave_editor = "exemplo"
     else:
+        st.download_button(
+            "📥 Baixar planilha modelo",
+            data=frete.gerar_template_excel(),
+            file_name="modelo_simulador_frete.xlsx",
+            mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        )
+        st.caption("Baixe, preencha e envie abaixo ↓")
         arq_pedidos = st.file_uploader("Pedidos (.csv ou .xlsx)", type=["csv", "xlsx"])
         arq_tabela = st.file_uploader("Tabela de frete (.csv ou .xlsx)", type=["csv", "xlsx"])
         if not (arq_pedidos and arq_tabela):

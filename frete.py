@@ -298,6 +298,54 @@ def distribuicao_faixas(resultado: pd.DataFrame, coluna: str, faixas: list[tuple
     ).reset_index()
 
 
+def gerar_template_excel() -> bytes:
+    """Gera um .xlsx com as duas abas modelo (Pedidos e Tabela de frete).
+
+    Cada aba tem o cabeçalho correto, 2 linhas de exemplo preenchidas e uma
+    aba 'Instruções' explicando cada coluna.
+    """
+    exemplo_pedidos = pd.DataFrame([
+        ["PED-001", "CD Leste", "Capital", "SP", 2.5, 150.00],
+        ["PED-002", "Loja", "Interior", "MG", 1.2, 89.90],
+    ], columns=COLUNAS_PEDIDOS)
+
+    exemplo_tabela = pd.DataFrame([
+        ["Transportadora A", "CD Leste", "Sudeste", "Capital", 8.50, 1.20, 3],
+        ["Transportadora A", "CD Leste", "Sudeste", "Interior", 10.00, 1.50, 5],
+    ], columns=COLUNAS_TABELA)
+
+    instrucoes = pd.DataFrame([
+        ["Pedidos", "pedido_id", "Identificador único do pedido (texto ou número)"],
+        ["Pedidos", "origem", "De onde sai o pedido (ex: CD Leste, Loja, CD Oeste)"],
+        ["Pedidos", "destino_tipo", "Capital ou Interior"],
+        ["Pedidos", "uf", "Sigla da UF de destino (ex: SP, RJ, MG)"],
+        ["Pedidos", "peso_kg", "Peso do pedido em quilos (número)"],
+        ["Pedidos", "valor_pedido", "Valor do pedido em R$ (número)"],
+        ["Tabela de frete", "transportadora", "Nome da transportadora"],
+        ["Tabela de frete", "origem", "Origem da coleta (deve bater com a do pedido)"],
+        ["Tabela de frete", "regiao", "Sudeste, Sul, Centro-Oeste, Nordeste ou Norte"],
+        ["Tabela de frete", "destino_tipo", "Capital ou Interior (deve bater com a do pedido)"],
+        ["Tabela de frete", "custo_base", "Custo fixo por envio em R$ (número)"],
+        ["Tabela de frete", "custo_por_kg", "Custo variável por kg em R$ (número)"],
+        ["Tabela de frete", "prazo_dias", "Prazo de entrega em dias úteis (número inteiro)"],
+    ], columns=["Aba", "Coluna", "Descrição"])
+
+    buffer = io.BytesIO()
+    with pd.ExcelWriter(buffer, engine="openpyxl") as escritor:
+        exemplo_pedidos.to_excel(escritor, sheet_name="Pedidos", index=False)
+        exemplo_tabela.to_excel(escritor, sheet_name="Tabela de frete", index=False)
+        instrucoes.to_excel(escritor, sheet_name="Instruções", index=False)
+        for aba in escritor.book.worksheets:
+            aba.freeze_panes = "A2"
+            for celula in aba[1]:
+                celula.font = Font(bold=True, color="FFFFFF")
+                celula.fill = PatternFill("solid", fgColor="1F4E9C")
+            for coluna in aba.columns:
+                largura = max(len(str(c.value)) if c.value is not None else 0 for c in coluna)
+                aba.column_dimensions[coluna[0].column_letter].width = min(largura + 3, 50)
+    return buffer.getvalue()
+
+
 def exportar_excel(
     resultado: pd.DataFrame,
     resumo_df: pd.DataFrame,
