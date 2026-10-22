@@ -2,6 +2,9 @@
 from __future__ import annotations
 
 import html
+import json
+from functools import lru_cache
+from pathlib import Path
 
 import altair as alt
 import pandas as pd
@@ -12,6 +15,7 @@ AZUL = "#1F4E9C"
 AZUL_CLARO = "#E8EEF7"
 CINZA = "#4A5568"
 CINZA_CLARO = "#E5E8EE"
+GEOJSON_UFS = Path(__file__).parent / "data" / "brasil_ufs.geojson"
 
 ESTILO = """
 <style>
@@ -81,7 +85,7 @@ def delta_brl(atual: float, base: float) -> str | None:
 
 FORMATOS = {
     "Peso (kg)": lambda v: num_br(v, 2),
-    "Valor do pedido (R$)": lambda v: num_br(v, 2),
+    "Valor de mercadoria (R$)": lambda v: num_br(v, 2),
     "Frete (R$)": lambda v: num_br(v, 2),
     "Prazo (dias)": lambda v: num_br(v, 0),
     "Custo total (R$)": lambda v: num_br(v, 2),
@@ -333,27 +337,95 @@ def grafico_sensibilidade(dados: pd.DataFrame):
 
 
 # ----------------------------------------------------------- distribuição
-def grafico_pizza_regiao(dados: pd.DataFrame):
-    """Donut chart de pedidos por região."""
-    base = alt.Chart(dados).encode(
-        theta=alt.Theta("pedidos:Q", stack=True),
-        color=alt.Color(
-            "regiao:N",
-            scale=alt.Scale(
-                domain=dados["regiao"].tolist(),
-                range=["#1F4E9C", "#3B7DD8", "#63B95F", "#F5C842", "#F09A4A"],
+@lru_cache(maxsize=1)
+def _contornos_ufs() -> tuple:
+    """Contorno simplificado das 27 UFs (data/brasil_ufs.geojson), lido uma vez."""
+    return tuple(json.loads(GEOJSON_UFS.read_text(encoding="utf-8"))["features"])
+
+
+def grafico_mapa_uf(dados: pd.DataFrame):
+    """Mapa do Brasil por UF: cor = frete médio, tamanho da bolha = nº de pedidos.
+
+    dados vem de frete.por_uf (colunas uf, pedidos, pct, frete_medio). UFs sem
+    pedidos aparecem em cinza claro.
+    """
+    por_uf = dados.set_index("uf")
+    base, com_dados = [], []
+    for f in _contornos_ufs():
+        uf = f["properties"]["uf"]
+        props = dict(f["properties"])
+        if uf in por_uf.index:
+            linha = por_uf.loc[uf]
+            props.update(
+                pedidos=int(linha["pedidos"]),
+                frete_medio=float(linha["frete_medio"]),
+                frete_txt=brl(linha["frete_medio"]),
+                pct_txt=num_br(linha["pct"], 1) + "%",
+            )
+        feature = {"type": "Feature", "properties": props, "geometry": f["geometry"]}
+        base.append(feature)
+        if uf in por_uf.index:
+            com_dados.append(feature)
+
+    fundo = (
+        alt.Chart(alt.Data(values=base))
+        .mark_geoshape(fill=CINZA_CLARO, stroke="white", strokeWidth=0.8)
+    )
+    tooltip = [
+        alt.Tooltip("properties.nome:N", title="UF"),
+        alt.Tooltip("properties.pedidos:Q", title="Pedidos"),
+        alt.Tooltip("properties.pct_txt:N", title="% do total de pedidos"),
+        alt.Tooltip("properties.frete_txt:N", title="Frete médio"),
+    ]
+    estados = (
+        alt.Chart(alt.Data(values=com_dados))
+        .mark_geoshape(stroke="white", strokeWidth=0.8)
+        .encode(
+            color=alt.Color(
+                "properties.frete_medio:Q",
+                title="Frete médio (R$)",
+                scale=alt.Scale(range=["#DCE6F5", AZUL]),
+                legend=alt.Legend(orient="right", format=",.0f", gradientLength=140),
             ),
-            legend=alt.Legend(title="Região", orient="right"),
-        ),
-        tooltip=[
-            alt.Tooltip("regiao:N", title="Região"),
-            alt.Tooltip("pedidos:Q", title="Pedidos"),
-            alt.Tooltip("pct:Q", title="% do total", format=".1f"),
-        ],
+            tooltip=tooltip,
+        )
+    )
+    bolhas = (
+        alt.Chart(alt.Data(values=[f["properties"] for f in com_dados]))
+        .mark_circle(fill="#F7F9FC", fillOpacity=0.85, stroke=CINZA, strokeWidth=1)
+        .encode(
+            longitude="lon:Q",
+            latitude="lat:Q",
+            size=alt.Size(
+                "pedidos:Q",
+                title="Pedidos (tamanho da bolha)",
+                scale=alt.Scale(range=[200, 1800]),
+                legend=alt.Legend(
+                    orient="right",
+                    symbolFillColor=CINZA_CLARO,
+                    symbolStrokeColor=CINZA,
+                    symbolStrokeWidth=1.2,
+                ),
+            ),
+            tooltip=[
+                alt.Tooltip("nome:N", title="UF"),
+                alt.Tooltip("pedidos:Q", title="Pedidos"),
+                alt.Tooltip("pct_txt:N", title="% do total de pedidos"),
+                alt.Tooltip("frete_txt:N", title="Frete médio"),
+            ],
+        )
+    )
+    rotulos = (
+        alt.Chart(alt.Data(values=[f["properties"] for f in com_dados]))
+        .mark_text(fontSize=9, fontWeight="bold", color="#1B2A41")
+        .encode(longitude="lon:Q", latitude="lat:Q", text="uf:N")
     )
     return (
-        base.mark_arc(innerRadius=45, outerRadius=100)
-        .properties(width=280, height=240)
+        alt.layer(fundo, estados, bolhas, rotulos)
+        .project(type="mercator")
+        .properties(width="container", height=470)
+        .configure_view(stroke=None)
+        .configure_legend(labelColor=CINZA, titleColor=CINZA)
     )
 
 
@@ -379,21 +451,21 @@ def grafico_faixas(dados: pd.DataFrame, titulo: str):
 
 
 def grafico_frete_sobre_valor(dados: pd.DataFrame):
-    """Scatter de % frete sobre valor do pedido × valor do pedido."""
+    """Dispersão do % custo de frete (Frete ÷ Valor de mercadoria) × valor de mercadoria."""
     return (
         alt.Chart(dados)
         .mark_circle(color=AZUL, opacity=0.5, size=30)
         .encode(
-            x=alt.X("valor_pedido:Q", title="Valor do pedido (R$)", axis=alt.Axis(format=",.0f")),
-            y=alt.Y("pct_frete:Q", title="Frete / valor do pedido (%)"),
+            x=alt.X("valor_mercadoria:Q", title="Valor de mercadoria (R$)", axis=alt.Axis(format=",.0f")),
+            y=alt.Y("pct_frete:Q", title="% custo de frete (Frete / Valor de mercadoria)"),
             tooltip=[
                 alt.Tooltip("pedido_id:N", title="Pedido"),
-                alt.Tooltip("valor_pedido:Q", title="Valor (R$)", format=",.2f"),
+                alt.Tooltip("valor_mercadoria:Q", title="Valor de mercadoria (R$)", format=",.2f"),
                 alt.Tooltip("custo_frete:Q", title="Frete (R$)", format=",.2f"),
-                alt.Tooltip("pct_frete:Q", title="% frete", format=".1f"),
+                alt.Tooltip("pct_frete:Q", title="% custo de frete", format=".1f"),
             ],
         )
-        .properties(width="container", height=300, title="Frete como % do valor do pedido")
+        .properties(width="container", height=300, title="% custo de frete (Frete / Valor de mercadoria)")
         .configure_axis(gridColor=CINZA_CLARO, domain=False, labelColor=CINZA, titleColor=CINZA)
         .configure_view(stroke=None)
         .configure_title(color=CINZA, fontSize=14)

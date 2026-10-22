@@ -59,7 +59,7 @@ def gerar_pedidos(rng: np.random.Generator) -> pd.DataFrame:
             "destino_tipo": rng.choice(list(DESTINOS), size=N_PEDIDOS, p=list(DESTINOS.values())),
             "uf": rng.choice(ufs, size=N_PEDIDOS, p=probs / probs.sum()),
             "peso_kg": peso,
-            "valor_pedido": rng.uniform(80, 1200, size=N_PEDIDOS).round(2),
+            "valor_mercadoria": rng.uniform(80, 1200, size=N_PEDIDOS).round(2),
         }
     )
 

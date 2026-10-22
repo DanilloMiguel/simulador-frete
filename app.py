@@ -304,7 +304,7 @@ def secao_sensibilidade(pedidos, tabela, prazo_max) -> None:
         min_value=-30,
         max_value=30,
         value=0,
-        step=5,
+        step=1,
         key="sens_slider",
         help="Negativo = desconto, positivo = aumento.",
     )
@@ -376,18 +376,23 @@ def secao_distribuicao(pedidos, tabela, prazo_max) -> None:
         st.info("Nenhum pedido coberto para analisar a distribuição.")
         return
 
-    st.caption("Visão do perfil da base de pedidos: como se distribuem por região, peso, valor e representatividade do frete.")
+    st.caption("Visão do perfil da base de pedidos: como se distribuem por região, peso, valor de mercadoria e representatividade do frete.")
 
-    # Distribuição por região
+    # Distribuição por região e UF
     st.markdown("**Pedidos por região**")
+    por_uf = frete.por_uf(resultado)
     por_regiao = cobertos.groupby("regiao")["pedido_id"].count().reset_index()
     por_regiao.columns = ["regiao", "pedidos"]
     por_regiao["pct"] = por_regiao["pedidos"] / por_regiao["pedidos"].sum() * 100
     por_regiao = por_regiao.sort_values("pedidos", ascending=False)
 
-    col_g, col_t = st.columns([3, 4])
+    col_g, col_t = st.columns([5, 4])
     with col_g:
-        st.altair_chart(vz.grafico_pizza_regiao(por_regiao))
+        st.altair_chart(vz.grafico_mapa_uf(por_uf))
+        st.caption(
+            "Cor do estado = frete médio por pedido (soma do frete ÷ nº de pedidos da UF). "
+            "Tamanho da bolha = nº de pedidos, ou seja, onde está a maior demanda."
+        )
     with col_t:
         por_regiao_display = por_regiao.copy()
         por_regiao_display["pct"] = por_regiao_display["pct"].round(1)
@@ -420,29 +425,38 @@ def secao_distribuicao(pedidos, tabela, prazo_max) -> None:
             (0, 50, "0–50"), (50, 100, "50–100"), (100, 200, "100–200"),
             (200, 500, "200–500"), (500, 1000, "500–1k"), (1000, 99999, "1k+"),
         ]
-        dist_valor = frete.distribuicao_faixas(resultado, "valor_pedido", faixas_valor)
-        st.altair_chart(vz.grafico_faixas(dist_valor, "Pedidos por faixa de valor (R$)"))
+        dist_valor = frete.distribuicao_faixas(resultado, "valor_mercadoria", faixas_valor)
+        st.altair_chart(vz.grafico_faixas(dist_valor, "Pedidos por faixa de valor de mercadoria (R$)"))
 
     st.divider()
 
-    # Frete como % do valor do pedido
+    # % custo de frete = Frete / Valor de mercadoria
     st.markdown("**Representatividade do frete**")
-    scatter_data = cobertos[["pedido_id", "valor_pedido", "custo_frete"]].copy()
-    scatter_data["pct_frete"] = (scatter_data["custo_frete"] / scatter_data["valor_pedido"] * 100).round(1)
-    col_sc, col_kpi = st.columns([5, 2])
+    pct = frete.pct_custo_frete(resultado)
+    ind = frete.indicadores_pct_frete(pct)
+    col_sc, col_kpi = st.columns([5, 3])
     with col_sc:
-        st.altair_chart(vz.grafico_frete_sobre_valor(scatter_data))
+        st.altair_chart(vz.grafico_frete_sobre_valor(pct))
     with col_kpi:
-        media_pct = float(scatter_data["pct_frete"].mean())
-        mediana_pct = float(scatter_data["pct_frete"].median())
-        maximo_pct = float(scatter_data["pct_frete"].max())
         with st.container(border=True):
-            st.metric("Frete médio / valor", f"{vz.num_br(media_pct, 1)}%")
+            st.metric("% custo de frete (média)", f"{vz.num_br(ind['media'], 1)}%")
         with st.container(border=True):
-            st.metric("Mediana", f"{vz.num_br(mediana_pct, 1)}%")
+            st.metric("% custo de frete (mediana)", f"{vz.num_br(ind['mediana'], 1)}%")
         with st.container(border=True):
-            st.metric("Máximo", f"{vz.num_br(maximo_pct, 1)}%")
-        st.caption("Pedidos com frete alto relativo ao valor são candidatos a negociação de custo.")
+            st.metric("% custo de frete (máximo)", f"{vz.num_br(ind['maximo'], 1)}%")
+        st.caption(
+            "**Como é calculado:** % custo de frete = Frete ÷ Valor de mercadoria × 100, "
+            "pedido a pedido, usando o frete da transportadora escolhida na simulação.  \n"
+            "**Média:** soma dos percentuais de cada pedido ÷ nº de pedidos. É uma média simples "
+            "dos percentuais, não ponderada pelo valor.  \n"
+            "**Mediana:** o percentual do pedido que fica no meio da distribuição.  \n"
+            "**Máximo:** o maior percentual entre os pedidos.  \n"
+            f"Para comparar, o percentual ponderado (soma do frete ÷ soma do valor de mercadoria) "
+            f"é {vz.num_br(ind['ponderado'], 1)}%."
+        )
+        st.caption(
+            "Pedidos com frete alto relativo ao valor de mercadoria são candidatos a negociação de custo."
+        )
 
 
 # ---------------------------------------------------------------- barra lateral
@@ -471,6 +485,8 @@ with st.sidebar:
     st.header("Regras")
     limitar = st.checkbox("Limitar prazo máximo")
     prazo_max = st.number_input("Prazo máximo (dias)", 1, 60, 7) if limitar else None
+
+pedidos = frete.normalizar_pedidos(pedidos)  # aceita o nome antigo valor_pedido
 
 try:
     frete.validar_colunas(pedidos, frete.COLUNAS_PEDIDOS, "Pedidos")

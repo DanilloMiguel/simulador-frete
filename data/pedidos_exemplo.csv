@@ -1,4 +1,4 @@
-pedido_id,origem,destino_tipo,uf,peso_kg,valor_pedido
+pedido_id,origem,destino_tipo,uf,peso_kg,valor_mercadoria
 P00001,Loja,Capital,MG,2.26,256.66
 P00002,Loja,Capital,GO,0.88,489.16
 P00003,CD Oeste,Capital,GO,3.08,128.3

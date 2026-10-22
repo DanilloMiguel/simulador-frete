@@ -10,7 +10,9 @@ import io
 import pandas as pd
 from openpyxl.styles import Font, PatternFill
 
-COLUNAS_PEDIDOS = ["pedido_id", "origem", "destino_tipo", "uf", "peso_kg", "valor_pedido"]
+COLUNAS_PEDIDOS = ["pedido_id", "origem", "destino_tipo", "uf", "peso_kg", "valor_mercadoria"]
+# Nome antigo da coluna de valor, ainda aceito em arquivos enviados.
+COLUNA_VALOR_LEGADA = "valor_pedido"
 COLUNAS_TABELA = [
     "transportadora",
     "origem",
@@ -42,7 +44,7 @@ ROTULOS = {
     "destino_tipo": "Destino",
     "uf": "UF",
     "peso_kg": "Peso (kg)",
-    "valor_pedido": "Valor do pedido (R$)",
+    "valor_mercadoria": "Valor de mercadoria (R$)",
     "transportadora": "Transportadora",
     "custo_frete": "Frete (R$)",
     "prazo_dias": "Prazo (dias)",
@@ -59,6 +61,13 @@ ROTULOS = {
 def rotular(df: pd.DataFrame) -> pd.DataFrame:
     """Troca os nomes internos das colunas pelos nomes de exibição."""
     return df.rename(columns=ROTULOS)
+
+
+def normalizar_pedidos(pedidos: pd.DataFrame) -> pd.DataFrame:
+    """Aceita o nome antigo da coluna de valor (valor_pedido) como valor_mercadoria."""
+    if COLUNA_VALOR_LEGADA in pedidos.columns and "valor_mercadoria" not in pedidos.columns:
+        return pedidos.rename(columns={COLUNA_VALOR_LEGADA: "valor_mercadoria"})
+    return pedidos
 
 
 def validar_colunas(df: pd.DataFrame, esperadas: list[str], nome: str) -> None:
@@ -88,7 +97,9 @@ def _preparar(
 def _preparar_entradas(
     pedidos: pd.DataFrame, tabela: pd.DataFrame
 ) -> tuple[pd.DataFrame, pd.DataFrame]:
-    ped = _preparar(pedidos, COLUNAS_PEDIDOS, ["peso_kg", "valor_pedido"], "Pedidos")
+    ped = _preparar(
+        normalizar_pedidos(pedidos), COLUNAS_PEDIDOS, ["peso_kg", "valor_mercadoria"], "Pedidos"
+    )
     tab = _preparar(
         tabela, COLUNAS_TABELA, ["custo_base", "custo_por_kg", "prazo_dias"], "Tabela de frete"
     )
@@ -298,6 +309,47 @@ def distribuicao_faixas(resultado: pd.DataFrame, coluna: str, faixas: list[tuple
     ).reset_index()
 
 
+def por_uf(resultado: pd.DataFrame) -> pd.DataFrame:
+    """Demanda e frete médio por UF de destino, só com pedidos cobertos.
+
+    frete_medio = soma do frete da UF ÷ pedidos da UF (média ponderada, nunca a
+    média das médias de subgrupos). pct = participação da UF no total de pedidos.
+    """
+    cobertos = resultado[resultado["transportadora"] != SEM_COBERTURA]
+    df = cobertos.groupby(["uf", "regiao"], as_index=False).agg(
+        pedidos=("pedido_id", "count"),
+        custo_total=("custo_frete", "sum"),
+    )
+    df["frete_medio"] = df["custo_total"] / df["pedidos"]
+    df["pct"] = df["pedidos"] / df["pedidos"].sum() * 100
+    return df.sort_values("pedidos", ascending=False).reset_index(drop=True)
+
+
+def pct_custo_frete(resultado: pd.DataFrame) -> pd.DataFrame:
+    """% custo de frete de cada pedido coberto: Frete ÷ Valor de mercadoria × 100."""
+    cobertos = resultado[resultado["transportadora"] != SEM_COBERTURA]
+    df = cobertos[["pedido_id", "valor_mercadoria", "custo_frete"]].copy()
+    df["pct_frete"] = df["custo_frete"] / df["valor_mercadoria"] * 100
+    return df
+
+
+def indicadores_pct_frete(pct: pd.DataFrame) -> dict:
+    """Média, mediana e máximo do % custo de frete por pedido, mais o valor ponderado.
+
+    media é a média simples dos percentuais de cada pedido (cada pedido pesa igual).
+    ponderado = soma do frete ÷ soma do valor de mercadoria (pedidos maiores pesam mais).
+    """
+    if pct.empty:
+        nan = float("nan")
+        return {"media": nan, "mediana": nan, "maximo": nan, "ponderado": nan}
+    return {
+        "media": float(pct["pct_frete"].mean()),
+        "mediana": float(pct["pct_frete"].median()),
+        "maximo": float(pct["pct_frete"].max()),
+        "ponderado": float(pct["custo_frete"].sum() / pct["valor_mercadoria"].sum() * 100),
+    }
+
+
 def gerar_template_excel() -> bytes:
     """Gera um .xlsx com as duas abas modelo (Pedidos e Tabela de frete).
 
@@ -320,7 +372,7 @@ def gerar_template_excel() -> bytes:
         ["Pedidos", "destino_tipo", "Capital ou Interior"],
         ["Pedidos", "uf", "Sigla da UF de destino (ex: SP, RJ, MG)"],
         ["Pedidos", "peso_kg", "Peso do pedido em quilos (número)"],
-        ["Pedidos", "valor_pedido", "Valor do pedido em R$ (número)"],
+        ["Pedidos", "valor_mercadoria", "Valor de mercadoria do pedido em R$ (número)"],
         ["Tabela de frete", "transportadora", "Nome da transportadora"],
         ["Tabela de frete", "origem", "Origem da coleta (deve bater com a do pedido)"],
         ["Tabela de frete", "regiao", "Sudeste, Sul, Centro-Oeste, Nordeste ou Norte"],

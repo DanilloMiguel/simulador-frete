@@ -19,7 +19,7 @@ def tabela(*linhas, regiao="Sudeste"):
 
 
 def pedidos(*linhas):
-    """(pedido_id, origem, destino_tipo, uf, peso_kg, valor_pedido)"""
+    """(pedido_id, origem, destino_tipo, uf, peso_kg, valor_mercadoria)"""
     return pd.DataFrame(linhas, columns=frete.COLUNAS_PEDIDOS)
 
 
@@ -172,3 +172,68 @@ def test_excel_usa_rotulos_e_mantem_parametros_reutilizaveis():
     assert "Frete (R$)" in cabecalho("Resultado")
     assert "Custo médio (R$)" in cabecalho("Resumo")
     assert cabecalho("Parametros") == frete.COLUNAS_TABELA  # pode voltar como entrada
+
+
+# ------------------------------------------------------- valor de mercadoria
+def test_aceita_o_nome_antigo_valor_pedido():
+    antigo = pedidos(P1).rename(columns={"valor_mercadoria": "valor_pedido"})
+    t = tabela(("A", "CD", "Capital", 10, 2, 5))
+    assert "valor_mercadoria" in frete.normalizar_pedidos(antigo).columns
+    assert frete.simular(antigo, t).loc[0, "valor_mercadoria"] == 100.0
+
+
+def test_rotulo_e_planilha_modelo_falam_em_valor_de_mercadoria():
+    assert frete.ROTULOS["valor_mercadoria"] == "Valor de mercadoria (R$)"
+    wb = openpyxl.load_workbook(io.BytesIO(frete.gerar_template_excel()))
+    assert "valor_mercadoria" in [c.value for c in wb["Pedidos"][1]]
+    assert "valor_pedido" not in [c.value for c in wb["Pedidos"][1]]
+
+
+# ------------------------------------------------------------------ mapa por UF
+def test_por_uf_frete_medio_e_ponderado():
+    t = tabela(("A", "CD", "Capital", 10, 0, 2), ("A", "CD", "Interior", 20, 0, 4))
+    ped = pedidos(
+        ("P1", "CD", "Capital", "SP", 1.0, 50.0),
+        ("P2", "CD", "Interior", "SP", 1.0, 50.0),
+        ("P3", "CD", "Interior", "SP", 1.0, 50.0),
+        ("P4", "CD", "Capital", "MG", 1.0, 50.0),
+    )
+    uf = frete.por_uf(frete.simular(ped, t)).set_index("uf")
+    assert uf.loc["SP", "pedidos"] == 3
+    assert uf.loc["SP", "frete_medio"] == pytest.approx(50 / 3)  # 50 / 3 pedidos
+    assert uf.loc["MG", "frete_medio"] == pytest.approx(10)
+    assert uf["pct"].sum() == pytest.approx(100)
+
+
+def test_por_uf_ignora_pedidos_sem_cobertura():
+    t = tabela(("A", "OUTRO", "Capital", 10, 0, 2))
+    assert frete.por_uf(frete.simular(pedidos(P1), t)).empty
+
+
+# -------------------------------------------------------- % custo de frete
+def test_pct_custo_frete_e_frete_sobre_valor_de_mercadoria():
+    t = tabela(("A", "CD", "Capital", 10, 0, 2))
+    ped = pedidos(("P1", "CD", "Capital", "SP", 1.0, 100.0), ("P2", "CD", "Capital", "SP", 1.0, 25.0))
+    pct = frete.pct_custo_frete(frete.simular(ped, t)).set_index("pedido_id")["pct_frete"]
+    assert pct["P1"] == pytest.approx(10.0)  # 10 / 100
+    assert pct["P2"] == pytest.approx(40.0)  # 10 / 25
+
+
+def test_indicadores_media_simples_difere_da_ponderada():
+    t = tabela(("A", "CD", "Capital", 10, 0, 2))
+    ped = pedidos(
+        ("P1", "CD", "Capital", "SP", 1.0, 100.0),  # 10%
+        ("P2", "CD", "Capital", "SP", 1.0, 25.0),  # 40%
+        ("P3", "CD", "Capital", "SP", 1.0, 50.0),  # 20%
+    )
+    ind = frete.indicadores_pct_frete(frete.pct_custo_frete(frete.simular(ped, t)))
+    assert ind["media"] == pytest.approx((10 + 40 + 20) / 3)
+    assert ind["mediana"] == pytest.approx(20.0)
+    assert ind["maximo"] == pytest.approx(40.0)
+    assert ind["ponderado"] == pytest.approx(30 / 175 * 100)  # soma do frete / soma do valor
+
+
+def test_indicadores_sem_pedidos_nao_quebram():
+    t = tabela(("A", "OUTRO", "Capital", 10, 0, 2))
+    ind = frete.indicadores_pct_frete(frete.pct_custo_frete(frete.simular(pedidos(P1), t)))
+    assert all(pd.isna(v) for v in ind.values())
