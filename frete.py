@@ -14,19 +14,31 @@ COLUNAS_PEDIDOS = ["pedido_id", "origem", "destino_tipo", "uf", "peso_kg", "valo
 COLUNAS_TABELA = [
     "transportadora",
     "origem",
+    "regiao",
     "destino_tipo",
     "custo_base",
     "custo_por_kg",
     "prazo_dias",
 ]
 SEM_COBERTURA = "Sem cobertura"
-CHAVE = ["origem", "destino_tipo"]
+CHAVE = ["origem", "regiao", "destino_tipo"]
+
+# A região do pedido é derivada da UF de destino.
+REGIAO_POR_UF = {
+    **dict.fromkeys(["ES", "MG", "RJ", "SP"], "Sudeste"),
+    **dict.fromkeys(["PR", "RS", "SC"], "Sul"),
+    **dict.fromkeys(["DF", "GO", "MS", "MT"], "Centro-Oeste"),
+    **dict.fromkeys(["AL", "BA", "CE", "MA", "PB", "PE", "PI", "RN", "SE"], "Nordeste"),
+    **dict.fromkeys(["AC", "AM", "AP", "PA", "RO", "RR", "TO"], "Norte"),
+}
+ORDEM_REGIOES = ["Sudeste", "Sul", "Centro-Oeste", "Nordeste", "Norte"]
 
 # Nomes amigáveis para exibição (tela e Excel). Internamente as colunas
 # mantêm os nomes originais.
 ROTULOS = {
     "pedido_id": "Pedido",
     "origem": "Origem",
+    "regiao": "Região",
     "destino_tipo": "Destino",
     "uf": "UF",
     "peso_kg": "Peso (kg)",
@@ -73,26 +85,52 @@ def _preparar(
     return out
 
 
-def simular(
-    pedidos: pd.DataFrame, tabela: pd.DataFrame, prazo_max: float | None = None
-) -> pd.DataFrame:
-    """Escolhe, para cada pedido, a transportadora mais barata dentro do prazo.
-
-    Custo = custo_base + custo_por_kg * peso_kg. Empate de custo é decidido
-    pelo menor prazo. Pedido sem nenhuma opção vira "Sem cobertura".
-    """
+def _preparar_entradas(
+    pedidos: pd.DataFrame, tabela: pd.DataFrame
+) -> tuple[pd.DataFrame, pd.DataFrame]:
     ped = _preparar(pedidos, COLUNAS_PEDIDOS, ["peso_kg", "valor_pedido"], "Pedidos")
     tab = _preparar(
         tabela, COLUNAS_TABELA, ["custo_base", "custo_por_kg", "prazo_dias"], "Tabela de frete"
     )
     if ped["pedido_id"].duplicated().any():
         raise ValueError("Pedidos: há pedido_id repetido.")
+    ped["uf"] = ped["uf"].str.upper()
+    ped["regiao"] = ped["uf"].map(REGIAO_POR_UF)
+    desconhecidas = sorted(ped.loc[ped["regiao"].isna(), "uf"].unique())
+    if desconhecidas:
+        raise ValueError("Pedidos: UF não reconhecida: " + ", ".join(desconhecidas) + ".")
+    return ped, tab
 
+
+def _opcoes(ped: pd.DataFrame, tab: pd.DataFrame, prazo_max: float | None) -> pd.DataFrame:
     opcoes = ped.merge(tab, on=CHAVE, how="inner")
     opcoes["custo_frete"] = (opcoes["custo_base"] + opcoes["custo_por_kg"] * opcoes["peso_kg"]).round(2)
     if prazo_max is not None:
         opcoes = opcoes[opcoes["prazo_dias"] <= prazo_max]
+    return opcoes
 
+
+def calcular_opcoes(
+    pedidos: pd.DataFrame, tabela: pd.DataFrame, prazo_max: float | None = None
+) -> pd.DataFrame:
+    """Todas as opções de frete de cada pedido (uma linha por pedido e transportadora).
+
+    Custo = custo_base + custo_por_kg * peso_kg.
+    """
+    ped, tab = _preparar_entradas(pedidos, tabela)
+    return _opcoes(ped, tab, prazo_max)
+
+
+def simular(
+    pedidos: pd.DataFrame, tabela: pd.DataFrame, prazo_max: float | None = None
+) -> pd.DataFrame:
+    """Escolhe, para cada pedido, a transportadora mais barata dentro do prazo.
+
+    Empate de custo é decidido pelo menor prazo. Pedido sem nenhuma opção
+    vira "Sem cobertura".
+    """
+    ped, tab = _preparar_entradas(pedidos, tabela)
+    opcoes = _opcoes(ped, tab, prazo_max)
     vencedoras = (
         opcoes.sort_values(["pedido_id", "custo_frete", "prazo_dias", "transportadora"])
         .drop_duplicates("pedido_id")[["pedido_id", "transportadora", "custo_frete", "prazo_dias"]]
@@ -100,6 +138,34 @@ def simular(
     resultado = ped.merge(vencedoras, on="pedido_id", how="left")
     resultado["transportadora"] = resultado["transportadora"].fillna(SEM_COBERTURA)
     return resultado
+
+
+def ranking(opcoes: pd.DataFrame, por: list[str], top: int = 3) -> pd.DataFrame:
+    """Top N transportadoras mais baratas em cada grupo (por exemplo, por UF).
+
+    Cada transportadora é avaliada sobre os mesmos pedidos do grupo, aplicando a
+    sua tabela a cada um deles. Os valores são médias ponderadas:
+    frete = soma do frete ÷ pedidos do grupo (e prazo, idem), nunca a média das
+    médias de subgrupos. var_pct compara o frete com o do colocado seguinte
+    (Top 1 vs Top 2, Top 2 vs Top 3) e fica vazio para o último da lista.
+    """
+    por = list(por)
+    if not por:
+        opcoes = opcoes.assign(escopo="Todos")
+        por = ["escopo"]
+    g = opcoes.groupby(por + ["transportadora"], as_index=False).agg(
+        pedidos=("pedido_id", "count"),
+        custo_total=("custo_frete", "sum"),
+        prazo_total=("prazo_dias", "sum"),
+    )
+    g["frete"] = g["custo_total"] / g["pedidos"]
+    g["prazo"] = g["prazo_total"] / g["pedidos"]
+    g = g.sort_values(por + ["frete", "prazo", "transportadora"]).reset_index(drop=True)
+    g["posicao"] = g.groupby(por).cumcount() + 1
+    g = g[g["posicao"] <= top].copy()
+    seguinte = g.groupby(por)["frete"].shift(-1)
+    g["var_pct"] = (g["frete"] / seguinte - 1) * 100
+    return g.drop(columns=["custo_total", "prazo_total"]).reset_index(drop=True)
 
 
 def kpis(resultado: pd.DataFrame) -> dict:

@@ -1,601 +1,3001 @@
 pedido_id,origem,destino_tipo,uf,peso_kg,valor_pedido
-P00001,CD Norte,Interior,MG,2.26,511.39
-P00002,CD Sul,Interior,SP,0.88,459.69
-P00003,CD Norte,Interior,RJ,3.08,447.27
-P00004,CD Sul,Interior,BA,3.52,180.5
-P00005,Loja,Capital,SC,0.46,108.23
-P00006,Loja,Capital,BA,0.73,306.37
-P00007,Loja,Interior,BA,1.99,927.45
-P00008,CD Norte,Capital,DF,1.46,1189.71
-P00009,CD Norte,Interior,RJ,1.8,1119.95
-P00010,CD Norte,Capital,BA,1.0,644.73
-P00011,CD Norte,Capital,PR,3.37,675.64
-P00012,CD Sul,Capital,BA,3.14,432.33
-P00013,CD Sul,Interior,DF,1.91,946.81
-P00014,CD Sul,Capital,DF,4.01,936.53
-P00015,Loja,Capital,BA,2.53,1025.59
-P00016,CD Sul,Interior,BA,1.0,1082.97
-P00017,Loja,Capital,PR,2.36,566.47
-P00018,CD Norte,Capital,MG,0.93,938.9
-P00019,CD Norte,Capital,RJ,3.37,983.17
-P00020,CD Sul,Capital,MG,1.76,425.47
-P00021,Loja,Capital,MG,1.6,1120.75
-P00022,CD Norte,Interior,SP,1.13,185.66
-P00023,CD Sul,Capital,PR,4.29,1193.58
-P00024,CD Sul,Interior,SP,1.64,942.5
-P00025,CD Norte,Interior,PR,1.35,184.46
-P00026,CD Norte,Capital,RJ,1.42,814.98
-P00027,Loja,Capital,RJ,2.64,118.28
-P00028,CD Sul,Capital,SC,2.35,942.61
-P00029,CD Norte,Interior,BA,2.43,975.13
-P00030,Loja,Capital,SC,2.46,754.7
-P00031,CD Norte,Interior,SC,8.16,1039.68
-P00032,Loja,Interior,SP,1.37,189.63
-P00033,CD Norte,Interior,MG,1.27,389.03
-P00034,CD Sul,Interior,PR,1.03,543.88
-P00035,CD Norte,Interior,DF,2.8,127.55
-P00036,CD Norte,Capital,MG,4.02,582.0
-P00037,Loja,Interior,SP,1.68,377.04
-P00038,CD Norte,Capital,DF,1.01,519.86
-P00039,CD Norte,Interior,DF,1.02,556.11
-P00040,CD Norte,Interior,MG,2.87,1064.94
-P00041,CD Sul,Interior,RJ,3.07,382.78
-P00042,Loja,Capital,PR,2.67,1080.99
-P00043,Loja,Interior,MG,1.14,557.09
-P00044,CD Norte,Interior,GO,2.14,447.14
-P00045,CD Norte,Interior,RJ,1.98,642.81
-P00046,CD Norte,Interior,PR,2.12,547.87
-P00047,CD Sul,Capital,GO,3.35,368.26
-P00048,Loja,Capital,RJ,2.13,643.0
-P00049,CD Sul,Interior,GO,2.93,250.02
-P00050,CD Sul,Capital,SC,1.91,474.16
-P00051,CD Norte,Capital,MG,2.23,713.69
-P00052,Loja,Capital,GO,2.83,543.02
-P00053,CD Sul,Capital,GO,0.66,1002.78
-P00054,CD Norte,Interior,DF,1.46,367.53
-P00055,CD Norte,Interior,DF,1.31,1166.14
-P00056,CD Norte,Capital,BA,1.17,958.89
-P00057,CD Norte,Interior,MG,1.5,1163.7
-P00058,CD Norte,Interior,SC,5.19,1018.71
-P00059,CD Sul,Interior,BA,0.99,239.16
-P00060,CD Sul,Interior,RS,3.59,669.64
-P00061,CD Norte,Interior,RJ,0.56,270.38
-P00062,CD Norte,Capital,DF,1.44,996.41
-P00063,Loja,Capital,RS,2.04,734.26
-P00064,CD Sul,Interior,GO,2.75,375.06
-P00065,CD Sul,Interior,SC,3.0,1121.15
-P00066,CD Norte,Interior,GO,3.18,209.01
-P00067,Loja,Interior,RJ,1.43,711.53
-P00068,CD Norte,Interior,GO,1.32,887.57
-P00069,CD Norte,Capital,SC,3.32,145.91
-P00070,Loja,Capital,GO,1.59,749.6
-P00071,CD Sul,Capital,PR,0.75,993.81
-P00072,CD Sul,Capital,PR,0.82,155.63
-P00073,CD Sul,Capital,SC,0.96,653.71
-P00074,CD Sul,Interior,DF,2.58,369.58
-P00075,CD Norte,Capital,SP,2.01,822.48
-P00076,CD Norte,Capital,DF,2.95,212.92
-P00077,CD Norte,Interior,SP,1.35,1129.5
-P00078,CD Norte,Interior,BA,2.04,1082.1
-P00079,Loja,Capital,RJ,2.82,288.29
-P00080,CD Norte,Interior,PR,1.47,442.06
-P00081,CD Sul,Interior,SC,2.51,738.15
-P00082,CD Sul,Interior,RS,1.15,884.23
-P00083,CD Sul,Interior,RJ,1.41,575.77
-P00084,CD Norte,Capital,DF,1.39,255.05
-P00085,CD Sul,Interior,GO,0.79,196.65
-P00086,Loja,Capital,MG,2.56,1199.74
-P00087,CD Sul,Interior,RJ,1.31,589.99
-P00088,Loja,Interior,BA,1.84,1057.24
-P00089,Loja,Capital,SC,2.55,620.26
-P00090,CD Sul,Capital,RS,2.49,1113.04
-P00091,CD Norte,Interior,GO,2.9,178.29
-P00092,CD Sul,Interior,GO,1.7,207.7
-P00093,CD Norte,Capital,DF,1.35,1121.19
-P00094,CD Sul,Interior,RJ,1.72,1141.19
-P00095,Loja,Interior,GO,0.56,432.48
-P00096,CD Sul,Interior,DF,0.66,477.78
-P00097,CD Norte,Interior,BA,0.72,586.74
-P00098,CD Norte,Capital,DF,0.91,546.1
-P00099,Loja,Interior,DF,2.41,292.85
-P00100,CD Norte,Capital,DF,0.97,1086.18
-P00101,CD Norte,Interior,PR,1.4,363.7
-P00102,CD Norte,Capital,RS,4.52,869.91
-P00103,CD Norte,Interior,DF,1.42,155.21
-P00104,CD Sul,Capital,GO,3.05,123.4
-P00105,CD Sul,Capital,SP,0.95,812.18
-P00106,CD Norte,Interior,GO,1.58,459.7
-P00107,CD Norte,Interior,PR,0.94,814.11
-P00108,CD Norte,Interior,BA,1.44,185.3
-P00109,CD Norte,Interior,SP,3.28,1143.83
-P00110,CD Norte,Interior,PR,0.54,918.34
-P00111,CD Sul,Interior,MG,2.47,1061.42
-P00112,CD Norte,Capital,BA,2.15,232.85
-P00113,CD Norte,Interior,PR,1.2,438.58
-P00114,CD Norte,Interior,PR,0.66,492.55
-P00115,CD Norte,Capital,RJ,1.92,681.63
-P00116,CD Norte,Capital,RJ,1.26,412.49
-P00117,CD Norte,Interior,SC,2.14,147.91
-P00118,Loja,Interior,SC,1.85,493.14
-P00119,CD Norte,Interior,RS,5.59,365.1
-P00120,CD Sul,Interior,RJ,1.54,512.23
-P00121,CD Sul,Interior,RJ,0.89,300.59
-P00122,CD Norte,Interior,GO,2.07,373.32
-P00123,CD Norte,Capital,BA,2.13,782.19
-P00124,CD Sul,Interior,MG,4.72,514.73
-P00125,Loja,Capital,RJ,3.27,466.83
-P00126,CD Norte,Interior,MG,2.34,677.97
-P00127,CD Norte,Interior,BA,5.07,944.48
-P00128,CD Norte,Capital,RS,0.79,504.33
-P00129,CD Sul,Capital,DF,1.16,738.02
-P00130,CD Sul,Interior,BA,0.95,1162.15
-P00131,CD Norte,Capital,SP,1.39,664.62
-P00132,CD Norte,Interior,GO,0.7,1098.97
-P00133,Loja,Interior,SP,2.84,968.91
-P00134,CD Norte,Interior,SC,1.56,145.76
-P00135,CD Sul,Capital,DF,0.65,560.59
-P00136,CD Sul,Interior,BA,0.9,862.12
-P00137,CD Norte,Capital,MG,2.27,1185.12
-P00138,CD Norte,Interior,SP,3.28,593.38
-P00139,CD Norte,Capital,DF,7.37,183.92
-P00140,Loja,Interior,GO,14.01,709.45
-P00141,CD Norte,Interior,MG,2.44,221.75
-P00142,CD Norte,Capital,MG,0.91,921.7
-P00143,CD Norte,Capital,GO,0.41,648.6
-P00144,CD Norte,Capital,PR,2.2,890.24
-P00145,CD Sul,Capital,DF,1.03,1053.69
-P00146,CD Norte,Capital,GO,1.36,784.42
-P00147,CD Sul,Interior,SC,1.19,765.93
-P00148,CD Sul,Interior,SP,1.65,925.12
-P00149,Loja,Interior,SP,3.84,1023.55
-P00150,CD Norte,Interior,SP,2.03,1053.34
-P00151,Loja,Capital,DF,1.63,120.8
-P00152,CD Sul,Interior,PR,0.88,702.93
-P00153,CD Norte,Interior,RS,0.56,322.22
-P00154,CD Sul,Interior,SP,1.3,1043.59
-P00155,Loja,Interior,SP,1.75,806.21
-P00156,CD Norte,Interior,RS,6.28,550.65
-P00157,Loja,Capital,SP,2.0,290.68
-P00158,CD Sul,Interior,MG,3.63,459.71
-P00159,CD Sul,Interior,BA,1.28,868.23
-P00160,Loja,Interior,PR,0.79,308.88
-P00161,CD Norte,Capital,GO,0.93,184.81
-P00162,Loja,Interior,BA,1.1,1074.59
-P00163,CD Norte,Capital,SC,8.08,935.92
-P00164,CD Sul,Interior,RJ,1.03,303.77
-P00165,CD Sul,Capital,RJ,3.28,407.39
-P00166,CD Norte,Interior,SP,0.97,1168.72
-P00167,CD Norte,Interior,BA,3.5,873.17
-P00168,CD Norte,Capital,RS,2.39,763.78
-P00169,CD Norte,Capital,PR,1.63,424.54
-P00170,CD Norte,Interior,DF,1.77,415.02
-P00171,CD Norte,Capital,MG,1.15,124.27
-P00172,CD Norte,Interior,SP,2.49,895.9
-P00173,CD Norte,Interior,BA,1.33,128.36
-P00174,CD Sul,Interior,MG,0.77,85.44
-P00175,CD Sul,Capital,PR,0.74,897.03
-P00176,CD Sul,Interior,DF,2.06,1142.74
-P00177,CD Norte,Capital,RJ,5.5,927.28
-P00178,Loja,Interior,BA,2.04,608.24
-P00179,CD Sul,Capital,SC,1.68,624.37
-P00180,CD Norte,Capital,MG,2.23,568.47
-P00181,CD Norte,Capital,DF,4.55,443.6
-P00182,CD Sul,Interior,MG,2.12,664.32
-P00183,CD Norte,Capital,RS,1.37,562.89
-P00184,CD Sul,Interior,PR,3.95,749.95
-P00185,Loja,Interior,MG,2.46,1085.89
-P00186,CD Norte,Interior,SC,5.34,1194.41
-P00187,CD Norte,Interior,MG,2.07,168.19
-P00188,Loja,Interior,PR,0.77,510.85
-P00189,CD Sul,Interior,DF,0.7,282.39
-P00190,CD Norte,Capital,DF,5.79,474.37
-P00191,Loja,Interior,RS,6.09,401.97
-P00192,Loja,Interior,BA,1.61,275.48
-P00193,CD Sul,Interior,PR,1.39,935.77
-P00194,CD Sul,Interior,GO,5.07,635.84
-P00195,CD Norte,Interior,DF,0.84,1109.56
-P00196,CD Norte,Interior,BA,0.97,116.5
-P00197,CD Sul,Interior,SC,2.86,155.02
-P00198,CD Norte,Interior,RJ,1.38,531.67
-P00199,CD Sul,Capital,SC,1.82,169.91
-P00200,Loja,Capital,GO,1.63,374.26
-P00201,CD Norte,Capital,SC,2.31,1184.35
-P00202,CD Sul,Capital,SP,4.88,314.03
-P00203,CD Norte,Capital,SP,1.94,301.89
-P00204,Loja,Interior,RJ,2.86,722.48
-P00205,CD Norte,Interior,BA,0.43,637.76
-P00206,CD Sul,Interior,SC,1.76,730.09
-P00207,CD Sul,Interior,RJ,1.01,501.94
-P00208,CD Norte,Capital,SP,0.78,1005.97
-P00209,CD Sul,Capital,GO,0.99,235.21
-P00210,CD Sul,Capital,RJ,1.44,559.8
-P00211,CD Sul,Interior,BA,3.46,852.53
-P00212,CD Sul,Capital,PR,0.72,1052.42
-P00213,Loja,Interior,GO,1.86,493.92
-P00214,CD Norte,Interior,PR,1.3,715.88
-P00215,CD Sul,Interior,PR,1.45,157.44
-P00216,CD Norte,Capital,SC,3.68,270.76
-P00217,CD Sul,Capital,BA,2.66,157.43
-P00218,CD Sul,Capital,RS,4.65,895.23
-P00219,CD Norte,Capital,MG,1.64,402.63
-P00220,CD Norte,Capital,SC,1.12,890.59
-P00221,Loja,Interior,SP,1.56,154.37
-P00222,CD Norte,Interior,SP,2.16,1046.05
-P00223,CD Sul,Interior,RS,2.06,1015.79
-P00224,CD Norte,Interior,BA,0.85,179.6
-P00225,Loja,Capital,PR,1.94,106.61
-P00226,CD Norte,Interior,PR,2.14,143.04
-P00227,CD Norte,Interior,SC,10.61,1036.07
-P00228,Loja,Interior,GO,6.78,342.87
-P00229,Loja,Interior,MG,1.0,694.07
-P00230,CD Norte,Capital,SP,1.49,557.39
-P00231,CD Sul,Capital,RS,0.65,970.99
-P00232,CD Sul,Capital,GO,1.21,627.57
-P00233,Loja,Interior,PR,2.27,640.74
-P00234,CD Norte,Interior,BA,4.24,1187.78
-P00235,CD Sul,Capital,MG,1.09,248.15
-P00236,CD Sul,Interior,RJ,1.15,1010.39
-P00237,CD Sul,Interior,SP,0.41,137.96
-P00238,CD Sul,Capital,MG,1.63,614.97
-P00239,CD Sul,Capital,MG,0.87,1072.7
-P00240,CD Norte,Interior,RS,1.26,825.04
-P00241,Loja,Interior,PR,0.99,847.44
-P00242,Loja,Interior,DF,1.71,374.92
-P00243,CD Sul,Capital,RJ,0.53,548.8
-P00244,CD Norte,Interior,MG,0.65,490.57
-P00245,CD Norte,Capital,PR,8.09,664.02
-P00246,CD Sul,Interior,DF,0.74,597.7
-P00247,CD Norte,Capital,BA,0.85,446.13
-P00248,Loja,Capital,SP,6.59,422.14
-P00249,CD Norte,Interior,GO,13.92,360.96
-P00250,CD Sul,Interior,DF,0.8,488.85
-P00251,Loja,Interior,BA,1.41,247.93
-P00252,CD Norte,Interior,DF,2.31,1056.76
-P00253,CD Norte,Interior,BA,6.11,754.37
-P00254,CD Sul,Interior,SP,0.91,229.84
-P00255,CD Sul,Interior,RS,1.53,857.12
-P00256,CD Norte,Interior,SC,3.14,1029.39
-P00257,CD Sul,Capital,SC,2.47,346.04
-P00258,Loja,Interior,DF,1.4,248.67
-P00259,CD Sul,Capital,MG,1.66,89.65
-P00260,CD Norte,Interior,DF,0.7,132.92
-P00261,CD Norte,Capital,GO,1.54,933.72
-P00262,CD Norte,Interior,DF,1.51,1185.65
-P00263,CD Norte,Interior,MG,2.14,130.27
-P00264,CD Norte,Interior,BA,1.24,917.84
-P00265,CD Sul,Interior,RS,2.53,160.49
-P00266,CD Norte,Capital,SP,3.7,743.19
-P00267,Loja,Interior,SP,2.03,926.8
-P00268,CD Norte,Interior,RS,2.33,482.31
-P00269,CD Norte,Interior,SP,1.89,92.25
-P00270,CD Sul,Interior,PR,1.82,746.61
-P00271,Loja,Interior,DF,1.1,1190.19
-P00272,CD Norte,Interior,PR,2.27,368.53
-P00273,CD Norte,Interior,BA,1.7,292.23
-P00274,CD Norte,Capital,RJ,7.89,218.8
-P00275,CD Sul,Interior,PR,5.48,701.89
-P00276,CD Sul,Interior,PR,2.39,748.02
-P00277,CD Norte,Interior,BA,1.07,967.34
-P00278,CD Norte,Capital,MG,0.84,923.44
-P00279,CD Sul,Interior,PR,4.19,1079.65
-P00280,Loja,Interior,SC,2.19,982.47
-P00281,CD Sul,Interior,SC,2.55,356.94
-P00282,CD Sul,Interior,SP,0.54,702.58
-P00283,CD Norte,Interior,SC,3.49,413.1
-P00284,CD Norte,Capital,SC,2.5,449.36
-P00285,CD Norte,Interior,MG,0.84,1123.78
-P00286,CD Sul,Capital,RS,1.31,843.72
-P00287,Loja,Capital,BA,2.19,1171.54
-P00288,Loja,Interior,BA,1.89,546.94
-P00289,Loja,Interior,SC,1.49,681.93
-P00290,Loja,Interior,BA,1.69,625.57
-P00291,Loja,Capital,BA,1.53,200.16
-P00292,CD Norte,Capital,GO,2.03,345.11
-P00293,CD Norte,Interior,DF,5.1,670.95
-P00294,CD Norte,Capital,DF,0.3,155.46
-P00295,CD Sul,Capital,MG,1.54,1123.24
-P00296,CD Norte,Capital,SC,2.06,218.7
-P00297,Loja,Interior,SP,2.24,301.74
-P00298,CD Sul,Interior,RJ,1.4,937.16
-P00299,CD Sul,Interior,DF,0.53,188.57
-P00300,CD Norte,Interior,MG,2.29,1088.31
-P00301,CD Norte,Capital,RJ,6.11,892.79
-P00302,CD Norte,Capital,MG,0.62,156.86
-P00303,Loja,Interior,SC,3.34,854.87
-P00304,CD Sul,Capital,BA,1.45,787.42
-P00305,CD Sul,Capital,PR,1.75,928.23
-P00306,CD Norte,Capital,DF,0.87,1007.58
-P00307,CD Norte,Capital,BA,1.44,884.55
-P00308,CD Norte,Interior,SC,4.53,736.52
-P00309,CD Sul,Interior,SP,2.74,441.16
-P00310,CD Sul,Capital,MG,6.13,860.95
-P00311,CD Norte,Interior,DF,4.15,1151.81
-P00312,Loja,Interior,RS,2.48,738.02
-P00313,CD Norte,Interior,PR,6.18,824.07
-P00314,Loja,Interior,RJ,2.48,569.58
-P00315,CD Norte,Interior,MG,3.25,926.86
-P00316,CD Norte,Interior,RS,1.48,1197.39
-P00317,Loja,Capital,RS,1.91,259.64
-P00318,CD Norte,Capital,GO,1.12,306.69
-P00319,CD Norte,Capital,PR,3.64,684.17
-P00320,CD Norte,Interior,PR,0.8,619.14
-P00321,CD Norte,Capital,BA,3.15,720.16
-P00322,CD Sul,Capital,DF,1.59,134.96
-P00323,Loja,Interior,MG,4.14,532.79
-P00324,Loja,Capital,GO,3.08,732.94
-P00325,CD Norte,Capital,SP,6.52,735.41
-P00326,CD Sul,Capital,SC,3.04,816.21
-P00327,CD Norte,Interior,PR,0.61,886.64
-P00328,CD Norte,Capital,DF,1.74,798.53
-P00329,CD Norte,Capital,BA,0.8,965.07
-P00330,Loja,Capital,MG,1.27,779.73
-P00331,Loja,Interior,BA,5.25,682.01
-P00332,CD Sul,Interior,SP,2.85,758.94
-P00333,CD Sul,Interior,SC,1.12,193.34
-P00334,CD Sul,Interior,SC,0.9,385.94
-P00335,CD Sul,Interior,RS,1.86,670.69
-P00336,CD Sul,Interior,RJ,0.78,1057.75
-P00337,CD Norte,Interior,GO,1.14,840.54
-P00338,CD Norte,Interior,SP,2.27,181.26
-P00339,CD Norte,Interior,RJ,4.09,743.35
-P00340,Loja,Interior,BA,2.79,328.35
-P00341,CD Sul,Interior,SC,0.37,902.1
-P00342,Loja,Capital,SC,2.25,1006.73
-P00343,CD Norte,Capital,MG,1.92,744.67
-P00344,CD Sul,Interior,GO,2.43,742.33
-P00345,CD Norte,Interior,BA,5.65,459.22
-P00346,CD Norte,Interior,RJ,0.43,579.8
-P00347,CD Norte,Interior,SP,1.2,1047.8
-P00348,CD Norte,Interior,RS,2.76,890.12
-P00349,Loja,Interior,SC,0.6,662.12
-P00350,CD Norte,Capital,BA,5.12,492.42
-P00351,CD Sul,Capital,GO,2.36,136.43
-P00352,CD Sul,Interior,RS,3.3,240.17
-P00353,CD Norte,Interior,SP,1.22,296.19
-P00354,CD Sul,Interior,BA,3.22,498.19
-P00355,CD Norte,Interior,RS,3.85,1137.44
-P00356,Loja,Interior,DF,2.14,645.77
-P00357,Loja,Capital,GO,2.15,343.02
-P00358,CD Sul,Interior,PR,2.2,198.44
-P00359,CD Sul,Capital,MG,1.0,458.9
-P00360,CD Norte,Interior,MG,1.64,993.62
-P00361,Loja,Interior,RJ,1.64,509.34
-P00362,CD Norte,Capital,RS,2.38,945.21
-P00363,CD Norte,Interior,SC,3.67,979.03
-P00364,CD Norte,Capital,BA,0.87,204.12
-P00365,CD Sul,Capital,GO,1.67,761.7
-P00366,CD Sul,Capital,MG,5.14,1154.19
-P00367,CD Sul,Capital,GO,1.08,530.39
-P00368,CD Sul,Interior,MG,1.02,137.06
-P00369,CD Norte,Interior,MG,2.1,1114.1
-P00370,Loja,Interior,SC,3.29,1069.71
-P00371,CD Norte,Interior,MG,1.84,664.8
-P00372,CD Sul,Capital,SP,4.62,698.52
-P00373,CD Norte,Capital,BA,3.32,317.15
-P00374,Loja,Interior,GO,3.28,997.78
-P00375,CD Norte,Capital,BA,2.69,638.43
-P00376,CD Norte,Interior,MG,9.29,117.94
-P00377,CD Sul,Capital,MG,1.58,844.98
-P00378,CD Norte,Interior,RJ,0.45,1144.56
-P00379,CD Norte,Interior,SC,5.6,1008.65
-P00380,CD Sul,Capital,RJ,1.32,390.46
-P00381,CD Norte,Capital,BA,1.97,139.72
-P00382,Loja,Interior,BA,4.56,1133.19
-P00383,CD Norte,Capital,GO,0.59,1129.51
-P00384,CD Sul,Interior,GO,0.76,676.31
-P00385,CD Sul,Interior,RJ,0.59,799.4
-P00386,CD Sul,Capital,SP,1.05,598.11
-P00387,CD Sul,Interior,SC,2.48,550.14
-P00388,CD Sul,Interior,PR,2.63,213.78
-P00389,Loja,Capital,GO,2.21,188.36
-P00390,CD Norte,Interior,RJ,0.68,340.66
-P00391,CD Norte,Capital,GO,0.36,1017.04
-P00392,CD Sul,Capital,PR,1.89,243.33
-P00393,Loja,Interior,SC,1.31,333.9
-P00394,CD Norte,Interior,SP,2.51,694.45
-P00395,CD Norte,Capital,RJ,2.98,320.95
-P00396,Loja,Capital,SP,2.01,262.79
-P00397,CD Sul,Interior,BA,3.1,710.91
-P00398,Loja,Interior,GO,2.14,492.26
-P00399,CD Sul,Capital,RJ,2.64,781.3
-P00400,CD Sul,Capital,BA,1.11,1101.67
-P00401,CD Norte,Interior,GO,1.61,249.11
-P00402,Loja,Capital,RJ,2.09,1103.05
-P00403,CD Norte,Capital,SC,3.24,1090.79
-P00404,CD Sul,Capital,RS,1.38,1008.58
-P00405,CD Norte,Interior,SP,2.62,787.04
-P00406,CD Sul,Interior,RJ,1.51,774.56
-P00407,CD Sul,Interior,RS,1.68,795.92
-P00408,CD Sul,Interior,BA,3.26,853.36
-P00409,Loja,Interior,MG,0.45,98.46
-P00410,CD Norte,Interior,PR,0.74,1153.06
-P00411,CD Sul,Interior,MG,0.65,735.88
-P00412,CD Norte,Interior,SP,0.36,955.24
-P00413,CD Norte,Interior,PR,1.13,502.56
-P00414,CD Norte,Capital,BA,3.08,93.88
-P00415,CD Norte,Interior,SC,1.49,650.9
-P00416,CD Norte,Interior,RJ,2.09,648.05
-P00417,CD Sul,Capital,RS,3.91,569.43
-P00418,CD Sul,Interior,RJ,4.62,460.48
-P00419,CD Sul,Capital,SC,1.74,359.81
-P00420,CD Norte,Capital,SP,4.7,670.85
-P00421,CD Norte,Interior,SP,1.94,500.31
-P00422,CD Norte,Capital,RS,1.01,1166.32
-P00423,CD Sul,Interior,RS,1.2,273.68
-P00424,Loja,Interior,DF,0.65,438.03
-P00425,CD Norte,Interior,GO,0.98,409.24
-P00426,CD Sul,Capital,SP,1.42,688.51
-P00427,CD Norte,Capital,DF,3.2,639.19
-P00428,CD Norte,Capital,PR,6.08,800.99
-P00429,CD Norte,Capital,GO,0.69,1144.0
-P00430,CD Norte,Interior,SC,2.4,399.45
-P00431,CD Sul,Interior,DF,0.88,855.9
-P00432,Loja,Capital,GO,2.54,108.05
-P00433,CD Norte,Interior,SC,1.66,373.88
-P00434,CD Sul,Capital,RS,0.51,599.37
-P00435,CD Sul,Capital,BA,3.49,114.71
-P00436,Loja,Capital,PR,1.19,771.79
-P00437,CD Sul,Interior,GO,1.25,839.71
-P00438,CD Norte,Interior,DF,0.86,916.34
-P00439,CD Sul,Capital,DF,1.15,658.56
-P00440,CD Norte,Interior,DF,2.46,756.42
-P00441,Loja,Interior,SC,1.6,523.59
-P00442,CD Norte,Interior,SP,2.29,126.2
-P00443,CD Sul,Capital,RJ,2.35,191.95
-P00444,CD Norte,Capital,BA,4.59,813.6
-P00445,CD Norte,Interior,DF,1.43,1195.02
-P00446,Loja,Capital,BA,0.65,97.7
-P00447,CD Sul,Interior,BA,3.85,704.49
-P00448,CD Norte,Interior,MG,1.44,921.13
-P00449,Loja,Capital,RS,3.98,1005.99
-P00450,Loja,Interior,RJ,2.38,690.63
-P00451,CD Norte,Interior,SP,1.66,774.31
-P00452,CD Sul,Interior,DF,2.33,860.33
-P00453,CD Sul,Interior,MG,7.14,1042.04
-P00454,CD Sul,Interior,SP,7.8,216.96
-P00455,CD Norte,Interior,SP,1.91,1117.32
-P00456,CD Norte,Interior,BA,2.04,109.14
-P00457,Loja,Interior,SP,3.87,1016.54
-P00458,Loja,Interior,RS,1.01,165.95
-P00459,Loja,Capital,BA,2.3,297.98
-P00460,Loja,Capital,GO,1.79,84.36
-P00461,CD Sul,Capital,SP,2.27,578.69
-P00462,CD Sul,Interior,BA,1.02,454.48
-P00463,CD Sul,Interior,MG,0.6,265.91
-P00464,CD Sul,Interior,DF,0.43,585.22
-P00465,CD Sul,Capital,GO,0.83,530.66
-P00466,CD Norte,Interior,BA,1.32,939.78
-P00467,CD Sul,Interior,SP,1.48,1080.31
-P00468,CD Norte,Capital,MG,7.07,810.88
-P00469,CD Norte,Interior,MG,3.95,219.34
-P00470,CD Sul,Interior,SP,0.93,410.84
-P00471,CD Norte,Interior,SC,2.32,1102.92
-P00472,CD Norte,Capital,DF,1.37,179.38
-P00473,Loja,Interior,DF,1.49,535.68
-P00474,Loja,Interior,GO,2.07,1135.61
-P00475,CD Norte,Interior,RS,2.81,1144.74
-P00476,CD Norte,Interior,BA,1.44,540.55
-P00477,CD Norte,Interior,SP,3.84,827.48
-P00478,CD Sul,Capital,SP,0.82,591.56
-P00479,Loja,Interior,BA,1.83,923.88
-P00480,CD Norte,Interior,RJ,11.23,115.37
-P00481,CD Sul,Interior,SP,2.13,241.46
-P00482,CD Norte,Capital,DF,4.97,767.9
-P00483,CD Norte,Interior,SC,1.94,340.46
-P00484,Loja,Interior,BA,2.74,825.98
-P00485,CD Norte,Capital,DF,1.75,473.37
-P00486,CD Norte,Interior,DF,1.62,1073.04
-P00487,CD Norte,Capital,DF,1.06,997.57
-P00488,CD Sul,Interior,GO,2.46,631.98
-P00489,Loja,Interior,RS,1.0,945.64
-P00490,Loja,Capital,BA,2.9,383.67
-P00491,CD Norte,Interior,SC,3.9,633.57
-P00492,CD Norte,Capital,RS,2.36,301.18
-P00493,CD Sul,Interior,MG,1.49,1044.19
-P00494,CD Norte,Interior,BA,2.5,1001.84
-P00495,Loja,Interior,MG,1.47,1090.41
-P00496,CD Sul,Capital,GO,3.51,1062.77
-P00497,CD Norte,Capital,RJ,0.51,1154.75
-P00498,Loja,Interior,RS,1.44,335.74
-P00499,CD Norte,Interior,RS,0.45,1123.64
-P00500,CD Norte,Interior,RJ,0.64,719.76
-P00501,CD Sul,Capital,GO,4.73,553.19
-P00502,CD Sul,Capital,BA,3.41,707.62
-P00503,CD Sul,Interior,DF,1.1,463.71
-P00504,CD Sul,Capital,DF,0.64,403.18
-P00505,Loja,Capital,GO,0.23,350.27
-P00506,Loja,Interior,MG,1.25,172.32
-P00507,CD Sul,Capital,SC,9.92,636.15
-P00508,CD Norte,Interior,GO,2.47,1074.29
-P00509,CD Sul,Capital,MG,1.23,785.77
-P00510,Loja,Interior,SP,2.52,663.49
-P00511,CD Norte,Interior,RJ,0.61,560.02
-P00512,CD Sul,Interior,RJ,1.48,600.13
-P00513,CD Norte,Capital,PR,1.95,314.39
-P00514,CD Norte,Interior,MG,1.72,1001.69
-P00515,CD Sul,Interior,SC,3.17,302.19
-P00516,CD Norte,Capital,SC,2.32,882.62
-P00517,CD Sul,Capital,BA,2.91,931.18
-P00518,Loja,Capital,MG,1.13,723.85
-P00519,Loja,Interior,BA,3.42,1046.48
-P00520,CD Norte,Interior,SC,5.7,405.98
-P00521,CD Norte,Interior,RJ,0.92,1067.41
-P00522,CD Sul,Interior,GO,0.98,896.94
-P00523,Loja,Interior,BA,4.64,974.6
-P00524,CD Sul,Interior,RJ,1.59,824.33
-P00525,Loja,Interior,RJ,4.87,1027.9
-P00526,CD Norte,Interior,RJ,1.34,1192.27
-P00527,Loja,Capital,GO,5.05,550.58
-P00528,CD Norte,Interior,SC,2.0,991.59
-P00529,CD Norte,Interior,BA,2.18,913.93
-P00530,CD Sul,Capital,BA,5.45,587.21
-P00531,CD Norte,Interior,PR,1.41,1118.18
-P00532,CD Norte,Capital,RJ,0.94,521.76
-P00533,CD Norte,Interior,SP,1.33,713.32
-P00534,CD Norte,Interior,RS,2.5,198.66
-P00535,CD Sul,Interior,SP,0.61,332.87
-P00536,CD Norte,Capital,PR,2.85,1021.58
-P00537,CD Sul,Capital,GO,1.25,524.14
-P00538,Loja,Capital,MG,4.07,521.37
-P00539,CD Norte,Capital,SP,0.34,355.5
-P00540,CD Norte,Capital,DF,1.05,630.6
-P00541,Loja,Capital,RJ,0.56,982.51
-P00542,Loja,Interior,RJ,1.02,1082.58
-P00543,CD Sul,Capital,SC,2.17,158.53
-P00544,Loja,Capital,SP,1.61,723.8
-P00545,CD Norte,Interior,PR,1.53,603.35
-P00546,CD Norte,Interior,BA,1.63,768.0
-P00547,CD Sul,Interior,BA,2.1,580.95
-P00548,CD Norte,Interior,MG,0.9,526.48
-P00549,CD Sul,Interior,DF,2.99,608.51
-P00550,CD Sul,Interior,GO,2.9,731.84
-P00551,CD Sul,Interior,SC,2.39,641.1
-P00552,CD Sul,Interior,SC,2.69,608.8
-P00553,CD Norte,Interior,RJ,2.24,995.98
-P00554,CD Norte,Capital,MG,7.57,915.13
-P00555,CD Norte,Interior,GO,1.71,462.34
-P00556,CD Sul,Capital,RS,1.47,976.65
-P00557,CD Norte,Interior,DF,1.08,1036.09
-P00558,CD Norte,Capital,DF,0.88,251.91
-P00559,CD Norte,Capital,GO,0.76,732.6
-P00560,CD Norte,Capital,PR,0.98,399.55
-P00561,Loja,Interior,MG,1.73,907.87
-P00562,CD Norte,Capital,SC,2.3,347.44
-P00563,Loja,Interior,RJ,1.89,831.97
-P00564,CD Norte,Interior,SC,1.07,365.74
-P00565,CD Sul,Capital,SC,3.42,652.48
-P00566,CD Norte,Interior,DF,3.06,1142.48
-P00567,CD Norte,Capital,BA,1.63,507.06
-P00568,Loja,Capital,RJ,1.15,1060.83
-P00569,Loja,Interior,BA,2.67,1185.38
-P00570,Loja,Interior,MG,2.08,1059.83
-P00571,CD Norte,Capital,MG,0.66,265.77
-P00572,CD Norte,Interior,BA,1.74,998.02
-P00573,CD Sul,Capital,RS,2.19,116.01
-P00574,CD Norte,Interior,BA,0.97,520.5
-P00575,CD Sul,Interior,RS,2.08,1055.22
-P00576,CD Sul,Interior,MG,0.66,851.4
-P00577,CD Sul,Interior,BA,4.64,676.67
-P00578,Loja,Capital,PR,4.36,514.41
-P00579,CD Sul,Interior,RJ,1.53,989.77
-P00580,CD Norte,Interior,SP,2.35,874.71
-P00581,CD Norte,Interior,SP,0.34,604.61
-P00582,CD Sul,Capital,DF,0.81,1079.58
-P00583,CD Sul,Interior,PR,1.48,337.54
-P00584,CD Norte,Interior,GO,0.86,270.84
-P00585,CD Norte,Capital,GO,3.0,799.94
-P00586,CD Sul,Capital,SP,7.38,1168.63
-P00587,Loja,Interior,DF,0.8,356.93
-P00588,CD Sul,Interior,SP,1.01,359.63
-P00589,CD Norte,Capital,SC,2.15,236.24
-P00590,CD Norte,Interior,GO,5.63,1043.83
-P00591,CD Sul,Interior,RJ,0.77,333.57
-P00592,CD Norte,Interior,GO,2.17,643.56
-P00593,CD Sul,Interior,RS,6.52,1189.78
-P00594,CD Sul,Interior,SP,0.57,93.6
-P00595,CD Norte,Interior,RJ,0.74,703.26
-P00596,CD Norte,Interior,GO,1.35,653.76
-P00597,CD Norte,Interior,GO,1.27,984.34
-P00598,Loja,Interior,MG,3.22,477.92
-P00599,CD Sul,Interior,DF,2.16,539.58
-P00600,CD Norte,Interior,RJ,0.53,268.09
+P00001,Loja,Capital,MG,2.26,256.66
+P00002,Loja,Capital,GO,0.88,489.16
+P00003,CD Oeste,Capital,GO,3.08,128.3
+P00004,Loja,Interior,BA,3.52,703.4
+P00005,Loja,Interior,SP,0.46,1194.33
+P00006,CD Leste,Interior,PE,0.73,561.47
+P00007,CD Oeste,Capital,MT,1.99,1188.81
+P00008,CD Oeste,Capital,SP,1.46,221.37
+P00009,CD Leste,Interior,MG,1.8,519.55
+P00010,CD Leste,Capital,PR,1.0,1090.2
+P00011,CD Leste,Capital,RJ,3.37,1061.9
+P00012,CD Oeste,Interior,SP,3.14,442.42
+P00013,CD Oeste,Capital,SP,1.91,840.04
+P00014,CD Oeste,Capital,SP,4.01,1072.5
+P00015,CD Leste,Interior,SP,2.53,938.9
+P00016,CD Leste,Interior,MG,1.0,783.89
+P00017,CD Oeste,Capital,PE,2.36,250.88
+P00018,CD Oeste,Capital,SC,0.93,161.76
+P00019,Loja,Interior,ES,3.37,768.38
+P00020,Loja,Capital,GO,1.76,640.31
+P00021,Loja,Capital,SC,1.6,346.6
+P00022,Loja,Interior,SP,1.13,407.9
+P00023,Loja,Interior,SP,4.29,519.14
+P00024,CD Oeste,Interior,SP,1.64,634.98
+P00025,CD Leste,Capital,RS,1.35,517.09
+P00026,CD Leste,Capital,PR,1.42,513.77
+P00027,CD Leste,Interior,RJ,2.64,209.62
+P00028,CD Leste,Interior,RS,2.35,1049.46
+P00029,CD Leste,Capital,TO,2.43,762.25
+P00030,Loja,Interior,MG,2.46,243.63
+P00031,CD Leste,Capital,SC,8.16,554.74
+P00032,Loja,Interior,PR,1.37,546.72
+P00033,CD Oeste,Interior,MS,1.27,752.7
+P00034,CD Oeste,Interior,BA,1.03,761.93
+P00035,CD Oeste,Interior,BA,2.8,802.65
+P00036,CD Leste,Interior,SP,4.02,861.65
+P00037,CD Oeste,Capital,PR,1.68,195.76
+P00038,CD Leste,Capital,PE,1.01,421.51
+P00039,Loja,Interior,RJ,1.02,99.43
+P00040,CD Leste,Capital,RO,2.87,589.2
+P00041,CD Leste,Capital,RJ,3.07,560.96
+P00042,CD Oeste,Capital,PR,2.67,902.45
+P00043,CD Oeste,Interior,PR,1.14,267.17
+P00044,CD Oeste,Interior,ES,2.14,787.27
+P00045,CD Oeste,Interior,CE,1.98,423.5
+P00046,CD Leste,Capital,SP,2.12,507.75
+P00047,CD Oeste,Capital,RS,3.35,885.6
+P00048,CD Leste,Interior,DF,2.13,160.13
+P00049,CD Leste,Capital,CE,2.93,463.92
+P00050,CD Leste,Capital,RS,1.91,518.28
+P00051,CD Leste,Capital,PA,2.23,881.64
+P00052,CD Leste,Interior,SE,2.83,303.13
+P00053,CD Oeste,Capital,RJ,0.66,1141.1
+P00054,CD Leste,Capital,CE,1.46,1197.49
+P00055,CD Leste,Capital,PA,1.31,997.18
+P00056,CD Oeste,Capital,MG,1.17,415.68
+P00057,CD Leste,Capital,DF,1.5,823.53
+P00058,CD Oeste,Interior,MG,5.19,173.13
+P00059,Loja,Capital,GO,0.99,1055.83
+P00060,CD Leste,Capital,SP,3.59,657.91
+P00061,Loja,Interior,BA,0.56,277.61
+P00062,CD Leste,Interior,RJ,1.44,446.71
+P00063,CD Leste,Capital,RS,2.04,976.83
+P00064,CD Oeste,Capital,SP,2.75,1054.65
+P00065,CD Oeste,Capital,MT,3.0,662.08
+P00066,Loja,Interior,PR,3.18,617.95
+P00067,CD Leste,Capital,DF,1.43,920.82
+P00068,CD Oeste,Capital,MG,1.32,1005.33
+P00069,CD Leste,Interior,SP,3.32,936.63
+P00070,CD Leste,Capital,ES,1.59,510.56
+P00071,CD Leste,Capital,AM,0.75,798.96
+P00072,Loja,Capital,SP,0.82,1040.24
+P00073,CD Leste,Interior,GO,0.96,249.97
+P00074,Loja,Interior,SP,2.58,514.71
+P00075,CD Oeste,Interior,MS,2.01,143.41
+P00076,CD Oeste,Interior,SP,2.95,537.94
+P00077,CD Oeste,Capital,PR,1.35,944.96
+P00078,Loja,Interior,RJ,2.04,300.67
+P00079,CD Leste,Interior,SP,2.82,686.91
+P00080,CD Leste,Interior,RJ,1.47,120.98
+P00081,CD Oeste,Interior,RJ,2.51,1085.37
+P00082,CD Leste,Capital,SC,1.15,998.41
+P00083,CD Leste,Capital,TO,1.41,667.34
+P00084,CD Leste,Interior,PR,1.39,870.48
+P00085,CD Leste,Capital,MA,0.79,196.39
+P00086,CD Leste,Interior,PR,2.56,1026.63
+P00087,CD Leste,Capital,SP,1.31,881.09
+P00088,Loja,Capital,SP,1.84,214.36
+P00089,CD Leste,Interior,RJ,2.55,1178.37
+P00090,Loja,Interior,MG,2.49,105.23
+P00091,Loja,Interior,AL,2.9,783.93
+P00092,CD Leste,Capital,GO,1.7,272.37
+P00093,CD Oeste,Interior,RS,1.35,885.57
+P00094,CD Oeste,Interior,PR,1.72,158.86
+P00095,CD Oeste,Interior,RJ,0.56,170.83
+P00096,CD Leste,Interior,DF,0.66,602.25
+P00097,CD Leste,Interior,SP,0.72,1193.29
+P00098,CD Leste,Capital,SP,0.91,389.7
+P00099,CD Oeste,Interior,MG,2.41,766.03
+P00100,Loja,Interior,SP,0.97,660.83
+P00101,CD Oeste,Interior,GO,1.4,1023.17
+P00102,CD Oeste,Capital,SP,4.52,403.22
+P00103,Loja,Interior,SP,1.42,701.54
+P00104,CD Oeste,Interior,PI,3.05,1144.7
+P00105,CD Leste,Interior,RR,0.95,452.5
+P00106,Loja,Interior,PR,1.58,572.13
+P00107,CD Leste,Capital,PR,0.94,1075.47
+P00108,CD Leste,Capital,BA,1.44,452.4
+P00109,CD Oeste,Interior,SP,3.28,506.35
+P00110,Loja,Capital,ES,0.54,420.61
+P00111,CD Leste,Interior,SP,2.47,986.68
+P00112,CD Oeste,Interior,RJ,2.15,1122.03
+P00113,CD Leste,Interior,RO,1.2,786.83
+P00114,CD Leste,Capital,BA,0.66,778.47
+P00115,CD Leste,Interior,AC,1.92,516.8
+P00116,CD Oeste,Interior,BA,1.26,93.98
+P00117,Loja,Capital,RS,2.14,274.81
+P00118,CD Leste,Interior,BA,1.85,245.13
+P00119,CD Leste,Interior,GO,5.59,209.79
+P00120,CD Leste,Interior,PR,1.54,812.53
+P00121,CD Leste,Capital,MG,0.89,232.71
+P00122,CD Oeste,Capital,SC,2.07,175.91
+P00123,CD Oeste,Interior,MG,2.13,508.49
+P00124,CD Oeste,Capital,PR,4.72,358.91
+P00125,CD Leste,Interior,SP,3.27,243.36
+P00126,CD Oeste,Interior,RS,2.34,243.66
+P00127,CD Leste,Capital,SP,5.07,366.95
+P00128,CD Leste,Interior,MG,0.79,681.27
+P00129,Loja,Interior,PR,1.16,929.07
+P00130,CD Oeste,Interior,SP,0.95,1035.11
+P00131,Loja,Interior,PA,1.39,921.59
+P00132,Loja,Interior,PR,0.7,783.6
+P00133,CD Oeste,Capital,RJ,2.84,1096.54
+P00134,Loja,Capital,SP,1.56,662.11
+P00135,CD Leste,Interior,CE,0.65,789.36
+P00136,CD Leste,Capital,DF,0.9,541.02
+P00137,CD Leste,Capital,RJ,2.27,446.67
+P00138,CD Leste,Capital,SP,3.28,451.52
+P00139,CD Leste,Interior,BA,7.37,246.12
+P00140,CD Leste,Capital,PA,14.01,972.19
+P00141,CD Oeste,Interior,RJ,2.44,142.01
+P00142,CD Oeste,Capital,SP,0.91,835.65
+P00143,CD Oeste,Interior,SP,0.41,1048.2
+P00144,CD Leste,Capital,SP,2.2,637.12
+P00145,CD Oeste,Capital,BA,1.03,158.62
+P00146,CD Leste,Interior,RO,1.36,559.83
+P00147,CD Leste,Interior,AP,1.19,464.41
+P00148,CD Leste,Capital,PE,1.65,1183.8
+P00149,CD Leste,Interior,SP,3.84,854.22
+P00150,CD Leste,Interior,RO,2.03,887.92
+P00151,Loja,Capital,MG,1.63,657.73
+P00152,CD Oeste,Interior,MG,0.88,874.54
+P00153,CD Oeste,Capital,MT,0.56,889.28
+P00154,CD Leste,Interior,SP,1.3,154.32
+P00155,Loja,Capital,CE,1.75,329.32
+P00156,CD Oeste,Interior,RR,6.28,94.52
+P00157,CD Leste,Capital,BA,2.0,650.98
+P00158,CD Oeste,Interior,PE,3.63,1060.9
+P00159,CD Oeste,Interior,RJ,1.28,762.7
+P00160,CD Leste,Interior,SP,0.79,640.23
+P00161,CD Leste,Interior,PE,0.93,1117.08
+P00162,CD Oeste,Interior,RS,1.1,272.88
+P00163,CD Leste,Capital,PI,8.08,163.56
+P00164,CD Leste,Capital,SP,1.03,1107.38
+P00165,CD Leste,Capital,MG,3.28,1091.12
+P00166,Loja,Interior,RJ,0.97,844.93
+P00167,CD Leste,Interior,MT,3.5,355.5
+P00168,CD Leste,Interior,PE,2.39,1166.14
+P00169,CD Leste,Interior,PA,1.63,937.19
+P00170,Loja,Interior,MG,1.77,834.76
+P00171,CD Oeste,Capital,PR,1.15,329.66
+P00172,Loja,Capital,SP,2.49,654.66
+P00173,CD Leste,Interior,MG,1.33,1001.29
+P00174,CD Leste,Capital,RJ,0.77,1043.49
+P00175,CD Oeste,Capital,RS,0.74,708.8
+P00176,CD Leste,Interior,PR,2.06,665.53
+P00177,Loja,Interior,RJ,5.5,861.41
+P00178,Loja,Interior,DF,2.04,671.64
+P00179,CD Oeste,Capital,CE,1.68,547.8
+P00180,Loja,Interior,SP,2.23,175.67
+P00181,CD Oeste,Capital,RJ,4.55,221.18
+P00182,CD Leste,Interior,MS,2.12,931.51
+P00183,CD Oeste,Capital,BA,1.37,107.62
+P00184,CD Leste,Interior,CE,3.95,138.58
+P00185,Loja,Interior,SP,2.46,1093.2
+P00186,CD Leste,Interior,SC,5.34,868.48
+P00187,CD Leste,Capital,PI,2.07,84.72
+P00188,CD Oeste,Interior,RJ,0.77,429.49
+P00189,CD Leste,Capital,ES,0.7,934.92
+P00190,CD Leste,Interior,RO,5.79,547.71
+P00191,CD Oeste,Capital,SP,6.09,605.05
+P00192,CD Leste,Capital,MS,1.61,593.85
+P00193,CD Oeste,Interior,CE,1.39,306.39
+P00194,CD Leste,Interior,SP,5.07,887.96
+P00195,CD Leste,Interior,MS,0.84,195.37
+P00196,CD Leste,Capital,PR,0.97,648.12
+P00197,CD Oeste,Interior,CE,2.86,270.35
+P00198,Loja,Capital,PI,1.38,132.12
+P00199,CD Leste,Capital,SE,1.82,240.43
+P00200,Loja,Interior,SP,1.63,1053.66
+P00201,CD Oeste,Capital,BA,2.31,277.29
+P00202,CD Oeste,Interior,MA,4.88,391.77
+P00203,CD Oeste,Capital,DF,1.94,234.67
+P00204,CD Oeste,Capital,RS,2.86,903.81
+P00205,Loja,Interior,SP,0.43,578.9
+P00206,CD Oeste,Capital,CE,1.76,1136.87
+P00207,CD Oeste,Interior,SP,1.01,824.04
+P00208,CD Leste,Interior,MG,0.78,675.16
+P00209,CD Leste,Capital,MA,0.99,815.43
+P00210,CD Oeste,Interior,PA,1.44,125.28
+P00211,CD Leste,Capital,AP,3.46,1144.74
+P00212,CD Leste,Capital,PR,0.72,1151.2
+P00213,CD Leste,Capital,SP,1.86,389.28
+P00214,CD Leste,Interior,PR,1.3,783.69
+P00215,CD Oeste,Interior,SP,1.45,306.15
+P00216,CD Oeste,Interior,SE,3.68,693.17
+P00217,CD Leste,Interior,RS,2.66,943.28
+P00218,CD Leste,Capital,RJ,4.65,1132.6
+P00219,CD Leste,Interior,SP,1.64,459.92
+P00220,CD Leste,Interior,RJ,1.12,856.73
+P00221,CD Oeste,Interior,AL,1.56,882.4
+P00222,CD Oeste,Interior,MS,2.16,327.69
+P00223,CD Oeste,Interior,SP,2.06,784.52
+P00224,CD Oeste,Capital,SP,0.85,814.07
+P00225,Loja,Interior,RJ,1.94,935.77
+P00226,CD Oeste,Interior,SP,2.14,1199.94
+P00227,CD Oeste,Interior,AM,10.61,125.06
+P00228,CD Oeste,Capital,GO,6.78,306.58
+P00229,CD Leste,Interior,SP,1.0,242.49
+P00230,Loja,Capital,PE,1.49,252.97
+P00231,CD Leste,Interior,RJ,0.65,588.76
+P00232,CD Leste,Interior,SP,1.21,1063.96
+P00233,Loja,Capital,RS,2.27,582.57
+P00234,CD Oeste,Interior,SP,4.24,828.7
+P00235,CD Leste,Capital,PR,1.09,501.68
+P00236,CD Leste,Interior,CE,1.15,438.02
+P00237,CD Leste,Interior,MA,0.41,1014.34
+P00238,CD Oeste,Capital,RJ,1.63,814.21
+P00239,CD Leste,Interior,GO,0.87,473.0
+P00240,Loja,Capital,SP,1.26,1103.86
+P00241,Loja,Interior,RS,0.99,638.33
+P00242,CD Oeste,Interior,MG,1.71,290.87
+P00243,CD Oeste,Capital,RS,0.53,621.21
+P00244,CD Leste,Interior,SP,0.65,835.66
+P00245,CD Leste,Interior,AM,8.09,491.17
+P00246,CD Oeste,Interior,RN,0.74,1025.04
+P00247,CD Leste,Interior,MG,0.85,677.12
+P00248,CD Leste,Interior,BA,6.59,603.9
+P00249,CD Leste,Interior,SP,13.92,1041.76
+P00250,CD Leste,Capital,BA,0.8,598.47
+P00251,CD Leste,Capital,MG,1.41,544.14
+P00252,CD Oeste,Interior,SP,2.31,196.16
+P00253,Loja,Capital,GO,6.11,485.99
+P00254,CD Oeste,Interior,PR,0.91,524.69
+P00255,Loja,Capital,SC,1.53,282.3
+P00256,CD Leste,Interior,SC,3.14,738.36
+P00257,Loja,Interior,SP,2.47,241.1
+P00258,CD Oeste,Interior,SP,1.4,330.53
+P00259,CD Leste,Capital,RS,1.66,708.42
+P00260,Loja,Interior,DF,0.7,381.26
+P00261,CD Leste,Interior,SP,1.54,796.43
+P00262,CD Leste,Interior,RJ,1.51,853.37
+P00263,CD Leste,Interior,DF,2.14,417.45
+P00264,CD Leste,Interior,GO,1.24,177.87
+P00265,CD Leste,Capital,CE,2.53,628.19
+P00266,CD Oeste,Interior,ES,3.7,184.05
+P00267,Loja,Capital,SC,2.03,657.06
+P00268,CD Leste,Capital,RS,2.33,893.36
+P00269,CD Oeste,Interior,MG,1.89,774.77
+P00270,CD Leste,Interior,SP,1.82,582.06
+P00271,Loja,Interior,SP,1.1,1139.36
+P00272,CD Leste,Interior,CE,2.27,193.96
+P00273,CD Leste,Interior,SP,1.7,1065.6
+P00274,CD Oeste,Capital,DF,7.89,976.14
+P00275,CD Oeste,Interior,RS,5.48,550.11
+P00276,CD Oeste,Interior,RJ,2.39,251.21
+P00277,CD Oeste,Interior,CE,1.07,254.57
+P00278,CD Oeste,Interior,MT,0.84,1112.42
+P00279,CD Leste,Interior,SP,4.19,341.75
+P00280,CD Leste,Interior,BA,2.19,1059.01
+P00281,CD Leste,Interior,SC,2.55,643.69
+P00282,CD Leste,Interior,RJ,0.54,597.14
+P00283,CD Leste,Interior,BA,3.49,773.85
+P00284,CD Oeste,Capital,MT,2.5,320.84
+P00285,CD Leste,Interior,MG,0.84,559.78
+P00286,CD Oeste,Capital,RO,1.31,1131.1
+P00287,CD Oeste,Interior,GO,2.19,346.85
+P00288,CD Oeste,Interior,RS,1.89,1112.17
+P00289,CD Oeste,Interior,SP,1.49,1193.51
+P00290,CD Leste,Capital,MG,1.69,138.14
+P00291,CD Leste,Interior,PR,1.53,675.14
+P00292,CD Oeste,Interior,DF,2.03,272.44
+P00293,CD Oeste,Capital,SC,5.1,776.32
+P00294,CD Leste,Interior,BA,0.3,1188.29
+P00295,CD Leste,Capital,MG,1.54,1084.51
+P00296,CD Oeste,Interior,MS,2.06,1115.83
+P00297,CD Oeste,Capital,PE,2.24,318.95
+P00298,CD Leste,Interior,BA,1.4,687.4
+P00299,CD Leste,Interior,BA,0.53,343.01
+P00300,Loja,Interior,RN,2.29,1087.36
+P00301,CD Leste,Capital,SP,6.11,294.09
+P00302,Loja,Interior,MT,0.62,252.43
+P00303,CD Leste,Interior,TO,3.34,93.62
+P00304,CD Oeste,Capital,RS,1.45,283.78
+P00305,CD Leste,Capital,SP,1.75,292.53
+P00306,CD Leste,Capital,RR,0.87,166.79
+P00307,Loja,Interior,SP,1.44,1051.87
+P00308,CD Oeste,Capital,MG,4.53,953.6
+P00309,Loja,Interior,SP,2.74,365.02
+P00310,CD Leste,Interior,PR,6.13,957.25
+P00311,Loja,Interior,RJ,4.15,552.82
+P00312,Loja,Interior,PR,2.48,948.58
+P00313,CD Oeste,Interior,MA,6.18,441.77
+P00314,CD Leste,Capital,PR,2.48,712.41
+P00315,CD Oeste,Interior,SC,3.25,507.4
+P00316,CD Oeste,Capital,RN,1.48,290.2
+P00317,Loja,Capital,PE,1.91,735.91
+P00318,CD Leste,Interior,SP,1.12,920.93
+P00319,CD Leste,Capital,SP,3.64,923.48
+P00320,CD Leste,Capital,DF,0.8,479.04
+P00321,CD Oeste,Interior,CE,3.15,660.96
+P00322,Loja,Capital,RS,1.59,935.43
+P00323,CD Leste,Capital,SP,4.14,141.04
+P00324,CD Oeste,Interior,BA,3.08,160.51
+P00325,Loja,Interior,GO,6.52,501.37
+P00326,CD Leste,Interior,RS,3.04,330.29
+P00327,CD Leste,Capital,AL,0.61,499.6
+P00328,CD Oeste,Interior,PE,1.74,185.0
+P00329,CD Oeste,Interior,GO,0.8,743.05
+P00330,CD Leste,Capital,GO,1.27,832.35
+P00331,Loja,Capital,GO,5.25,966.86
+P00332,CD Oeste,Capital,SC,2.85,808.59
+P00333,Loja,Interior,PR,1.12,523.95
+P00334,Loja,Capital,MS,0.9,1127.12
+P00335,Loja,Interior,DF,1.86,893.49
+P00336,CD Oeste,Interior,PR,0.78,671.0
+P00337,CD Leste,Capital,SP,1.14,311.67
+P00338,CD Oeste,Interior,MS,2.27,806.85
+P00339,CD Leste,Capital,GO,4.09,742.73
+P00340,CD Oeste,Capital,RJ,2.79,845.33
+P00341,CD Leste,Interior,RJ,0.37,954.86
+P00342,CD Oeste,Interior,SP,2.25,1104.86
+P00343,CD Leste,Interior,PA,1.92,1142.94
+P00344,CD Leste,Interior,AL,2.43,785.81
+P00345,CD Leste,Capital,RS,5.65,1161.87
+P00346,CD Oeste,Interior,RJ,0.43,1100.79
+P00347,CD Oeste,Capital,BA,1.2,82.93
+P00348,CD Leste,Interior,SC,2.76,794.13
+P00349,Loja,Interior,RO,0.6,279.89
+P00350,Loja,Capital,SP,5.12,410.62
+P00351,CD Leste,Interior,SP,2.36,413.2
+P00352,CD Oeste,Interior,RS,3.3,621.11
+P00353,CD Leste,Interior,SP,1.22,92.17
+P00354,CD Leste,Capital,RS,3.22,344.09
+P00355,CD Oeste,Capital,PE,3.85,112.62
+P00356,CD Leste,Capital,SP,2.14,808.63
+P00357,Loja,Capital,PR,2.15,1076.0
+P00358,Loja,Interior,MT,2.2,1197.52
+P00359,Loja,Capital,CE,1.0,582.38
+P00360,CD Oeste,Interior,PR,1.64,371.36
+P00361,CD Oeste,Interior,SP,1.64,1035.48
+P00362,Loja,Capital,RS,2.38,206.74
+P00363,CD Leste,Interior,PR,3.67,1171.15
+P00364,CD Leste,Interior,BA,0.87,880.62
+P00365,CD Oeste,Capital,RS,1.67,644.41
+P00366,CD Leste,Interior,MG,5.14,188.25
+P00367,CD Leste,Capital,BA,1.08,100.38
+P00368,CD Leste,Interior,SC,1.02,689.88
+P00369,CD Oeste,Interior,SP,2.1,543.51
+P00370,CD Leste,Interior,RS,3.29,1023.78
+P00371,CD Leste,Interior,PA,1.84,799.38
+P00372,CD Leste,Interior,MS,4.62,563.72
+P00373,CD Leste,Interior,MG,3.32,333.13
+P00374,Loja,Capital,MS,3.28,618.07
+P00375,CD Leste,Capital,MG,2.69,262.55
+P00376,CD Oeste,Interior,SC,9.29,827.05
+P00377,CD Oeste,Interior,SC,1.58,758.42
+P00378,CD Leste,Interior,SP,0.45,987.28
+P00379,Loja,Interior,RJ,5.6,583.47
+P00380,CD Oeste,Capital,AM,1.32,392.09
+P00381,CD Oeste,Capital,MG,1.97,1016.76
+P00382,CD Leste,Interior,PE,4.56,853.92
+P00383,CD Leste,Capital,GO,0.59,871.51
+P00384,Loja,Interior,SC,0.76,671.45
+P00385,CD Oeste,Interior,SP,0.59,1061.1
+P00386,Loja,Interior,SP,1.05,335.12
+P00387,Loja,Interior,SP,2.48,529.9
+P00388,CD Leste,Interior,RS,2.63,971.78
+P00389,CD Oeste,Interior,TO,2.21,228.92
+P00390,CD Oeste,Capital,SE,0.68,985.08
+P00391,CD Oeste,Interior,SP,0.36,474.91
+P00392,CD Leste,Interior,MG,1.89,220.56
+P00393,CD Leste,Capital,SP,1.31,168.65
+P00394,CD Oeste,Interior,RO,2.51,1024.19
+P00395,CD Oeste,Interior,SP,2.98,952.05
+P00396,CD Oeste,Capital,SP,2.01,402.61
+P00397,CD Leste,Interior,DF,3.1,210.33
+P00398,CD Leste,Interior,RS,2.14,356.9
+P00399,Loja,Interior,SP,2.64,318.55
+P00400,CD Leste,Interior,GO,1.11,901.02
+P00401,CD Leste,Interior,SP,1.61,321.43
+P00402,CD Oeste,Interior,SP,2.09,322.03
+P00403,CD Leste,Interior,SP,3.24,116.14
+P00404,CD Oeste,Capital,RJ,1.38,748.48
+P00405,CD Leste,Capital,RO,2.62,851.66
+P00406,Loja,Interior,SC,1.51,811.91
+P00407,Loja,Interior,BA,1.68,716.83
+P00408,Loja,Capital,MG,3.26,1162.0
+P00409,CD Oeste,Capital,MS,0.45,609.47
+P00410,CD Leste,Interior,TO,0.74,1043.35
+P00411,CD Oeste,Interior,RJ,0.65,803.53
+P00412,Loja,Interior,RR,0.36,174.26
+P00413,CD Oeste,Interior,DF,1.13,987.3
+P00414,CD Oeste,Interior,BA,3.08,734.52
+P00415,CD Oeste,Interior,MG,1.49,811.95
+P00416,CD Oeste,Capital,GO,2.09,281.85
+P00417,CD Oeste,Interior,SC,3.91,569.99
+P00418,CD Leste,Capital,PA,4.62,1066.25
+P00419,CD Oeste,Interior,PI,1.74,321.28
+P00420,CD Oeste,Capital,RJ,4.7,80.14
+P00421,CD Leste,Interior,PA,1.94,368.41
+P00422,Loja,Interior,RN,1.01,626.05
+P00423,CD Oeste,Capital,RS,1.2,999.83
+P00424,CD Leste,Interior,SP,0.65,800.49
+P00425,Loja,Capital,SP,0.98,1109.35
+P00426,CD Oeste,Interior,SP,1.42,590.23
+P00427,CD Oeste,Interior,SP,3.2,517.71
+P00428,CD Leste,Capital,RO,6.08,339.19
+P00429,Loja,Interior,SP,0.69,324.23
+P00430,CD Leste,Interior,MT,2.4,904.44
+P00431,CD Oeste,Capital,DF,0.88,170.0
+P00432,CD Leste,Interior,DF,2.54,351.84
+P00433,CD Oeste,Interior,SP,1.66,1072.2
+P00434,CD Oeste,Interior,RS,0.51,726.15
+P00435,CD Oeste,Capital,DF,3.49,132.18
+P00436,CD Oeste,Interior,RS,1.19,868.77
+P00437,Loja,Capital,SP,1.25,647.48
+P00438,CD Oeste,Interior,BA,0.86,1037.06
+P00439,CD Leste,Interior,SP,1.15,844.33
+P00440,Loja,Interior,RS,2.46,84.98
+P00441,CD Oeste,Capital,ES,1.6,310.43
+P00442,Loja,Capital,MG,2.29,368.92
+P00443,Loja,Interior,PE,2.35,866.5
+P00444,Loja,Capital,SP,4.59,650.43
+P00445,CD Oeste,Interior,AM,1.43,917.14
+P00446,CD Oeste,Interior,RN,0.65,654.41
+P00447,CD Leste,Interior,RJ,3.85,446.67
+P00448,CD Oeste,Capital,MG,1.44,196.1
+P00449,CD Oeste,Capital,SP,3.98,306.94
+P00450,CD Oeste,Interior,MA,2.38,528.87
+P00451,Loja,Interior,DF,1.66,697.63
+P00452,CD Leste,Capital,SP,2.33,1131.27
+P00453,CD Leste,Capital,SC,7.14,348.49
+P00454,CD Oeste,Capital,SP,7.8,826.02
+P00455,CD Leste,Interior,RS,1.91,250.85
+P00456,CD Leste,Capital,SC,2.04,879.4
+P00457,CD Leste,Capital,SP,3.87,92.7
+P00458,Loja,Interior,PE,1.01,814.63
+P00459,CD Oeste,Capital,MG,2.3,262.8
+P00460,CD Leste,Capital,SC,1.79,281.96
+P00461,CD Leste,Interior,DF,2.27,705.98
+P00462,CD Oeste,Interior,PA,1.02,500.46
+P00463,CD Leste,Capital,PR,0.6,607.86
+P00464,CD Oeste,Interior,MA,0.43,425.96
+P00465,CD Oeste,Capital,RJ,0.83,1147.88
+P00466,CD Leste,Capital,CE,1.32,405.53
+P00467,CD Oeste,Interior,SP,1.48,687.09
+P00468,CD Leste,Interior,MS,7.07,1036.88
+P00469,CD Leste,Interior,SP,3.95,823.88
+P00470,Loja,Interior,AC,0.93,441.51
+P00471,CD Oeste,Capital,PA,2.32,698.73
+P00472,Loja,Interior,PR,1.37,172.95
+P00473,CD Leste,Interior,SC,1.49,691.17
+P00474,CD Leste,Capital,RS,2.07,563.16
+P00475,CD Oeste,Interior,MG,2.81,928.89
+P00476,CD Oeste,Capital,GO,1.44,1029.65
+P00477,Loja,Interior,MT,3.84,303.57
+P00478,CD Leste,Interior,SC,0.82,171.32
+P00479,Loja,Capital,SP,1.83,517.42
+P00480,Loja,Interior,MA,11.23,678.25
+P00481,CD Oeste,Capital,SP,2.13,502.02
+P00482,CD Leste,Interior,DF,4.97,783.99
+P00483,CD Oeste,Capital,SP,1.94,646.33
+P00484,CD Leste,Capital,SP,2.74,1129.02
+P00485,CD Oeste,Capital,SP,1.75,538.52
+P00486,CD Oeste,Interior,RJ,1.62,172.39
+P00487,Loja,Capital,DF,1.06,418.17
+P00488,CD Oeste,Interior,SC,2.46,758.6
+P00489,CD Oeste,Capital,GO,1.0,366.75
+P00490,CD Oeste,Interior,GO,2.9,381.27
+P00491,CD Oeste,Capital,SP,3.9,460.32
+P00492,Loja,Capital,SP,2.36,915.68
+P00493,CD Leste,Interior,DF,1.49,1132.95
+P00494,Loja,Interior,GO,2.5,472.42
+P00495,Loja,Interior,RS,1.47,298.95
+P00496,Loja,Interior,SP,3.51,551.11
+P00497,CD Oeste,Interior,PE,0.51,474.06
+P00498,Loja,Interior,SP,1.44,1188.83
+P00499,CD Leste,Interior,DF,0.45,599.53
+P00500,CD Oeste,Interior,SP,0.64,840.8
+P00501,CD Leste,Interior,GO,4.73,1103.44
+P00502,CD Leste,Interior,RJ,3.41,784.55
+P00503,CD Leste,Interior,MS,1.1,359.3
+P00504,CD Leste,Interior,SP,0.64,760.3
+P00505,CD Leste,Interior,RS,0.23,530.1
+P00506,Loja,Interior,SP,1.25,553.03
+P00507,CD Leste,Interior,MT,9.92,1176.84
+P00508,CD Oeste,Interior,SP,2.47,392.02
+P00509,CD Leste,Interior,SP,1.23,605.21
+P00510,CD Oeste,Interior,MS,2.52,259.05
+P00511,CD Oeste,Interior,SP,0.61,279.97
+P00512,CD Leste,Interior,SP,1.48,755.9
+P00513,CD Oeste,Capital,CE,1.95,921.14
+P00514,Loja,Interior,PE,1.72,792.84
+P00515,Loja,Capital,CE,3.17,448.8
+P00516,CD Leste,Capital,MG,2.32,146.77
+P00517,CD Oeste,Interior,SC,2.91,606.7
+P00518,CD Oeste,Interior,BA,1.13,644.78
+P00519,CD Leste,Interior,SP,3.42,943.13
+P00520,Loja,Capital,BA,5.7,797.12
+P00521,CD Leste,Interior,SP,0.92,1055.81
+P00522,Loja,Interior,MA,0.98,956.94
+P00523,CD Leste,Interior,DF,4.64,489.78
+P00524,CD Leste,Interior,PR,1.59,788.09
+P00525,Loja,Capital,PR,4.87,916.96
+P00526,Loja,Capital,SP,1.34,1151.71
+P00527,Loja,Capital,RJ,5.05,553.03
+P00528,Loja,Capital,BA,2.0,806.08
+P00529,CD Leste,Capital,SC,2.18,519.78
+P00530,CD Leste,Capital,SC,5.45,906.37
+P00531,CD Leste,Capital,SP,1.41,1101.43
+P00532,CD Oeste,Capital,MT,0.94,1109.53
+P00533,CD Leste,Capital,RJ,1.33,255.94
+P00534,Loja,Interior,SP,2.5,308.59
+P00535,CD Leste,Capital,AM,0.61,925.52
+P00536,CD Leste,Interior,SC,2.85,786.73
+P00537,CD Leste,Capital,SC,1.25,1093.72
+P00538,CD Leste,Capital,RO,4.07,431.46
+P00539,CD Leste,Capital,RJ,0.34,1029.78
+P00540,CD Oeste,Interior,AM,1.05,845.83
+P00541,CD Leste,Capital,MT,0.56,298.91
+P00542,CD Oeste,Interior,DF,1.02,221.67
+P00543,Loja,Capital,SP,2.17,867.05
+P00544,CD Oeste,Interior,SP,1.61,257.48
+P00545,CD Oeste,Capital,ES,1.53,969.65
+P00546,CD Leste,Interior,SP,1.63,703.95
+P00547,CD Leste,Interior,SP,2.1,614.09
+P00548,CD Leste,Capital,RS,0.9,388.59
+P00549,Loja,Capital,BA,2.99,1181.91
+P00550,CD Oeste,Interior,SP,2.9,888.83
+P00551,CD Leste,Capital,BA,2.39,951.43
+P00552,CD Oeste,Capital,PA,2.69,940.96
+P00553,Loja,Interior,BA,2.24,734.1
+P00554,CD Oeste,Capital,PE,7.57,1132.46
+P00555,CD Oeste,Interior,MS,1.71,733.88
+P00556,Loja,Interior,SP,1.47,662.45
+P00557,CD Oeste,Interior,RJ,1.08,386.56
+P00558,CD Oeste,Capital,PA,0.88,395.54
+P00559,CD Leste,Interior,GO,0.76,905.31
+P00560,CD Leste,Interior,PE,0.98,454.94
+P00561,Loja,Capital,TO,1.73,896.16
+P00562,CD Oeste,Interior,SP,2.3,1147.03
+P00563,CD Leste,Interior,MG,1.89,572.02
+P00564,CD Oeste,Interior,GO,1.07,189.0
+P00565,CD Leste,Capital,SP,3.42,826.53
+P00566,Loja,Capital,RS,3.06,90.67
+P00567,CD Leste,Interior,PE,1.63,961.44
+P00568,Loja,Interior,DF,1.15,668.73
+P00569,CD Oeste,Capital,MG,2.67,628.5
+P00570,CD Leste,Capital,BA,2.08,717.78
+P00571,CD Leste,Interior,SP,0.66,658.38
+P00572,Loja,Capital,PB,1.74,442.63
+P00573,CD Leste,Capital,SP,2.19,395.29
+P00574,CD Leste,Interior,AL,0.97,545.13
+P00575,CD Oeste,Capital,PR,2.08,1082.3
+P00576,CD Leste,Capital,ES,0.66,231.61
+P00577,CD Leste,Capital,SC,4.64,443.74
+P00578,CD Leste,Interior,SP,4.36,295.38
+P00579,Loja,Capital,PR,1.53,558.39
+P00580,CD Leste,Interior,CE,2.35,229.52
+P00581,CD Leste,Interior,PE,0.34,932.09
+P00582,CD Leste,Interior,SP,0.81,195.88
+P00583,CD Leste,Interior,GO,1.48,825.09
+P00584,CD Leste,Interior,CE,0.86,379.84
+P00585,CD Leste,Capital,PE,3.0,608.85
+P00586,CD Leste,Interior,ES,7.38,303.99
+P00587,CD Leste,Interior,SP,0.8,897.85
+P00588,Loja,Interior,AM,1.01,1142.07
+P00589,CD Leste,Interior,RJ,2.15,328.35
+P00590,CD Leste,Capital,RJ,5.63,1147.53
+P00591,Loja,Interior,BA,0.77,444.31
+P00592,Loja,Capital,MG,2.17,704.79
+P00593,CD Oeste,Interior,CE,6.52,865.78
+P00594,CD Leste,Capital,SP,0.57,303.18
+P00595,CD Leste,Interior,BA,0.74,578.14
+P00596,CD Leste,Interior,TO,1.35,155.97
+P00597,CD Leste,Interior,RR,1.27,860.7
+P00598,CD Leste,Capital,MA,3.22,546.61
+P00599,CD Oeste,Interior,SE,2.16,1078.64
+P00600,CD Leste,Capital,MG,0.53,386.87
+P00601,CD Oeste,Capital,TO,2.61,1114.43
+P00602,CD Leste,Interior,MA,1.22,237.96
+P00603,CD Leste,Interior,SC,4.45,759.8
+P00604,CD Oeste,Interior,RJ,1.17,424.75
+P00605,Loja,Capital,SP,1.17,283.6
+P00606,CD Leste,Interior,RS,2.66,185.21
+P00607,CD Oeste,Interior,MS,3.11,814.32
+P00608,CD Leste,Capital,RJ,2.49,341.15
+P00609,CD Leste,Interior,RJ,0.56,721.55
+P00610,CD Oeste,Interior,RS,2.66,1176.95
+P00611,CD Leste,Interior,SP,0.88,433.88
+P00612,CD Leste,Interior,PA,2.15,119.14
+P00613,CD Oeste,Interior,MG,0.67,239.96
+P00614,CD Leste,Capital,SP,2.49,213.64
+P00615,CD Leste,Capital,SP,1.04,598.88
+P00616,CD Leste,Interior,CE,0.74,914.01
+P00617,Loja,Interior,AL,3.0,412.02
+P00618,CD Oeste,Interior,SP,2.16,243.34
+P00619,CD Leste,Interior,SP,1.19,797.66
+P00620,CD Leste,Interior,PR,5.03,417.32
+P00621,CD Oeste,Capital,SP,1.34,724.19
+P00622,CD Leste,Interior,BA,1.86,1125.84
+P00623,CD Oeste,Interior,SP,2.2,406.31
+P00624,CD Oeste,Interior,SC,1.18,653.99
+P00625,CD Leste,Capital,RJ,2.53,983.63
+P00626,CD Leste,Capital,PR,1.25,854.72
+P00627,CD Leste,Capital,ES,1.37,921.66
+P00628,CD Leste,Interior,SP,4.73,945.28
+P00629,CD Leste,Interior,SP,0.88,684.71
+P00630,Loja,Capital,SP,0.34,680.39
+P00631,CD Leste,Interior,SP,5.63,885.16
+P00632,CD Oeste,Interior,RO,10.85,861.37
+P00633,CD Oeste,Capital,MG,1.37,830.46
+P00634,CD Leste,Interior,MG,0.47,507.99
+P00635,CD Leste,Interior,SP,1.47,1007.97
+P00636,CD Leste,Capital,BA,1.49,344.55
+P00637,CD Oeste,Interior,MA,1.6,254.42
+P00638,CD Leste,Interior,PE,0.84,466.58
+P00639,CD Oeste,Capital,DF,2.73,364.29
+P00640,Loja,Capital,PE,2.63,822.76
+P00641,CD Oeste,Interior,RJ,0.64,338.74
+P00642,Loja,Capital,CE,2.97,815.27
+P00643,CD Oeste,Interior,PE,7.67,654.81
+P00644,Loja,Interior,SP,2.06,250.74
+P00645,Loja,Interior,PR,1.44,369.4
+P00646,CD Oeste,Interior,MG,1.65,664.33
+P00647,Loja,Interior,SP,2.8,901.08
+P00648,Loja,Interior,CE,0.54,526.04
+P00649,CD Oeste,Interior,SP,2.04,340.77
+P00650,CD Oeste,Capital,BA,1.39,410.49
+P00651,CD Oeste,Capital,AC,6.64,186.53
+P00652,Loja,Interior,PR,1.61,108.17
+P00653,CD Leste,Capital,RJ,5.86,1169.9
+P00654,Loja,Interior,RS,0.84,187.98
+P00655,CD Oeste,Capital,PE,2.75,219.87
+P00656,Loja,Capital,SP,2.28,1055.48
+P00657,CD Leste,Capital,MG,0.99,823.13
+P00658,CD Oeste,Interior,RS,2.06,568.4
+P00659,CD Oeste,Interior,AM,4.26,806.91
+P00660,Loja,Interior,MG,1.45,1127.18
+P00661,Loja,Interior,RJ,0.56,191.3
+P00662,CD Oeste,Interior,AP,1.8,352.96
+P00663,CD Oeste,Interior,SP,0.97,1043.54
+P00664,CD Leste,Capital,SP,1.43,954.32
+P00665,Loja,Interior,RS,1.72,1193.57
+P00666,CD Leste,Capital,SP,0.55,431.58
+P00667,CD Oeste,Interior,SP,0.59,1138.27
+P00668,CD Oeste,Interior,DF,2.55,464.93
+P00669,CD Leste,Capital,GO,1.26,880.9
+P00670,CD Leste,Interior,SC,0.3,1068.67
+P00671,CD Leste,Capital,RJ,3.16,271.28
+P00672,Loja,Capital,RS,2.2,310.32
+P00673,CD Oeste,Capital,GO,1.11,730.67
+P00674,CD Leste,Capital,PE,0.72,1025.08
+P00675,CD Oeste,Capital,PE,3.27,168.42
+P00676,CD Leste,Interior,GO,2.33,1032.99
+P00677,Loja,Interior,PB,9.66,464.29
+P00678,CD Leste,Interior,CE,2.45,534.97
+P00679,CD Leste,Interior,SP,2.39,460.64
+P00680,CD Leste,Capital,PA,1.62,1100.86
+P00681,CD Oeste,Capital,PB,3.23,226.49
+P00682,CD Oeste,Interior,MG,2.82,723.19
+P00683,CD Oeste,Interior,SP,4.38,245.88
+P00684,CD Oeste,Interior,RS,1.27,1120.03
+P00685,CD Leste,Capital,ES,1.34,973.68
+P00686,CD Leste,Interior,BA,1.3,341.88
+P00687,CD Leste,Interior,SC,3.17,413.51
+P00688,Loja,Interior,SP,5.2,507.3
+P00689,CD Leste,Capital,SP,1.32,534.07
+P00690,Loja,Capital,RN,1.35,995.42
+P00691,CD Leste,Interior,SP,2.27,712.28
+P00692,CD Leste,Interior,BA,1.53,559.3
+P00693,CD Leste,Interior,MG,3.55,885.78
+P00694,CD Leste,Capital,PR,0.38,592.81
+P00695,CD Oeste,Interior,SC,1.02,223.63
+P00696,CD Oeste,Interior,MG,1.05,200.39
+P00697,CD Leste,Interior,GO,0.36,445.07
+P00698,CD Oeste,Interior,MT,0.93,755.21
+P00699,CD Oeste,Capital,SP,0.96,231.02
+P00700,Loja,Capital,RJ,1.58,696.15
+P00701,Loja,Interior,BA,3.97,381.96
+P00702,CD Oeste,Interior,BA,1.53,858.86
+P00703,Loja,Interior,SC,0.89,111.65
+P00704,CD Oeste,Interior,BA,1.75,605.31
+P00705,CD Oeste,Capital,SP,3.8,138.54
+P00706,CD Oeste,Capital,SP,0.92,450.17
+P00707,CD Leste,Interior,GO,0.96,97.44
+P00708,CD Oeste,Capital,MT,2.69,605.39
+P00709,Loja,Interior,PE,1.56,939.06
+P00710,CD Leste,Capital,SP,2.87,192.25
+P00711,Loja,Capital,SC,1.8,903.45
+P00712,Loja,Interior,GO,2.98,734.3
+P00713,CD Leste,Capital,SP,0.88,645.16
+P00714,CD Oeste,Interior,SC,1.81,751.42
+P00715,Loja,Interior,DF,1.57,456.2
+P00716,Loja,Interior,SP,0.78,875.58
+P00717,CD Leste,Interior,RJ,0.61,953.23
+P00718,CD Leste,Interior,SP,2.94,951.61
+P00719,CD Oeste,Interior,PI,1.43,381.79
+P00720,CD Leste,Capital,SP,0.89,812.38
+P00721,CD Leste,Capital,SP,1.7,245.87
+P00722,CD Leste,Interior,SP,4.01,634.87
+P00723,CD Leste,Interior,SP,0.37,82.94
+P00724,CD Oeste,Interior,SP,0.64,296.82
+P00725,CD Oeste,Interior,RS,0.96,787.54
+P00726,CD Oeste,Interior,SP,5.07,1059.28
+P00727,CD Oeste,Capital,MG,2.22,134.91
+P00728,CD Leste,Interior,SP,3.12,705.58
+P00729,CD Leste,Capital,RJ,0.82,793.19
+P00730,CD Leste,Interior,SP,0.83,1124.28
+P00731,CD Leste,Interior,RS,2.49,813.76
+P00732,CD Leste,Interior,MT,1.9,195.4
+P00733,CD Leste,Capital,BA,2.68,244.35
+P00734,CD Leste,Interior,SP,1.6,792.06
+P00735,CD Leste,Interior,AL,2.21,321.49
+P00736,CD Oeste,Interior,MT,2.04,1119.7
+P00737,CD Oeste,Interior,SP,3.14,1111.17
+P00738,Loja,Interior,PR,3.21,1142.49
+P00739,CD Oeste,Interior,BA,0.59,408.11
+P00740,CD Oeste,Capital,MG,0.38,882.98
+P00741,CD Leste,Capital,RJ,3.67,822.58
+P00742,CD Oeste,Capital,DF,4.18,119.88
+P00743,CD Leste,Capital,SP,0.89,377.43
+P00744,CD Leste,Interior,TO,0.5,311.58
+P00745,CD Leste,Capital,SP,1.95,495.31
+P00746,CD Leste,Interior,SP,3.5,1147.42
+P00747,CD Leste,Capital,SP,6.41,1027.07
+P00748,CD Oeste,Capital,RJ,2.62,408.64
+P00749,Loja,Interior,RN,1.4,673.64
+P00750,CD Oeste,Interior,PE,0.98,295.34
+P00751,CD Oeste,Interior,MA,1.84,390.73
+P00752,CD Oeste,Interior,SC,1.48,152.8
+P00753,CD Leste,Capital,PR,0.9,799.72
+P00754,CD Oeste,Interior,RJ,7.65,815.75
+P00755,CD Oeste,Interior,SP,6.36,1019.12
+P00756,CD Leste,Capital,PI,4.04,1056.14
+P00757,CD Leste,Interior,PR,0.96,259.27
+P00758,Loja,Interior,PR,3.32,912.21
+P00759,CD Oeste,Interior,SC,2.85,230.87
+P00760,CD Oeste,Interior,PE,2.48,498.56
+P00761,CD Oeste,Interior,SP,4.37,657.4
+P00762,CD Leste,Capital,MS,2.84,135.41
+P00763,CD Oeste,Interior,MS,3.06,255.58
+P00764,CD Leste,Interior,CE,2.85,383.65
+P00765,CD Leste,Capital,SP,2.31,222.85
+P00766,CD Oeste,Capital,SP,0.52,1126.19
+P00767,CD Leste,Interior,PR,1.93,402.92
+P00768,CD Oeste,Interior,CE,1.23,641.31
+P00769,CD Leste,Interior,TO,0.74,1196.12
+P00770,CD Oeste,Interior,RS,5.91,714.64
+P00771,CD Oeste,Interior,SP,6.11,540.88
+P00772,CD Oeste,Interior,SP,4.72,1121.37
+P00773,CD Oeste,Capital,DF,2.18,329.2
+P00774,Loja,Interior,SP,4.69,281.04
+P00775,CD Oeste,Capital,RS,1.84,679.61
+P00776,CD Oeste,Capital,CE,2.1,558.58
+P00777,CD Oeste,Interior,RJ,0.85,972.62
+P00778,CD Leste,Capital,RJ,2.41,127.05
+P00779,CD Leste,Interior,SP,1.9,771.85
+P00780,CD Leste,Interior,MG,0.73,875.96
+P00781,CD Leste,Capital,MT,1.76,1168.55
+P00782,CD Leste,Interior,RJ,1.72,243.25
+P00783,CD Leste,Interior,SP,6.41,355.79
+P00784,CD Oeste,Capital,SP,3.41,1124.34
+P00785,CD Leste,Capital,SP,1.84,786.3
+P00786,Loja,Capital,GO,2.17,122.61
+P00787,CD Leste,Capital,DF,1.88,166.63
+P00788,CD Oeste,Capital,SC,1.58,959.69
+P00789,CD Leste,Capital,SC,0.85,715.57
+P00790,CD Oeste,Capital,SP,1.64,713.27
+P00791,CD Leste,Interior,SC,1.08,1065.45
+P00792,CD Oeste,Capital,SP,0.76,350.03
+P00793,CD Leste,Capital,MA,2.61,259.68
+P00794,Loja,Interior,SP,2.4,767.46
+P00795,CD Leste,Capital,ES,0.52,1068.31
+P00796,CD Oeste,Interior,SP,1.67,377.08
+P00797,CD Leste,Capital,PE,3.66,843.05
+P00798,CD Oeste,Interior,SP,3.82,250.66
+P00799,CD Oeste,Interior,MA,3.74,272.54
+P00800,CD Leste,Interior,SP,1.87,1089.69
+P00801,CD Leste,Interior,CE,1.01,212.12
+P00802,CD Leste,Interior,GO,0.85,107.27
+P00803,CD Leste,Capital,SP,2.32,947.93
+P00804,Loja,Capital,SP,2.38,486.01
+P00805,CD Leste,Interior,RJ,4.49,524.26
+P00806,CD Leste,Capital,CE,3.94,975.84
+P00807,Loja,Capital,AL,1.66,281.53
+P00808,CD Leste,Interior,SP,0.76,808.37
+P00809,CD Leste,Capital,RJ,1.46,431.15
+P00810,CD Oeste,Capital,SP,2.12,196.78
+P00811,Loja,Interior,SP,1.58,850.0
+P00812,CD Oeste,Capital,GO,1.22,436.9
+P00813,CD Oeste,Interior,RJ,2.17,1050.6
+P00814,Loja,Interior,SP,1.28,1109.32
+P00815,CD Leste,Interior,AL,1.17,1030.94
+P00816,Loja,Interior,BA,2.27,441.03
+P00817,Loja,Capital,BA,1.38,344.97
+P00818,Loja,Interior,SP,2.16,1079.94
+P00819,CD Leste,Interior,MA,2.21,587.3
+P00820,CD Leste,Interior,RS,0.82,872.67
+P00821,CD Oeste,Capital,SC,1.3,1006.42
+P00822,CD Oeste,Capital,SP,4.99,391.01
+P00823,CD Oeste,Capital,PB,0.81,213.39
+P00824,Loja,Capital,SC,0.41,779.81
+P00825,CD Oeste,Capital,CE,0.49,741.02
+P00826,CD Leste,Interior,GO,1.86,382.62
+P00827,CD Leste,Capital,PE,1.86,734.87
+P00828,CD Leste,Interior,MT,1.68,965.2
+P00829,CD Leste,Interior,MA,4.26,472.01
+P00830,CD Leste,Capital,SP,0.28,351.4
+P00831,Loja,Interior,SP,2.4,892.0
+P00832,CD Oeste,Interior,MS,5.44,960.18
+P00833,CD Oeste,Capital,SC,0.83,1148.8
+P00834,CD Leste,Interior,RS,1.4,245.3
+P00835,CD Oeste,Interior,MS,1.08,1075.98
+P00836,Loja,Interior,SC,0.97,936.91
+P00837,Loja,Interior,PE,1.45,866.13
+P00838,CD Oeste,Interior,MG,4.95,430.62
+P00839,Loja,Capital,CE,6.59,104.86
+P00840,CD Oeste,Interior,SP,1.44,648.46
+P00841,CD Oeste,Interior,DF,6.91,400.06
+P00842,Loja,Interior,PB,1.87,404.6
+P00843,CD Leste,Interior,MG,6.22,1118.4
+P00844,CD Leste,Interior,MG,1.71,251.33
+P00845,CD Leste,Interior,MG,2.0,1126.34
+P00846,CD Oeste,Capital,RS,2.35,644.26
+P00847,CD Oeste,Interior,RJ,15.0,1018.87
+P00848,CD Oeste,Capital,SP,3.31,397.62
+P00849,CD Leste,Interior,PB,1.11,789.99
+P00850,CD Leste,Interior,SP,3.59,703.38
+P00851,Loja,Interior,SC,1.41,1115.07
+P00852,CD Leste,Interior,RS,1.29,280.81
+P00853,Loja,Interior,SP,3.44,309.12
+P00854,CD Leste,Capital,SP,1.86,1142.84
+P00855,CD Oeste,Capital,TO,2.21,189.72
+P00856,CD Oeste,Capital,GO,1.84,790.84
+P00857,Loja,Interior,SP,2.31,147.83
+P00858,CD Leste,Capital,PE,2.45,166.23
+P00859,Loja,Interior,SC,0.47,748.81
+P00860,CD Oeste,Capital,SP,2.91,697.53
+P00861,CD Oeste,Interior,MT,0.92,721.79
+P00862,CD Oeste,Interior,PR,0.66,610.49
+P00863,CD Leste,Interior,SP,1.75,911.44
+P00864,CD Oeste,Interior,SE,1.93,1191.25
+P00865,CD Leste,Interior,MG,1.12,388.87
+P00866,CD Leste,Interior,MG,3.26,442.25
+P00867,CD Oeste,Interior,MG,0.71,441.82
+P00868,CD Oeste,Capital,BA,1.37,934.86
+P00869,CD Leste,Capital,MS,1.21,469.78
+P00870,CD Leste,Interior,PI,1.76,837.95
+P00871,CD Leste,Interior,SP,2.21,579.39
+P00872,CD Leste,Interior,PE,0.9,760.74
+P00873,CD Oeste,Interior,RS,3.03,1008.5
+P00874,CD Leste,Capital,MG,1.9,655.75
+P00875,Loja,Interior,SP,0.48,612.19
+P00876,CD Leste,Interior,PE,0.46,379.01
+P00877,CD Leste,Interior,SP,1.81,657.81
+P00878,Loja,Interior,DF,1.56,373.9
+P00879,CD Leste,Interior,SC,1.69,1024.8
+P00880,CD Leste,Interior,SP,1.79,515.53
+P00881,Loja,Interior,AP,2.13,224.6
+P00882,Loja,Capital,PE,3.54,348.76
+P00883,CD Oeste,Interior,PR,0.84,678.73
+P00884,CD Leste,Interior,MT,0.8,1106.24
+P00885,CD Oeste,Interior,PR,0.85,416.63
+P00886,Loja,Capital,BA,2.23,376.11
+P00887,Loja,Interior,SP,4.36,535.35
+P00888,CD Leste,Capital,PR,1.35,1163.89
+P00889,CD Leste,Interior,MG,0.32,1026.65
+P00890,CD Leste,Capital,PR,0.55,247.63
+P00891,CD Leste,Capital,PR,1.02,767.4
+P00892,CD Oeste,Interior,SP,1.23,966.89
+P00893,CD Leste,Capital,RO,1.37,940.17
+P00894,CD Leste,Capital,SP,1.87,627.51
+P00895,CD Leste,Interior,SP,1.46,899.65
+P00896,CD Oeste,Interior,RJ,3.8,733.62
+P00897,CD Leste,Capital,DF,1.14,305.62
+P00898,CD Leste,Interior,SP,1.0,142.78
+P00899,CD Leste,Interior,SC,2.55,493.84
+P00900,Loja,Interior,BA,0.62,149.37
+P00901,CD Leste,Capital,SP,2.39,522.42
+P00902,CD Oeste,Capital,RO,1.96,1008.34
+P00903,CD Leste,Interior,MG,1.64,1025.61
+P00904,CD Leste,Interior,GO,5.54,118.16
+P00905,CD Leste,Capital,SP,1.18,157.88
+P00906,CD Leste,Interior,MS,7.71,830.25
+P00907,CD Leste,Capital,CE,1.56,640.0
+P00908,CD Oeste,Interior,SP,0.75,247.28
+P00909,CD Oeste,Interior,SP,1.91,982.19
+P00910,CD Leste,Interior,MG,0.86,322.48
+P00911,CD Leste,Interior,SP,1.08,167.53
+P00912,CD Oeste,Capital,AC,2.41,919.45
+P00913,CD Leste,Interior,RS,2.69,761.1
+P00914,CD Leste,Capital,RS,1.18,521.78
+P00915,CD Leste,Interior,PA,3.64,855.85
+P00916,CD Leste,Interior,CE,4.1,1100.75
+P00917,CD Oeste,Capital,PE,4.98,118.28
+P00918,Loja,Capital,MG,2.64,783.0
+P00919,Loja,Capital,MG,4.73,324.35
+P00920,Loja,Capital,MG,0.49,611.03
+P00921,CD Leste,Capital,RJ,1.46,554.86
+P00922,CD Leste,Interior,RJ,0.99,516.78
+P00923,CD Leste,Interior,SP,1.98,293.2
+P00924,CD Leste,Interior,RJ,1.22,978.97
+P00925,CD Leste,Interior,PR,1.62,505.06
+P00926,CD Leste,Interior,MG,6.8,1073.66
+P00927,CD Oeste,Capital,SP,1.62,477.23
+P00928,CD Leste,Interior,RJ,2.43,1020.48
+P00929,CD Leste,Interior,PR,1.55,689.8
+P00930,CD Oeste,Interior,BA,1.92,511.9
+P00931,CD Leste,Interior,MS,1.83,868.52
+P00932,Loja,Interior,SP,2.49,961.05
+P00933,CD Leste,Interior,SP,4.12,620.61
+P00934,CD Oeste,Interior,MG,5.77,556.47
+P00935,CD Leste,Interior,SP,2.26,726.71
+P00936,CD Oeste,Interior,RJ,2.75,735.38
+P00937,CD Leste,Capital,RO,0.81,556.54
+P00938,CD Leste,Capital,SP,1.71,928.58
+P00939,CD Oeste,Interior,MG,3.52,527.69
+P00940,CD Leste,Capital,BA,3.34,587.36
+P00941,CD Leste,Interior,SC,2.11,757.96
+P00942,Loja,Capital,SP,3.39,1185.27
+P00943,CD Leste,Interior,SP,2.57,371.97
+P00944,CD Oeste,Capital,AM,4.22,339.79
+P00945,CD Oeste,Interior,SP,2.23,278.11
+P00946,CD Leste,Capital,DF,1.42,852.18
+P00947,CD Oeste,Capital,PE,2.31,582.99
+P00948,CD Leste,Capital,MG,0.23,515.24
+P00949,CD Oeste,Interior,BA,2.38,308.58
+P00950,CD Leste,Interior,SP,0.2,1078.07
+P00951,CD Leste,Interior,MG,0.55,576.35
+P00952,CD Leste,Capital,MG,2.5,760.62
+P00953,Loja,Interior,RR,2.55,206.03
+P00954,CD Oeste,Capital,SP,0.81,200.93
+P00955,Loja,Interior,SP,1.11,155.44
+P00956,CD Oeste,Interior,MA,4.76,491.43
+P00957,CD Oeste,Capital,SP,1.3,609.63
+P00958,CD Oeste,Interior,SE,8.76,353.93
+P00959,Loja,Interior,GO,1.82,471.64
+P00960,CD Oeste,Capital,RS,2.42,87.01
+P00961,CD Leste,Capital,BA,5.65,473.22
+P00962,CD Oeste,Capital,BA,2.0,213.47
+P00963,CD Oeste,Capital,SP,0.9,223.79
+P00964,CD Leste,Capital,RR,1.69,85.05
+P00965,CD Leste,Interior,AM,1.78,859.95
+P00966,CD Leste,Capital,PB,0.7,1123.04
+P00967,Loja,Interior,DF,1.52,776.13
+P00968,CD Leste,Interior,SC,1.08,187.75
+P00969,Loja,Interior,SC,3.48,1188.41
+P00970,CD Leste,Interior,SP,1.87,1172.66
+P00971,CD Oeste,Capital,PR,1.49,604.42
+P00972,CD Leste,Capital,DF,1.69,200.81
+P00973,Loja,Capital,GO,2.13,887.23
+P00974,CD Oeste,Interior,MG,2.81,1156.84
+P00975,CD Leste,Interior,PR,0.91,952.14
+P00976,CD Leste,Capital,DF,0.88,779.11
+P00977,CD Leste,Capital,ES,3.95,764.13
+P00978,CD Leste,Interior,PA,1.37,1175.27
+P00979,CD Oeste,Capital,MS,0.68,161.89
+P00980,Loja,Interior,SP,2.49,247.5
+P00981,CD Oeste,Capital,SP,2.52,1010.51
+P00982,CD Oeste,Capital,MT,0.62,242.53
+P00983,CD Leste,Interior,RJ,2.14,509.29
+P00984,Loja,Capital,CE,3.05,395.28
+P00985,Loja,Capital,SP,2.37,352.66
+P00986,CD Leste,Interior,SP,2.84,108.81
+P00987,Loja,Capital,RJ,0.68,714.2
+P00988,CD Leste,Interior,BA,2.3,529.39
+P00989,Loja,Interior,TO,1.47,697.78
+P00990,Loja,Capital,RN,1.3,421.05
+P00991,CD Oeste,Capital,PR,3.35,1134.44
+P00992,CD Leste,Capital,PE,5.13,742.31
+P00993,CD Oeste,Capital,SP,6.4,1156.55
+P00994,CD Leste,Capital,RS,4.57,472.01
+P00995,CD Oeste,Interior,MA,1.69,82.56
+P00996,CD Leste,Interior,RJ,2.33,955.02
+P00997,CD Oeste,Interior,PA,3.12,1006.66
+P00998,Loja,Interior,SP,1.98,145.75
+P00999,CD Leste,Interior,SP,2.0,780.41
+P01000,CD Leste,Interior,SC,3.24,820.34
+P01001,CD Oeste,Capital,PI,1.75,243.22
+P01002,CD Leste,Capital,MG,1.09,698.83
+P01003,CD Leste,Interior,PE,1.36,352.38
+P01004,CD Leste,Interior,SP,2.84,98.43
+P01005,CD Leste,Interior,BA,1.83,1050.94
+P01006,CD Oeste,Capital,RS,2.31,630.7
+P01007,CD Oeste,Interior,SP,2.91,955.5
+P01008,CD Leste,Capital,MS,1.4,889.64
+P01009,CD Oeste,Interior,MS,3.09,1192.95
+P01010,CD Leste,Interior,SC,2.38,570.51
+P01011,CD Leste,Interior,SP,0.77,558.86
+P01012,CD Oeste,Interior,SP,5.0,395.57
+P01013,CD Leste,Capital,PA,1.28,780.16
+P01014,CD Oeste,Interior,GO,0.57,624.45
+P01015,Loja,Interior,PE,0.88,896.21
+P01016,CD Oeste,Interior,MT,0.89,479.29
+P01017,CD Oeste,Capital,CE,1.89,226.55
+P01018,CD Leste,Capital,SP,1.5,1045.93
+P01019,CD Leste,Capital,PR,1.44,1007.41
+P01020,CD Leste,Interior,GO,2.81,473.12
+P01021,CD Oeste,Interior,SP,2.31,853.19
+P01022,Loja,Interior,SP,2.27,631.49
+P01023,CD Leste,Interior,DF,2.43,932.29
+P01024,CD Leste,Interior,AL,2.8,516.95
+P01025,CD Leste,Capital,GO,0.42,679.92
+P01026,CD Oeste,Interior,SP,1.41,144.75
+P01027,CD Oeste,Capital,TO,0.4,275.9
+P01028,CD Oeste,Capital,SP,1.87,955.58
+P01029,Loja,Capital,SP,1.82,507.35
+P01030,CD Leste,Capital,TO,3.79,119.32
+P01031,CD Oeste,Capital,BA,4.18,267.75
+P01032,CD Oeste,Interior,AM,2.1,540.99
+P01033,CD Leste,Capital,PE,1.28,884.06
+P01034,Loja,Capital,GO,2.56,487.1
+P01035,CD Leste,Capital,MG,1.26,914.61
+P01036,CD Oeste,Interior,MG,1.82,1041.03
+P01037,CD Oeste,Interior,PA,3.63,462.07
+P01038,Loja,Capital,AL,1.23,976.42
+P01039,CD Oeste,Capital,RJ,3.2,222.11
+P01040,CD Leste,Interior,RJ,2.93,545.12
+P01041,Loja,Interior,MG,0.93,189.27
+P01042,CD Oeste,Interior,MG,3.6,138.83
+P01043,CD Oeste,Interior,AL,2.97,152.27
+P01044,CD Oeste,Interior,SP,1.96,197.32
+P01045,CD Leste,Interior,ES,1.07,1016.01
+P01046,CD Oeste,Capital,AM,1.0,688.92
+P01047,Loja,Interior,SC,1.25,1141.07
+P01048,CD Leste,Capital,PR,2.66,682.56
+P01049,CD Oeste,Interior,MG,0.93,784.16
+P01050,Loja,Capital,SP,2.48,286.62
+P01051,CD Oeste,Capital,SP,0.76,685.45
+P01052,Loja,Interior,SP,1.58,511.54
+P01053,CD Leste,Interior,SP,1.97,1123.21
+P01054,Loja,Capital,SP,10.09,1125.99
+P01055,CD Leste,Interior,MG,0.69,302.32
+P01056,CD Oeste,Capital,SP,5.11,774.55
+P01057,CD Oeste,Interior,PA,2.02,794.76
+P01058,CD Oeste,Interior,SP,2.43,710.04
+P01059,Loja,Capital,RJ,1.98,219.25
+P01060,CD Oeste,Interior,SE,2.49,812.5
+P01061,CD Oeste,Interior,SP,1.64,974.98
+P01062,CD Leste,Capital,PR,5.04,466.65
+P01063,CD Oeste,Interior,CE,1.32,656.3
+P01064,CD Oeste,Capital,RS,4.03,210.29
+P01065,CD Leste,Interior,SP,1.16,1122.37
+P01066,CD Oeste,Capital,BA,1.75,202.68
+P01067,Loja,Capital,MT,0.86,313.38
+P01068,CD Oeste,Interior,RJ,2.51,414.3
+P01069,CD Oeste,Capital,SP,5.01,1004.89
+P01070,CD Leste,Interior,SP,1.73,864.73
+P01071,CD Oeste,Interior,CE,1.59,87.86
+P01072,CD Leste,Interior,MG,0.84,285.59
+P01073,CD Leste,Capital,SP,1.55,920.17
+P01074,CD Oeste,Interior,SC,0.6,532.29
+P01075,CD Leste,Interior,MA,0.96,109.36
+P01076,CD Leste,Capital,SP,2.14,1159.59
+P01077,CD Oeste,Interior,SP,4.59,249.38
+P01078,CD Leste,Interior,RJ,13.02,651.72
+P01079,CD Leste,Interior,GO,1.21,358.11
+P01080,CD Leste,Interior,PR,4.98,905.97
+P01081,CD Oeste,Interior,PB,2.16,949.93
+P01082,CD Leste,Interior,SP,1.64,524.89
+P01083,CD Oeste,Interior,RJ,2.47,817.46
+P01084,CD Oeste,Interior,RJ,1.9,1098.16
+P01085,CD Leste,Interior,RJ,1.97,992.59
+P01086,Loja,Interior,PR,1.37,544.69
+P01087,CD Leste,Interior,PE,0.68,574.45
+P01088,CD Oeste,Capital,MG,0.62,1073.3
+P01089,CD Leste,Capital,BA,2.88,118.5
+P01090,CD Oeste,Interior,SP,1.5,105.55
+P01091,CD Leste,Interior,RS,1.2,310.49
+P01092,Loja,Interior,RJ,1.83,1006.94
+P01093,CD Leste,Interior,SC,3.18,251.6
+P01094,CD Oeste,Interior,SP,2.07,399.51
+P01095,CD Leste,Interior,PA,1.15,784.56
+P01096,CD Leste,Interior,PI,4.3,286.35
+P01097,CD Leste,Capital,CE,5.5,419.49
+P01098,CD Oeste,Interior,PB,2.58,602.94
+P01099,CD Oeste,Capital,SP,3.6,335.48
+P01100,Loja,Interior,SC,4.35,1191.5
+P01101,CD Oeste,Interior,MG,4.02,263.06
+P01102,Loja,Interior,RN,2.8,1031.93
+P01103,CD Leste,Interior,SP,2.77,606.51
+P01104,CD Oeste,Capital,SP,2.62,224.62
+P01105,CD Oeste,Capital,MT,0.85,212.7
+P01106,CD Oeste,Capital,SP,2.98,640.33
+P01107,Loja,Interior,BA,0.71,475.94
+P01108,CD Oeste,Interior,MG,1.04,342.75
+P01109,Loja,Capital,GO,4.54,1154.01
+P01110,CD Oeste,Capital,SE,3.28,598.99
+P01111,CD Leste,Interior,RS,5.16,1120.27
+P01112,CD Oeste,Interior,SP,1.51,263.68
+P01113,CD Oeste,Capital,SP,0.81,285.48
+P01114,Loja,Capital,SP,1.54,747.55
+P01115,Loja,Interior,SP,1.96,382.26
+P01116,CD Leste,Capital,RS,1.93,287.13
+P01117,CD Leste,Capital,RJ,4.03,186.05
+P01118,CD Leste,Capital,SP,1.41,165.42
+P01119,CD Oeste,Interior,SP,2.33,923.55
+P01120,CD Leste,Interior,PA,0.91,396.02
+P01121,CD Oeste,Capital,SP,2.5,1175.83
+P01122,CD Oeste,Interior,MG,1.83,285.1
+P01123,Loja,Interior,PR,1.08,476.98
+P01124,CD Leste,Interior,SP,1.54,499.9
+P01125,CD Oeste,Interior,MA,1.6,640.17
+P01126,CD Leste,Capital,SP,1.51,1055.11
+P01127,Loja,Interior,MT,6.3,1014.94
+P01128,CD Leste,Interior,DF,1.7,91.15
+P01129,CD Leste,Interior,PE,1.54,538.37
+P01130,CD Leste,Capital,GO,0.42,1007.29
+P01131,Loja,Capital,BA,0.97,80.22
+P01132,CD Leste,Capital,ES,1.52,677.68
+P01133,CD Oeste,Interior,PR,1.13,370.61
+P01134,CD Oeste,Interior,MS,4.79,542.3
+P01135,CD Oeste,Interior,RS,1.62,550.74
+P01136,CD Leste,Interior,SC,4.49,518.76
+P01137,CD Leste,Capital,SP,1.9,1078.98
+P01138,CD Leste,Capital,MG,1.87,680.84
+P01139,CD Leste,Interior,RJ,1.71,1092.2
+P01140,CD Oeste,Interior,SP,1.83,893.95
+P01141,CD Leste,Interior,RJ,6.07,473.25
+P01142,CD Leste,Interior,SP,0.36,632.79
+P01143,CD Leste,Interior,RS,0.45,516.64
+P01144,CD Oeste,Interior,MS,1.25,1008.0
+P01145,CD Leste,Capital,RS,1.84,290.11
+P01146,CD Oeste,Interior,MT,2.95,1128.78
+P01147,CD Leste,Interior,SP,2.54,730.08
+P01148,Loja,Capital,SP,1.39,765.17
+P01149,CD Oeste,Capital,MT,3.72,658.82
+P01150,CD Leste,Capital,PE,3.75,701.04
+P01151,CD Leste,Capital,MS,2.07,827.8
+P01152,CD Leste,Interior,GO,3.57,813.64
+P01153,CD Leste,Capital,MS,2.21,319.84
+P01154,CD Leste,Interior,BA,1.23,732.33
+P01155,Loja,Capital,BA,2.97,477.18
+P01156,CD Oeste,Capital,BA,1.97,793.47
+P01157,CD Leste,Capital,SP,1.82,693.57
+P01158,CD Oeste,Capital,SP,5.11,281.24
+P01159,CD Leste,Interior,RJ,0.33,902.9
+P01160,Loja,Capital,SC,0.68,591.86
+P01161,CD Leste,Capital,BA,0.79,697.61
+P01162,CD Oeste,Capital,MG,1.41,833.36
+P01163,CD Oeste,Capital,MG,1.52,811.22
+P01164,CD Leste,Interior,PE,0.63,918.8
+P01165,CD Leste,Interior,SP,0.91,311.56
+P01166,CD Leste,Capital,CE,1.0,203.64
+P01167,Loja,Interior,SP,10.18,829.48
+P01168,CD Oeste,Interior,RJ,6.43,344.3
+P01169,CD Oeste,Interior,RJ,1.37,208.36
+P01170,CD Oeste,Interior,MG,1.41,226.99
+P01171,Loja,Capital,SP,0.82,430.34
+P01172,CD Oeste,Interior,SP,0.48,1190.8
+P01173,CD Oeste,Interior,MG,1.68,256.13
+P01174,CD Oeste,Interior,MG,0.91,414.36
+P01175,CD Leste,Interior,PE,1.72,1111.22
+P01176,Loja,Interior,SP,0.59,1158.91
+P01177,CD Leste,Capital,RJ,1.07,336.3
+P01178,CD Leste,Interior,SP,2.02,1066.11
+P01179,Loja,Interior,AM,2.35,235.59
+P01180,CD Leste,Interior,PE,2.44,932.92
+P01181,CD Leste,Interior,RO,0.72,94.57
+P01182,CD Leste,Interior,MA,3.31,535.41
+P01183,CD Oeste,Interior,MG,1.04,357.02
+P01184,Loja,Interior,MT,2.84,868.49
+P01185,CD Leste,Capital,MG,1.81,97.98
+P01186,CD Leste,Interior,RN,0.7,600.69
+P01187,CD Oeste,Interior,RJ,1.46,860.34
+P01188,Loja,Interior,RJ,2.35,132.31
+P01189,CD Leste,Capital,MA,2.8,1085.09
+P01190,Loja,Interior,CE,1.65,484.54
+P01191,Loja,Interior,TO,5.32,265.1
+P01192,CD Leste,Interior,SP,3.69,332.52
+P01193,Loja,Capital,SP,1.52,459.57
+P01194,CD Oeste,Interior,MG,3.08,302.18
+P01195,CD Oeste,Capital,ES,7.05,651.85
+P01196,CD Leste,Capital,PR,7.19,788.88
+P01197,Loja,Interior,MG,0.77,565.44
+P01198,CD Oeste,Interior,PE,0.95,558.28
+P01199,CD Oeste,Capital,SP,5.15,955.5
+P01200,Loja,Interior,MT,0.87,417.14
+P01201,CD Oeste,Interior,CE,0.72,777.5
+P01202,Loja,Capital,RS,1.3,1080.07
+P01203,Loja,Capital,RJ,2.45,328.1
+P01204,CD Leste,Interior,SP,1.7,774.29
+P01205,CD Leste,Interior,SP,1.16,1141.73
+P01206,CD Leste,Capital,BA,1.14,673.37
+P01207,Loja,Interior,PR,1.11,1174.13
+P01208,CD Leste,Interior,SP,0.98,427.25
+P01209,CD Oeste,Interior,RO,9.0,712.01
+P01210,CD Leste,Interior,GO,2.24,428.36
+P01211,CD Leste,Capital,CE,3.39,84.17
+P01212,CD Oeste,Capital,ES,1.29,1196.99
+P01213,CD Leste,Capital,PA,1.6,348.87
+P01214,Loja,Interior,SP,1.11,1169.87
+P01215,CD Leste,Interior,SP,0.28,811.4
+P01216,Loja,Interior,PB,0.69,1092.41
+P01217,CD Leste,Capital,PB,0.51,1163.27
+P01218,Loja,Interior,PR,0.38,715.97
+P01219,CD Oeste,Capital,SP,0.79,1199.65
+P01220,CD Leste,Capital,MG,4.61,939.41
+P01221,CD Leste,Capital,BA,1.77,666.67
+P01222,CD Leste,Interior,CE,4.5,813.54
+P01223,CD Oeste,Capital,RJ,2.43,297.58
+P01224,Loja,Interior,SP,3.15,92.36
+P01225,CD Leste,Interior,GO,0.97,367.6
+P01226,CD Leste,Interior,BA,2.63,567.17
+P01227,CD Oeste,Capital,ES,3.03,335.42
+P01228,CD Oeste,Interior,RS,1.22,655.72
+P01229,CD Oeste,Interior,AC,2.7,816.9
+P01230,CD Oeste,Interior,SP,2.71,814.49
+P01231,CD Oeste,Interior,RS,1.24,1081.02
+P01232,Loja,Interior,DF,0.83,1162.28
+P01233,CD Leste,Interior,SC,0.8,1077.58
+P01234,CD Leste,Interior,AL,1.94,774.6
+P01235,CD Leste,Interior,RS,2.29,310.46
+P01236,CD Oeste,Capital,SC,1.05,1136.67
+P01237,CD Leste,Interior,SP,1.86,275.84
+P01238,Loja,Capital,MS,2.72,249.6
+P01239,CD Oeste,Capital,SP,2.81,435.68
+P01240,CD Oeste,Capital,SP,5.4,722.44
+P01241,CD Oeste,Capital,PR,4.45,843.25
+P01242,CD Leste,Interior,RS,0.9,94.89
+P01243,Loja,Interior,RR,5.92,951.38
+P01244,CD Leste,Capital,MS,1.26,276.02
+P01245,CD Oeste,Capital,CE,3.79,412.06
+P01246,Loja,Interior,RJ,1.91,440.74
+P01247,CD Oeste,Interior,SC,1.37,452.34
+P01248,Loja,Interior,TO,0.51,931.61
+P01249,CD Leste,Capital,RJ,1.62,125.86
+P01250,Loja,Capital,PE,0.61,300.1
+P01251,CD Oeste,Capital,SC,3.59,105.0
+P01252,CD Oeste,Capital,SP,5.27,951.7
+P01253,CD Leste,Interior,RS,1.04,1181.77
+P01254,CD Leste,Interior,SP,2.25,818.69
+P01255,CD Oeste,Capital,SP,1.1,740.96
+P01256,CD Leste,Interior,SP,1.17,1097.03
+P01257,CD Oeste,Interior,SP,3.13,365.55
+P01258,Loja,Capital,RJ,1.77,154.44
+P01259,Loja,Interior,RN,6.16,651.17
+P01260,CD Leste,Capital,RJ,1.3,371.59
+P01261,Loja,Interior,CE,3.67,585.21
+P01262,CD Leste,Capital,RS,1.95,591.06
+P01263,CD Oeste,Interior,SP,3.18,437.09
+P01264,Loja,Capital,SP,1.33,624.68
+P01265,CD Leste,Interior,AM,1.76,505.77
+P01266,CD Leste,Interior,RS,1.68,206.63
+P01267,CD Leste,Interior,MA,1.01,1050.73
+P01268,CD Oeste,Capital,MG,2.9,865.43
+P01269,Loja,Interior,MS,2.87,126.27
+P01270,CD Leste,Interior,BA,2.76,209.68
+P01271,CD Leste,Capital,RO,5.34,188.1
+P01272,CD Oeste,Interior,SP,5.03,149.15
+P01273,CD Leste,Capital,PA,1.4,146.14
+P01274,CD Oeste,Capital,RJ,2.37,255.97
+P01275,Loja,Interior,CE,1.18,1029.61
+P01276,CD Oeste,Capital,SC,1.85,1007.62
+P01277,Loja,Interior,RS,1.2,957.12
+P01278,CD Oeste,Capital,RJ,5.66,768.47
+P01279,Loja,Capital,CE,2.35,890.31
+P01280,CD Leste,Capital,MG,1.56,907.1
+P01281,CD Leste,Capital,PR,4.2,1076.03
+P01282,CD Oeste,Interior,RS,0.4,900.22
+P01283,CD Leste,Interior,BA,0.44,904.83
+P01284,Loja,Interior,PR,3.18,980.57
+P01285,CD Oeste,Capital,MT,1.9,703.12
+P01286,Loja,Interior,PR,2.17,318.59
+P01287,CD Leste,Capital,GO,0.72,174.69
+P01288,CD Oeste,Capital,GO,1.79,549.33
+P01289,CD Oeste,Interior,MS,7.41,182.69
+P01290,CD Leste,Interior,CE,3.24,269.62
+P01291,CD Oeste,Interior,SC,2.05,106.7
+P01292,CD Oeste,Interior,SP,1.34,416.23
+P01293,Loja,Interior,GO,1.38,1166.4
+P01294,CD Oeste,Capital,SP,0.41,504.4
+P01295,CD Leste,Capital,SP,2.18,349.8
+P01296,CD Oeste,Capital,PE,3.29,531.86
+P01297,CD Oeste,Interior,ES,0.6,417.5
+P01298,CD Leste,Interior,PR,1.15,834.74
+P01299,CD Leste,Interior,AC,0.81,790.6
+P01300,CD Leste,Capital,SP,0.93,110.62
+P01301,CD Leste,Interior,SP,1.89,652.68
+P01302,CD Oeste,Interior,SP,0.42,120.54
+P01303,CD Leste,Interior,SP,2.8,838.65
+P01304,CD Oeste,Interior,BA,3.09,1128.11
+P01305,CD Leste,Capital,BA,1.53,1096.39
+P01306,CD Oeste,Capital,RS,0.32,310.4
+P01307,CD Leste,Interior,MG,0.91,911.76
+P01308,Loja,Interior,SC,4.32,968.23
+P01309,CD Leste,Capital,SP,0.26,1048.09
+P01310,CD Oeste,Capital,MT,1.43,370.75
+P01311,CD Leste,Capital,DF,0.8,584.94
+P01312,CD Leste,Interior,SP,3.2,328.08
+P01313,CD Oeste,Capital,PE,1.14,107.23
+P01314,Loja,Capital,BA,2.42,818.09
+P01315,Loja,Interior,MG,2.71,563.24
+P01316,CD Leste,Interior,DF,6.59,357.89
+P01317,CD Leste,Capital,RS,1.58,1028.76
+P01318,CD Oeste,Capital,SP,2.37,635.16
+P01319,CD Oeste,Capital,SP,0.64,1194.02
+P01320,CD Leste,Capital,MT,4.19,968.56
+P01321,CD Oeste,Capital,AM,1.07,1053.52
+P01322,CD Oeste,Capital,RS,1.23,946.13
+P01323,CD Oeste,Interior,RS,1.79,198.64
+P01324,CD Leste,Interior,GO,0.61,152.83
+P01325,CD Leste,Interior,PR,2.14,1104.89
+P01326,CD Leste,Capital,SP,3.59,234.78
+P01327,CD Oeste,Capital,RJ,2.24,518.17
+P01328,CD Leste,Interior,PI,0.6,763.1
+P01329,CD Oeste,Interior,PE,1.67,317.33
+P01330,CD Oeste,Interior,MA,3.06,332.32
+P01331,CD Oeste,Capital,SP,0.49,602.19
+P01332,CD Leste,Capital,SC,0.86,484.2
+P01333,CD Leste,Interior,RS,3.37,837.76
+P01334,CD Oeste,Interior,SP,2.2,164.09
+P01335,CD Oeste,Capital,SP,2.43,627.41
+P01336,Loja,Interior,PE,6.7,275.17
+P01337,CD Leste,Interior,GO,2.53,759.53
+P01338,Loja,Interior,GO,2.89,210.16
+P01339,CD Leste,Capital,MG,12.15,301.35
+P01340,CD Leste,Interior,SC,1.57,980.36
+P01341,CD Leste,Interior,SP,1.04,343.39
+P01342,CD Oeste,Capital,SP,2.46,905.51
+P01343,CD Leste,Interior,SC,2.48,385.83
+P01344,CD Leste,Interior,MG,1.26,343.23
+P01345,CD Oeste,Interior,TO,0.88,415.05
+P01346,CD Oeste,Capital,PR,9.18,1066.64
+P01347,CD Leste,Interior,SP,2.29,524.83
+P01348,CD Leste,Interior,SP,1.09,353.01
+P01349,CD Oeste,Capital,BA,3.46,681.04
+P01350,CD Leste,Capital,SP,1.69,511.92
+P01351,CD Leste,Capital,SP,1.53,965.02
+P01352,CD Oeste,Capital,ES,2.7,1189.3
+P01353,CD Leste,Interior,MG,0.74,669.76
+P01354,CD Oeste,Interior,DF,2.33,585.96
+P01355,CD Leste,Capital,PR,6.95,464.2
+P01356,CD Leste,Interior,SP,2.53,1170.14
+P01357,CD Leste,Capital,PE,1.4,621.28
+P01358,CD Leste,Interior,ES,1.28,279.36
+P01359,CD Leste,Interior,DF,1.37,1165.52
+P01360,CD Leste,Interior,SP,1.53,1156.19
+P01361,Loja,Interior,DF,1.4,568.01
+P01362,Loja,Interior,MG,3.46,469.97
+P01363,CD Leste,Capital,PR,0.54,842.09
+P01364,CD Oeste,Capital,MG,3.33,1008.4
+P01365,CD Oeste,Interior,RR,1.4,638.36
+P01366,Loja,Capital,SP,2.37,450.51
+P01367,CD Leste,Capital,MA,0.83,417.56
+P01368,CD Leste,Capital,MA,4.62,445.79
+P01369,CD Leste,Interior,ES,4.36,212.2
+P01370,CD Leste,Interior,MG,3.57,952.05
+P01371,CD Leste,Interior,RJ,0.63,197.56
+P01372,Loja,Interior,AC,3.26,526.11
+P01373,Loja,Capital,DF,2.42,1015.14
+P01374,CD Leste,Capital,SC,0.59,532.6
+P01375,CD Oeste,Interior,SP,1.79,410.13
+P01376,CD Leste,Interior,CE,2.35,1142.04
+P01377,CD Oeste,Capital,SP,2.69,221.73
+P01378,CD Oeste,Interior,SP,2.06,1071.04
+P01379,CD Leste,Interior,MG,2.23,149.53
+P01380,Loja,Capital,PR,5.11,543.15
+P01381,Loja,Capital,PB,4.3,787.53
+P01382,CD Oeste,Interior,PE,0.24,494.44
+P01383,CD Oeste,Interior,SP,1.46,678.76
+P01384,CD Oeste,Interior,RJ,1.62,308.48
+P01385,CD Leste,Interior,PE,0.53,717.32
+P01386,CD Leste,Interior,SC,1.95,230.71
+P01387,CD Oeste,Interior,SP,4.37,971.63
+P01388,CD Leste,Capital,RJ,0.85,733.84
+P01389,Loja,Interior,DF,2.31,619.76
+P01390,CD Leste,Interior,TO,0.96,141.23
+P01391,CD Leste,Interior,GO,1.14,639.75
+P01392,CD Leste,Capital,SP,5.13,711.2
+P01393,Loja,Interior,MS,1.25,377.55
+P01394,CD Leste,Interior,MG,2.52,838.9
+P01395,CD Leste,Capital,AL,0.49,165.98
+P01396,CD Leste,Capital,RJ,6.71,313.73
+P01397,CD Oeste,Capital,SP,2.78,906.05
+P01398,Loja,Interior,PR,1.6,244.89
+P01399,CD Leste,Interior,MG,2.73,355.01
+P01400,Loja,Capital,SP,0.68,808.96
+P01401,CD Leste,Interior,RS,4.17,896.3
+P01402,CD Oeste,Capital,BA,1.45,137.67
+P01403,CD Leste,Interior,CE,1.58,221.78
+P01404,CD Oeste,Capital,RJ,1.29,579.65
+P01405,CD Oeste,Interior,SP,1.21,743.93
+P01406,CD Oeste,Interior,PR,2.96,588.23
+P01407,CD Leste,Capital,ES,2.18,804.72
+P01408,Loja,Interior,SP,2.88,926.71
+P01409,Loja,Interior,PB,1.81,1143.49
+P01410,CD Oeste,Interior,TO,2.61,471.87
+P01411,CD Oeste,Interior,SP,1.36,262.68
+P01412,CD Oeste,Interior,PE,8.68,375.77
+P01413,CD Leste,Interior,GO,0.61,245.94
+P01414,Loja,Capital,MG,4.4,521.56
+P01415,CD Leste,Interior,DF,4.75,1057.28
+P01416,CD Oeste,Capital,SP,1.0,468.71
+P01417,CD Leste,Capital,SP,8.68,246.68
+P01418,CD Leste,Capital,AP,3.66,665.35
+P01419,CD Oeste,Capital,DF,3.6,1190.98
+P01420,CD Oeste,Interior,MG,1.86,290.76
+P01421,Loja,Interior,PR,1.57,951.22
+P01422,Loja,Interior,PA,1.57,1002.16
+P01423,CD Leste,Capital,ES,2.39,529.5
+P01424,CD Leste,Interior,PI,4.86,773.9
+P01425,CD Leste,Interior,AL,2.07,564.26
+P01426,CD Oeste,Capital,RJ,0.96,373.81
+P01427,CD Oeste,Interior,MT,3.24,557.25
+P01428,Loja,Interior,GO,3.47,186.72
+P01429,CD Oeste,Capital,BA,2.88,871.79
+P01430,CD Leste,Interior,RJ,3.07,1008.7
+P01431,CD Oeste,Interior,SP,1.51,424.29
+P01432,CD Oeste,Capital,SP,0.95,714.45
+P01433,CD Oeste,Interior,DF,0.99,340.01
+P01434,CD Leste,Interior,BA,0.58,222.76
+P01435,CD Leste,Interior,BA,2.15,823.25
+P01436,CD Leste,Interior,RS,1.72,230.2
+P01437,CD Leste,Interior,SP,1.34,955.82
+P01438,CD Oeste,Interior,SP,0.23,384.37
+P01439,CD Leste,Interior,PE,0.76,996.74
+P01440,CD Oeste,Interior,SC,3.99,492.73
+P01441,CD Oeste,Interior,PE,1.14,493.1
+P01442,Loja,Capital,SP,2.35,920.64
+P01443,CD Leste,Interior,RJ,0.69,651.5
+P01444,CD Leste,Interior,MA,4.99,305.09
+P01445,CD Leste,Interior,SP,1.65,1032.46
+P01446,CD Leste,Interior,SP,2.23,460.97
+P01447,CD Leste,Interior,GO,9.28,195.11
+P01448,CD Oeste,Capital,RS,5.27,545.92
+P01449,CD Leste,Capital,PA,1.47,722.84
+P01450,CD Leste,Capital,PI,1.2,763.07
+P01451,CD Leste,Capital,BA,1.45,1015.88
+P01452,CD Oeste,Interior,SP,2.6,686.38
+P01453,Loja,Capital,PR,1.69,330.56
+P01454,CD Oeste,Capital,PB,1.38,373.07
+P01455,CD Oeste,Capital,ES,5.09,192.94
+P01456,CD Oeste,Interior,PA,1.68,904.24
+P01457,CD Oeste,Interior,GO,9.11,198.65
+P01458,CD Leste,Capital,SP,1.94,758.51
+P01459,CD Oeste,Capital,SC,6.36,748.58
+P01460,CD Oeste,Capital,MT,2.34,959.76
+P01461,CD Leste,Capital,SP,3.58,163.59
+P01462,CD Oeste,Capital,RJ,1.1,307.26
+P01463,CD Oeste,Capital,MS,1.0,1098.71
+P01464,CD Oeste,Capital,SP,2.51,720.91
+P01465,CD Leste,Interior,RJ,3.64,592.61
+P01466,CD Oeste,Interior,MT,1.87,917.4
+P01467,Loja,Interior,BA,0.74,1090.83
+P01468,CD Leste,Capital,SC,0.7,374.57
+P01469,CD Leste,Capital,PA,0.67,1089.65
+P01470,CD Leste,Interior,MA,0.53,201.74
+P01471,CD Leste,Capital,PR,1.97,1175.01
+P01472,Loja,Interior,SP,4.0,264.63
+P01473,CD Oeste,Interior,BA,1.81,378.18
+P01474,CD Leste,Interior,SP,0.37,188.19
+P01475,CD Leste,Capital,CE,1.59,980.12
+P01476,Loja,Interior,RS,1.63,1182.34
+P01477,CD Leste,Capital,RJ,7.9,412.61
+P01478,CD Oeste,Capital,RS,0.66,444.69
+P01479,CD Leste,Capital,SC,1.39,392.46
+P01480,CD Leste,Interior,MA,6.01,253.41
+P01481,CD Oeste,Interior,SP,2.5,961.94
+P01482,CD Leste,Capital,MA,2.7,148.01
+P01483,CD Oeste,Capital,SP,1.97,1163.91
+P01484,CD Leste,Interior,BA,2.3,1118.59
+P01485,CD Oeste,Interior,MA,3.14,212.65
+P01486,CD Oeste,Capital,RJ,1.03,673.07
+P01487,CD Oeste,Capital,SP,3.37,1191.99
+P01488,CD Leste,Interior,PE,0.7,1034.93
+P01489,CD Oeste,Interior,CE,2.29,880.95
+P01490,Loja,Interior,MG,2.06,105.16
+P01491,CD Leste,Capital,SC,1.18,156.58
+P01492,CD Leste,Capital,PE,1.79,969.3
+P01493,Loja,Interior,SP,1.18,501.62
+P01494,CD Leste,Capital,DF,0.86,828.64
+P01495,CD Oeste,Interior,ES,1.42,907.88
+P01496,CD Oeste,Capital,SP,0.84,552.85
+P01497,CD Leste,Interior,CE,2.28,240.59
+P01498,CD Oeste,Interior,MG,0.81,513.1
+P01499,CD Oeste,Interior,AM,3.0,1055.57
+P01500,CD Leste,Interior,RS,0.8,450.82
+P01501,Loja,Interior,SC,1.23,150.17
+P01502,CD Leste,Capital,ES,1.18,1154.23
+P01503,CD Leste,Capital,RJ,4.61,842.36
+P01504,Loja,Capital,PE,2.3,685.76
+P01505,CD Leste,Interior,GO,1.57,1008.6
+P01506,Loja,Interior,BA,2.58,540.5
+P01507,CD Leste,Capital,ES,0.42,1183.33
+P01508,CD Oeste,Capital,MG,1.77,1040.48
+P01509,CD Leste,Capital,SP,7.38,394.21
+P01510,CD Oeste,Capital,BA,2.0,495.57
+P01511,CD Oeste,Interior,RJ,1.91,388.83
+P01512,Loja,Capital,SC,2.67,818.46
+P01513,Loja,Interior,PR,3.41,796.05
+P01514,CD Oeste,Interior,ES,0.45,665.21
+P01515,CD Oeste,Capital,MT,0.56,1161.74
+P01516,CD Oeste,Capital,RS,2.11,608.95
+P01517,Loja,Interior,TO,1.1,957.77
+P01518,CD Oeste,Interior,SP,4.56,817.07
+P01519,Loja,Interior,RS,1.46,660.37
+P01520,CD Leste,Capital,SP,0.47,127.15
+P01521,CD Oeste,Interior,PE,0.75,816.39
+P01522,CD Oeste,Interior,DF,0.27,799.71
+P01523,CD Leste,Interior,ES,1.55,219.86
+P01524,CD Leste,Interior,PE,1.6,971.42
+P01525,Loja,Interior,PR,1.35,603.03
+P01526,CD Leste,Capital,SP,3.88,443.04
+P01527,CD Leste,Interior,PR,4.22,1002.83
+P01528,CD Leste,Interior,SP,1.62,464.58
+P01529,CD Leste,Interior,PB,0.41,776.47
+P01530,CD Oeste,Interior,BA,2.81,772.06
+P01531,Loja,Interior,BA,2.69,139.14
+P01532,Loja,Interior,SE,2.26,553.57
+P01533,CD Oeste,Interior,PE,3.62,329.51
+P01534,CD Oeste,Interior,ES,0.81,303.52
+P01535,CD Leste,Interior,SP,7.43,813.56
+P01536,Loja,Interior,RJ,0.93,92.78
+P01537,CD Leste,Capital,AM,3.08,1165.37
+P01538,CD Leste,Capital,PA,0.56,522.84
+P01539,Loja,Interior,BA,0.95,414.66
+P01540,Loja,Interior,SP,5.27,1110.37
+P01541,CD Leste,Interior,SP,1.52,625.07
+P01542,CD Oeste,Interior,SE,3.28,768.04
+P01543,CD Oeste,Interior,SP,2.15,859.35
+P01544,CD Leste,Interior,RS,1.69,1055.98
+P01545,CD Leste,Interior,RJ,4.73,225.31
+P01546,CD Leste,Capital,MG,1.54,171.45
+P01547,CD Oeste,Interior,GO,0.52,1192.96
+P01548,CD Leste,Interior,PA,1.04,89.95
+P01549,CD Oeste,Interior,BA,2.68,873.18
+P01550,CD Leste,Capital,PR,2.4,764.39
+P01551,Loja,Interior,PR,0.61,698.86
+P01552,CD Oeste,Capital,PI,1.1,960.13
+P01553,Loja,Capital,RS,1.21,1191.57
+P01554,CD Leste,Interior,PR,1.41,132.51
+P01555,CD Oeste,Capital,MT,0.7,768.27
+P01556,Loja,Interior,SP,1.17,882.79
+P01557,CD Leste,Interior,SP,1.09,422.65
+P01558,CD Leste,Capital,CE,3.13,1080.0
+P01559,CD Leste,Interior,RS,3.21,591.83
+P01560,CD Leste,Interior,SP,1.65,264.22
+P01561,CD Leste,Interior,MG,1.38,1036.94
+P01562,CD Leste,Interior,AC,2.01,1136.08
+P01563,CD Leste,Interior,DF,1.03,191.46
+P01564,CD Oeste,Capital,DF,0.82,921.88
+P01565,CD Leste,Capital,SP,0.94,320.82
+P01566,CD Leste,Interior,TO,1.17,87.53
+P01567,CD Oeste,Interior,PB,0.81,371.89
+P01568,CD Leste,Interior,SC,2.04,1037.5
+P01569,CD Leste,Capital,MG,3.04,238.13
+P01570,CD Leste,Capital,MT,0.6,226.35
+P01571,CD Leste,Interior,CE,1.85,907.73
+P01572,CD Oeste,Capital,PE,1.56,535.12
+P01573,CD Leste,Interior,RO,2.31,246.3
+P01574,CD Leste,Interior,DF,1.81,337.6
+P01575,Loja,Capital,MG,0.66,969.95
+P01576,Loja,Capital,PR,0.75,778.06
+P01577,CD Leste,Capital,PE,1.86,932.24
+P01578,CD Leste,Capital,MG,3.74,189.51
+P01579,CD Oeste,Interior,SP,0.39,593.08
+P01580,Loja,Interior,BA,2.32,972.76
+P01581,Loja,Capital,PR,4.19,377.69
+P01582,CD Leste,Interior,PE,1.64,269.49
+P01583,CD Leste,Capital,SP,2.68,507.6
+P01584,CD Leste,Capital,MG,1.11,453.39
+P01585,Loja,Interior,MG,1.68,287.73
+P01586,Loja,Interior,MT,0.59,1148.42
+P01587,CD Leste,Interior,BA,0.35,621.07
+P01588,CD Oeste,Capital,PR,3.53,761.05
+P01589,CD Leste,Interior,PR,0.91,215.64
+P01590,CD Oeste,Interior,SP,1.32,763.24
+P01591,Loja,Interior,MS,0.69,701.96
+P01592,CD Oeste,Interior,AP,0.68,1123.76
+P01593,CD Leste,Interior,BA,1.61,541.79
+P01594,CD Oeste,Capital,SP,1.09,955.91
+P01595,CD Leste,Interior,DF,2.37,420.68
+P01596,Loja,Interior,MG,2.5,728.41
+P01597,CD Leste,Capital,SP,2.28,1118.21
+P01598,Loja,Interior,SP,2.15,780.08
+P01599,CD Leste,Interior,SP,5.5,876.5
+P01600,CD Leste,Interior,SP,0.86,1061.1
+P01601,CD Leste,Capital,PE,1.75,1116.48
+P01602,CD Leste,Interior,MG,4.03,313.27
+P01603,CD Leste,Interior,BA,4.42,299.34
+P01604,CD Oeste,Interior,PA,0.67,696.53
+P01605,CD Leste,Interior,RS,1.46,1194.98
+P01606,CD Leste,Capital,PR,4.71,628.97
+P01607,CD Leste,Interior,BA,2.6,450.61
+P01608,CD Leste,Interior,SP,2.09,681.73
+P01609,Loja,Interior,ES,1.56,152.12
+P01610,Loja,Interior,PR,1.39,278.47
+P01611,CD Leste,Interior,CE,2.23,246.79
+P01612,CD Oeste,Interior,PE,1.53,111.27
+P01613,CD Oeste,Interior,CE,1.77,888.88
+P01614,Loja,Capital,MT,1.93,444.53
+P01615,CD Leste,Interior,SC,1.13,268.76
+P01616,CD Leste,Interior,CE,2.64,653.71
+P01617,CD Oeste,Interior,SE,14.01,442.26
+P01618,Loja,Capital,PR,0.53,520.18
+P01619,CD Oeste,Capital,AC,2.29,433.4
+P01620,CD Oeste,Capital,SE,1.07,84.46
+P01621,CD Leste,Interior,SC,2.73,850.93
+P01622,CD Oeste,Interior,SP,1.88,203.97
+P01623,Loja,Capital,SP,3.11,325.44
+P01624,CD Leste,Capital,BA,4.15,293.16
+P01625,CD Oeste,Interior,SP,2.08,451.13
+P01626,CD Leste,Capital,PR,4.02,259.42
+P01627,CD Oeste,Interior,RS,0.35,468.59
+P01628,CD Oeste,Capital,SE,5.55,352.46
+P01629,CD Oeste,Interior,CE,2.37,148.56
+P01630,Loja,Capital,BA,3.87,1055.03
+P01631,CD Leste,Interior,RJ,0.78,422.25
+P01632,CD Leste,Interior,SP,1.02,186.72
+P01633,CD Leste,Interior,GO,2.02,664.11
+P01634,CD Leste,Interior,SP,1.8,218.07
+P01635,CD Leste,Interior,RS,2.22,945.86
+P01636,CD Leste,Capital,RO,3.89,148.97
+P01637,CD Leste,Interior,RS,0.53,600.39
+P01638,CD Leste,Capital,GO,3.6,1137.09
+P01639,CD Leste,Interior,GO,1.83,258.05
+P01640,CD Oeste,Interior,CE,1.58,305.53
+P01641,CD Leste,Interior,ES,0.65,752.52
+P01642,CD Oeste,Interior,PR,2.59,1177.44
+P01643,Loja,Capital,SP,0.34,512.14
+P01644,CD Oeste,Capital,DF,2.87,806.48
+P01645,CD Leste,Capital,MG,0.64,250.6
+P01646,CD Leste,Interior,SC,1.89,798.36
+P01647,CD Oeste,Interior,BA,1.68,362.98
+P01648,CD Oeste,Interior,SP,4.13,766.88
+P01649,CD Leste,Interior,RS,1.61,179.3
+P01650,CD Leste,Capital,SP,1.12,667.97
+P01651,CD Oeste,Interior,MG,1.28,345.89
+P01652,CD Leste,Capital,SP,4.44,843.51
+P01653,CD Oeste,Capital,SP,2.65,917.39
+P01654,CD Leste,Interior,AC,1.39,1029.92
+P01655,CD Leste,Capital,RR,1.54,1191.48
+P01656,Loja,Capital,MS,0.61,594.48
+P01657,CD Leste,Capital,DF,2.39,831.07
+P01658,CD Oeste,Interior,BA,0.53,100.63
+P01659,CD Leste,Capital,PB,3.08,1093.7
+P01660,CD Leste,Interior,SC,1.99,769.63
+P01661,Loja,Interior,SP,9.69,551.91
+P01662,CD Leste,Capital,MS,0.84,566.43
+P01663,CD Leste,Capital,RO,1.7,928.96
+P01664,Loja,Interior,MG,6.42,1013.49
+P01665,CD Oeste,Capital,PR,4.2,984.85
+P01666,CD Oeste,Interior,RJ,1.12,651.85
+P01667,CD Leste,Interior,RJ,2.13,495.68
+P01668,CD Leste,Capital,BA,1.82,1139.0
+P01669,CD Oeste,Interior,RJ,2.22,790.3
+P01670,CD Leste,Interior,AM,1.12,688.89
+P01671,CD Leste,Interior,PE,1.71,750.12
+P01672,CD Oeste,Interior,SP,0.6,785.45
+P01673,CD Leste,Interior,PE,2.0,878.64
+P01674,CD Leste,Interior,BA,2.5,699.57
+P01675,CD Leste,Interior,SC,1.55,1060.4
+P01676,CD Leste,Interior,PR,0.59,1042.88
+P01677,CD Oeste,Interior,CE,3.64,575.33
+P01678,Loja,Capital,ES,2.35,268.76
+P01679,CD Leste,Interior,SP,1.1,725.85
+P01680,CD Leste,Interior,MG,1.5,775.23
+P01681,CD Oeste,Capital,MG,0.64,666.19
+P01682,CD Leste,Interior,MT,0.89,1077.45
+P01683,CD Oeste,Interior,SP,1.25,184.18
+P01684,Loja,Interior,GO,4.31,401.91
+P01685,CD Oeste,Interior,PR,1.16,1049.68
+P01686,CD Leste,Capital,CE,2.85,1132.14
+P01687,Loja,Capital,PR,1.25,557.04
+P01688,CD Leste,Capital,MA,2.17,295.76
+P01689,Loja,Interior,PI,1.65,550.77
+P01690,CD Oeste,Capital,SP,3.36,590.91
+P01691,CD Oeste,Interior,MT,1.25,661.92
+P01692,Loja,Capital,SP,0.61,387.28
+P01693,CD Oeste,Capital,CE,0.69,430.14
+P01694,CD Leste,Interior,DF,1.26,814.26
+P01695,CD Leste,Capital,MG,0.76,776.41
+P01696,CD Oeste,Interior,SP,2.43,821.55
+P01697,CD Oeste,Capital,ES,1.32,502.56
+P01698,CD Leste,Interior,PE,9.6,456.83
+P01699,CD Oeste,Interior,PE,0.54,473.72
+P01700,CD Oeste,Capital,SP,2.1,1145.32
+P01701,CD Leste,Capital,MG,0.83,522.67
+P01702,CD Leste,Capital,ES,1.29,758.87
+P01703,CD Leste,Interior,RS,2.01,665.58
+P01704,CD Leste,Interior,SP,0.36,1061.37
+P01705,CD Leste,Interior,MG,2.15,493.41
+P01706,CD Leste,Capital,RN,6.9,566.24
+P01707,CD Leste,Interior,PR,1.33,1023.93
+P01708,CD Leste,Capital,BA,2.19,260.27
+P01709,CD Oeste,Interior,PR,3.73,745.61
+P01710,CD Leste,Interior,PR,1.62,527.9
+P01711,Loja,Capital,DF,1.21,1184.09
+P01712,Loja,Interior,MG,0.37,887.95
+P01713,CD Oeste,Capital,SP,2.85,91.82
+P01714,Loja,Capital,AC,1.68,1020.21
+P01715,Loja,Interior,AL,0.9,867.56
+P01716,CD Leste,Interior,BA,1.99,708.28
+P01717,CD Oeste,Interior,SP,1.21,344.46
+P01718,CD Leste,Interior,SP,1.26,247.23
+P01719,CD Oeste,Capital,SP,2.79,783.81
+P01720,CD Oeste,Interior,AM,0.71,572.73
+P01721,CD Leste,Interior,PE,3.79,1045.01
+P01722,CD Leste,Capital,SC,0.68,373.86
+P01723,Loja,Interior,TO,1.15,794.02
+P01724,CD Leste,Interior,SP,7.0,358.7
+P01725,CD Leste,Interior,RS,4.01,792.68
+P01726,CD Leste,Capital,SP,1.95,134.15
+P01727,CD Oeste,Interior,MG,0.94,518.71
+P01728,Loja,Capital,AM,1.26,273.41
+P01729,CD Oeste,Capital,AL,1.92,758.65
+P01730,CD Leste,Capital,SP,1.87,434.74
+P01731,CD Leste,Interior,SP,1.71,944.12
+P01732,CD Leste,Capital,RS,1.78,208.35
+P01733,CD Oeste,Interior,SP,1.57,702.96
+P01734,Loja,Capital,RS,0.66,744.92
+P01735,CD Oeste,Interior,RS,1.27,104.76
+P01736,CD Leste,Interior,MG,3.46,120.3
+P01737,CD Oeste,Capital,MG,0.7,425.23
+P01738,CD Leste,Interior,SP,1.6,762.16
+P01739,CD Oeste,Capital,AM,1.03,1158.15
+P01740,CD Oeste,Capital,RJ,1.97,181.68
+P01741,CD Oeste,Interior,RS,1.39,867.54
+P01742,CD Oeste,Interior,MG,5.13,855.84
+P01743,Loja,Capital,MS,2.6,829.81
+P01744,CD Leste,Interior,SP,0.73,658.09
+P01745,CD Leste,Capital,SP,2.91,1162.85
+P01746,CD Leste,Interior,BA,1.06,641.99
+P01747,CD Oeste,Interior,BA,1.22,1018.89
+P01748,CD Oeste,Interior,MG,2.27,374.02
+P01749,CD Oeste,Interior,RJ,1.29,983.07
+P01750,CD Oeste,Interior,PA,3.4,1196.13
+P01751,CD Leste,Interior,SP,1.06,1099.3
+P01752,CD Oeste,Capital,SP,1.18,420.56
+P01753,CD Oeste,Capital,ES,1.15,1027.7
+P01754,CD Leste,Interior,MG,1.23,186.69
+P01755,CD Leste,Capital,GO,3.93,839.03
+P01756,CD Leste,Interior,MT,2.83,463.2
+P01757,CD Leste,Capital,SC,6.03,817.71
+P01758,CD Oeste,Interior,DF,8.91,541.72
+P01759,Loja,Capital,ES,0.89,90.12
+P01760,CD Oeste,Interior,BA,1.91,339.03
+P01761,CD Leste,Interior,SP,0.8,127.47
+P01762,CD Oeste,Capital,MG,1.06,558.54
+P01763,CD Oeste,Interior,MT,1.17,1020.88
+P01764,CD Leste,Interior,MG,0.87,906.56
+P01765,Loja,Capital,SP,0.87,963.58
+P01766,CD Leste,Capital,RJ,1.65,984.06
+P01767,CD Leste,Interior,MS,0.78,496.57
+P01768,CD Leste,Interior,SP,3.29,646.75
+P01769,CD Leste,Capital,BA,0.96,649.47
+P01770,Loja,Interior,BA,13.02,206.79
+P01771,CD Leste,Capital,DF,1.33,749.92
+P01772,CD Leste,Capital,SP,1.92,886.6
+P01773,CD Leste,Interior,PE,0.74,764.28
+P01774,CD Leste,Capital,SP,6.02,915.48
+P01775,CD Leste,Capital,PI,3.99,213.16
+P01776,CD Leste,Interior,MS,2.24,932.78
+P01777,CD Oeste,Capital,SP,0.71,313.12
+P01778,CD Leste,Capital,PE,2.11,1062.05
+P01779,CD Oeste,Interior,SC,0.83,354.32
+P01780,CD Leste,Interior,PR,5.07,631.03
+P01781,CD Oeste,Interior,ES,3.21,625.74
+P01782,Loja,Interior,RS,1.95,381.11
+P01783,CD Leste,Interior,BA,0.33,485.11
+P01784,CD Leste,Capital,PB,0.92,287.87
+P01785,Loja,Interior,MG,2.95,718.51
+P01786,CD Oeste,Capital,DF,4.26,1102.59
+P01787,CD Oeste,Capital,MT,3.96,434.6
+P01788,CD Leste,Interior,GO,0.6,649.03
+P01789,CD Leste,Interior,PR,2.25,1045.31
+P01790,CD Oeste,Interior,RJ,3.71,586.8
+P01791,Loja,Capital,BA,0.57,1011.01
+P01792,CD Leste,Capital,MG,1.81,579.96
+P01793,CD Oeste,Interior,SP,2.21,573.07
+P01794,CD Oeste,Interior,SC,1.48,256.11
+P01795,CD Leste,Interior,MG,0.5,219.98
+P01796,CD Leste,Capital,SP,1.45,764.88
+P01797,CD Leste,Capital,SP,1.45,1006.61
+P01798,CD Leste,Interior,MT,1.64,231.66
+P01799,CD Oeste,Interior,TO,1.23,1099.31
+P01800,CD Leste,Capital,PR,1.34,481.95
+P01801,CD Leste,Capital,SP,1.77,556.29
+P01802,CD Oeste,Capital,PE,2.48,1081.79
+P01803,CD Oeste,Capital,MG,1.47,1083.85
+P01804,CD Oeste,Interior,RR,1.37,667.84
+P01805,CD Oeste,Capital,RS,1.94,389.98
+P01806,CD Leste,Interior,SP,0.47,272.57
+P01807,CD Oeste,Interior,PR,2.54,384.17
+P01808,CD Leste,Interior,MG,1.82,954.3
+P01809,CD Leste,Interior,BA,1.87,443.54
+P01810,CD Leste,Capital,SP,3.57,857.91
+P01811,CD Oeste,Capital,CE,0.46,298.62
+P01812,CD Oeste,Capital,BA,0.46,615.92
+P01813,CD Leste,Interior,AL,2.21,474.36
+P01814,Loja,Capital,PB,1.81,644.05
+P01815,Loja,Capital,SP,2.05,718.34
+P01816,CD Leste,Capital,SC,1.32,1189.85
+P01817,CD Oeste,Capital,CE,2.9,1087.88
+P01818,CD Leste,Interior,RJ,3.5,859.37
+P01819,Loja,Interior,SP,2.56,252.19
+P01820,CD Leste,Interior,MG,1.52,1109.31
+P01821,CD Leste,Interior,SP,0.42,1079.7
+P01822,CD Leste,Capital,SE,3.12,1073.11
+P01823,CD Leste,Capital,PR,4.29,616.5
+P01824,CD Oeste,Capital,MT,2.86,271.19
+P01825,CD Oeste,Interior,PA,0.98,924.93
+P01826,CD Leste,Interior,MG,2.92,515.14
+P01827,CD Oeste,Capital,BA,3.33,465.92
+P01828,Loja,Interior,SP,5.43,517.68
+P01829,CD Oeste,Capital,SP,0.99,706.16
+P01830,CD Oeste,Capital,SP,1.56,453.54
+P01831,CD Leste,Interior,MG,3.07,852.71
+P01832,CD Leste,Interior,RJ,1.9,805.45
+P01833,Loja,Interior,PR,0.83,649.93
+P01834,CD Oeste,Interior,SP,2.44,140.45
+P01835,CD Oeste,Capital,SP,2.73,1128.93
+P01836,Loja,Interior,GO,1.94,541.1
+P01837,CD Leste,Interior,SP,2.12,583.39
+P01838,CD Oeste,Interior,PE,1.52,590.76
+P01839,CD Leste,Capital,MA,5.13,488.83
+P01840,CD Leste,Interior,MS,0.97,835.54
+P01841,CD Oeste,Capital,RS,1.21,95.59
+P01842,CD Leste,Interior,GO,1.84,1058.33
+P01843,Loja,Interior,GO,3.37,194.73
+P01844,CD Leste,Interior,AM,0.64,1199.68
+P01845,Loja,Interior,PA,0.73,783.45
+P01846,CD Oeste,Interior,ES,0.44,154.2
+P01847,CD Oeste,Capital,DF,1.86,709.93
+P01848,Loja,Interior,PE,0.83,451.06
+P01849,CD Leste,Interior,SP,1.39,1147.41
+P01850,CD Leste,Interior,SC,2.89,926.13
+P01851,CD Leste,Capital,GO,1.16,647.86
+P01852,CD Leste,Interior,MS,2.14,561.35
+P01853,Loja,Interior,RJ,1.48,1195.37
+P01854,CD Oeste,Interior,MG,2.92,827.47
+P01855,CD Leste,Capital,SP,2.54,655.6
+P01856,CD Leste,Capital,RS,1.12,525.7
+P01857,CD Oeste,Interior,MA,1.62,443.53
+P01858,CD Oeste,Capital,PB,3.78,870.07
+P01859,CD Leste,Interior,RJ,2.4,738.43
+P01860,CD Oeste,Capital,MG,0.69,1029.97
+P01861,CD Oeste,Interior,PE,2.88,699.99
+P01862,CD Oeste,Capital,BA,0.85,732.21
+P01863,CD Leste,Capital,SC,4.9,614.64
+P01864,CD Oeste,Interior,RJ,3.73,934.14
+P01865,CD Leste,Capital,SP,2.23,544.79
+P01866,CD Leste,Capital,PE,2.03,1034.17
+P01867,CD Oeste,Capital,DF,1.57,446.29
+P01868,CD Oeste,Capital,RJ,2.93,855.74
+P01869,CD Leste,Interior,MA,1.41,1080.13
+P01870,Loja,Capital,GO,2.15,941.36
+P01871,CD Leste,Capital,MA,3.35,463.72
+P01872,CD Oeste,Interior,PR,1.23,871.1
+P01873,Loja,Interior,PR,1.18,311.82
+P01874,CD Oeste,Interior,AM,0.79,145.14
+P01875,Loja,Capital,PA,0.86,966.35
+P01876,CD Oeste,Interior,PA,0.51,984.97
+P01877,CD Oeste,Interior,PE,3.04,105.68
+P01878,CD Oeste,Capital,PR,6.46,1141.53
+P01879,CD Oeste,Interior,SP,4.94,579.41
+P01880,CD Leste,Interior,RJ,0.58,1093.9
+P01881,CD Oeste,Interior,AM,3.03,962.76
+P01882,CD Leste,Interior,RJ,4.93,1088.73
+P01883,Loja,Capital,BA,1.32,1013.38
+P01884,CD Leste,Interior,MA,1.96,1170.87
+P01885,CD Leste,Interior,TO,0.45,784.59
+P01886,Loja,Capital,PA,2.2,334.53
+P01887,CD Leste,Capital,RS,0.87,516.31
+P01888,CD Leste,Capital,PR,2.1,922.1
+P01889,CD Oeste,Interior,AC,0.61,255.81
+P01890,CD Leste,Capital,SP,2.66,1121.42
+P01891,CD Leste,Capital,SP,3.73,309.91
+P01892,CD Oeste,Interior,PA,1.05,1061.09
+P01893,CD Leste,Interior,MT,0.82,621.77
+P01894,CD Leste,Capital,SC,0.4,1021.49
+P01895,CD Leste,Interior,SP,1.51,1153.29
+P01896,CD Leste,Interior,SC,1.21,552.81
+P01897,CD Leste,Interior,AM,0.62,860.2
+P01898,CD Leste,Capital,RS,2.5,333.92
+P01899,CD Oeste,Capital,RJ,1.33,976.88
+P01900,CD Oeste,Interior,RS,0.86,998.32
+P01901,CD Leste,Capital,RN,1.24,410.68
+P01902,CD Leste,Interior,MA,3.86,107.04
+P01903,Loja,Capital,RJ,2.78,562.95
+P01904,CD Oeste,Interior,RS,1.66,270.4
+P01905,CD Leste,Interior,MG,2.81,996.78
+P01906,CD Oeste,Interior,PR,0.81,372.43
+P01907,CD Leste,Interior,SP,1.86,1136.94
+P01908,Loja,Interior,SC,2.02,1168.43
+P01909,Loja,Interior,RS,1.31,1097.9
+P01910,Loja,Capital,MG,2.47,751.57
+P01911,CD Leste,Interior,MG,1.06,379.52
+P01912,CD Leste,Interior,SP,2.6,984.13
+P01913,CD Leste,Interior,SP,2.68,865.79
+P01914,CD Leste,Interior,MS,0.24,1174.43
+P01915,CD Leste,Capital,SP,4.19,502.52
+P01916,CD Oeste,Interior,SP,0.22,145.82
+P01917,CD Leste,Interior,RR,1.18,1198.19
+P01918,Loja,Interior,MG,3.73,1018.86
+P01919,CD Leste,Interior,PB,1.46,328.07
+P01920,CD Leste,Interior,RS,0.65,892.7
+P01921,Loja,Interior,MS,0.85,80.77
+P01922,CD Oeste,Capital,RS,3.74,704.75
+P01923,CD Leste,Interior,SP,0.47,486.38
+P01924,CD Oeste,Capital,CE,4.02,507.09
+P01925,CD Leste,Capital,CE,1.75,353.86
+P01926,CD Leste,Capital,RJ,0.79,387.83
+P01927,CD Oeste,Interior,BA,1.21,589.23
+P01928,CD Leste,Capital,SC,0.89,357.92
+P01929,CD Oeste,Interior,PI,3.34,602.41
+P01930,CD Leste,Interior,PE,3.04,726.63
+P01931,CD Oeste,Interior,SP,0.55,876.44
+P01932,CD Oeste,Capital,SE,1.37,838.4
+P01933,CD Leste,Capital,TO,1.0,351.03
+P01934,CD Leste,Interior,BA,4.51,123.89
+P01935,CD Leste,Interior,SP,0.71,1012.6
+P01936,CD Oeste,Interior,PE,5.6,1056.99
+P01937,CD Oeste,Interior,GO,1.78,1176.36
+P01938,CD Oeste,Interior,MG,0.81,1154.88
+P01939,CD Leste,Interior,RN,1.13,789.87
+P01940,CD Leste,Interior,RS,1.04,1081.58
+P01941,CD Oeste,Interior,CE,0.75,581.77
+P01942,CD Leste,Interior,GO,1.95,961.82
+P01943,CD Oeste,Capital,MG,0.77,1149.97
+P01944,CD Leste,Capital,RO,0.4,971.83
+P01945,CD Leste,Capital,RS,1.4,545.66
+P01946,CD Oeste,Interior,SC,0.52,503.09
+P01947,CD Oeste,Interior,RJ,1.08,406.53
+P01948,CD Oeste,Capital,SP,0.96,491.11
+P01949,CD Leste,Interior,MT,0.99,999.05
+P01950,Loja,Capital,ES,7.39,865.68
+P01951,Loja,Capital,AM,1.9,359.86
+P01952,Loja,Interior,TO,2.16,876.92
+P01953,CD Oeste,Interior,BA,0.53,504.92
+P01954,CD Oeste,Capital,SP,1.15,704.71
+P01955,CD Oeste,Interior,MS,2.12,494.81
+P01956,CD Leste,Capital,SP,0.89,664.22
+P01957,CD Leste,Interior,CE,3.44,897.38
+P01958,CD Oeste,Interior,PR,0.79,898.87
+P01959,CD Leste,Interior,AM,1.49,923.56
+P01960,CD Leste,Interior,RJ,1.21,517.96
+P01961,Loja,Capital,MG,2.04,853.35
+P01962,CD Leste,Interior,RR,1.16,347.36
+P01963,CD Oeste,Capital,SC,1.51,614.72
+P01964,CD Oeste,Capital,AL,1.54,733.08
+P01965,CD Leste,Interior,MA,1.09,848.86
+P01966,Loja,Interior,SC,2.56,1101.44
+P01967,CD Leste,Interior,PR,2.15,421.34
+P01968,Loja,Capital,RS,1.71,1026.72
+P01969,CD Oeste,Interior,CE,1.35,428.46
+P01970,CD Leste,Capital,PA,3.18,698.14
+P01971,CD Leste,Interior,MG,1.54,1007.47
+P01972,CD Leste,Interior,BA,1.47,889.93
+P01973,CD Leste,Interior,MG,1.96,1046.41
+P01974,CD Leste,Interior,DF,5.98,992.67
+P01975,Loja,Capital,PE,0.71,389.51
+P01976,CD Leste,Interior,RN,3.12,1192.09
+P01977,Loja,Interior,PR,0.48,1129.44
+P01978,CD Leste,Interior,RJ,2.12,561.8
+P01979,Loja,Interior,MG,5.49,132.87
+P01980,CD Leste,Capital,SP,2.57,419.92
+P01981,CD Leste,Interior,RJ,2.05,1016.49
+P01982,CD Oeste,Interior,SE,1.23,1144.97
+P01983,CD Leste,Interior,RJ,1.86,1011.47
+P01984,Loja,Interior,MG,1.53,524.35
+P01985,CD Leste,Interior,BA,1.05,143.32
+P01986,CD Oeste,Interior,SP,1.49,659.69
+P01987,CD Oeste,Capital,MG,2.09,501.55
+P01988,CD Oeste,Interior,AM,1.06,217.73
+P01989,CD Leste,Interior,SP,1.04,198.56
+P01990,CD Leste,Interior,RJ,0.7,251.4
+P01991,CD Leste,Capital,RS,2.4,310.52
+P01992,CD Leste,Interior,SP,2.67,924.24
+P01993,CD Leste,Interior,MG,2.14,507.51
+P01994,Loja,Interior,SP,3.58,569.37
+P01995,CD Oeste,Capital,RJ,1.94,750.19
+P01996,CD Oeste,Capital,PB,2.4,1155.35
+P01997,CD Leste,Interior,ES,2.25,927.25
+P01998,CD Leste,Capital,RJ,1.71,803.2
+P01999,CD Oeste,Interior,RJ,1.26,913.09
+P02000,CD Leste,Interior,PA,8.58,885.61
+P02001,CD Leste,Interior,SP,1.33,853.08
+P02002,CD Oeste,Capital,SE,1.14,635.98
+P02003,CD Oeste,Interior,MG,2.47,714.87
+P02004,Loja,Interior,PA,2.17,596.87
+P02005,CD Leste,Interior,MG,0.68,522.35
+P02006,CD Oeste,Capital,SP,4.0,383.26
+P02007,CD Leste,Capital,SC,1.71,477.84
+P02008,CD Leste,Interior,SP,0.84,559.95
+P02009,CD Oeste,Interior,BA,4.19,728.9
+P02010,CD Leste,Capital,GO,2.82,639.86
+P02011,CD Oeste,Interior,MT,0.75,200.9
+P02012,CD Leste,Capital,SP,6.32,460.77
+P02013,CD Leste,Interior,MS,2.89,501.34
+P02014,Loja,Capital,MG,1.81,871.76
+P02015,CD Leste,Interior,RR,5.55,452.84
+P02016,CD Oeste,Interior,BA,2.04,88.91
+P02017,CD Leste,Capital,RS,1.79,174.46
+P02018,Loja,Interior,AL,1.15,636.64
+P02019,CD Leste,Capital,RS,2.74,291.11
+P02020,CD Leste,Capital,RS,2.54,633.98
+P02021,CD Oeste,Capital,SP,1.84,723.11
+P02022,CD Leste,Capital,GO,1.05,1125.45
+P02023,CD Leste,Interior,RJ,2.0,814.25
+P02024,Loja,Capital,SP,1.74,114.77
+P02025,CD Oeste,Interior,PE,0.72,506.42
+P02026,CD Oeste,Capital,SP,0.65,968.67
+P02027,CD Oeste,Interior,GO,2.71,371.83
+P02028,Loja,Interior,SP,0.29,1115.97
+P02029,Loja,Interior,ES,2.1,672.49
+P02030,CD Oeste,Capital,CE,1.3,183.54
+P02031,CD Leste,Capital,SP,4.55,350.67
+P02032,CD Leste,Interior,GO,1.29,1095.06
+P02033,CD Oeste,Interior,DF,2.89,1190.43
+P02034,Loja,Interior,AL,1.38,1046.58
+P02035,CD Oeste,Capital,SP,1.97,439.16
+P02036,CD Leste,Capital,PE,3.05,941.08
+P02037,CD Leste,Interior,PR,1.32,328.89
+P02038,CD Oeste,Interior,ES,3.66,510.66
+P02039,Loja,Interior,RJ,0.91,860.83
+P02040,CD Leste,Capital,RJ,2.24,1165.17
+P02041,CD Oeste,Capital,SC,3.48,571.9
+P02042,CD Oeste,Interior,SP,2.89,635.34
+P02043,Loja,Interior,ES,6.97,326.59
+P02044,CD Leste,Capital,GO,1.07,531.61
+P02045,Loja,Interior,PR,0.69,150.58
+P02046,CD Oeste,Interior,SP,0.91,1041.62
+P02047,CD Oeste,Capital,RJ,2.89,106.13
+P02048,CD Leste,Capital,PR,2.58,845.55
+P02049,CD Oeste,Interior,GO,1.96,386.01
+P02050,CD Oeste,Capital,PI,0.83,613.24
+P02051,CD Leste,Interior,RS,3.12,395.35
+P02052,CD Leste,Interior,GO,0.77,528.08
+P02053,CD Oeste,Capital,SP,4.1,692.39
+P02054,CD Oeste,Interior,PA,13.47,797.8
+P02055,CD Leste,Capital,MG,2.35,1133.12
+P02056,CD Leste,Interior,RJ,2.74,452.07
+P02057,CD Leste,Interior,SP,1.29,735.04
+P02058,Loja,Interior,SP,0.51,1089.93
+P02059,Loja,Interior,PE,1.19,405.06
+P02060,CD Leste,Interior,SP,0.85,1048.86
+P02061,CD Leste,Interior,MG,0.66,1152.46
+P02062,CD Leste,Interior,SP,6.08,1029.19
+P02063,CD Oeste,Interior,TO,2.21,718.24
+P02064,Loja,Capital,PE,2.38,888.77
+P02065,CD Oeste,Interior,MA,1.47,618.79
+P02066,CD Leste,Interior,AL,1.61,748.93
+P02067,CD Leste,Capital,PI,3.58,1171.41
+P02068,CD Leste,Interior,PR,1.78,361.26
+P02069,Loja,Capital,SP,2.64,967.65
+P02070,CD Oeste,Capital,MG,1.59,646.98
+P02071,CD Oeste,Capital,MG,1.43,278.1
+P02072,CD Leste,Capital,MS,0.68,800.76
+P02073,Loja,Capital,SP,0.46,967.52
+P02074,CD Leste,Interior,SP,1.52,717.01
+P02075,Loja,Interior,MT,1.9,1017.92
+P02076,Loja,Capital,SP,0.74,489.77
+P02077,CD Oeste,Capital,SP,1.78,1103.42
+P02078,Loja,Interior,SP,1.89,806.12
+P02079,CD Leste,Capital,MT,0.4,979.54
+P02080,CD Oeste,Interior,SP,0.96,385.74
+P02081,CD Leste,Interior,SP,2.42,579.66
+P02082,CD Oeste,Interior,SP,2.39,1098.77
+P02083,CD Leste,Interior,BA,0.81,137.0
+P02084,CD Leste,Interior,SP,2.04,532.46
+P02085,CD Leste,Interior,SP,3.73,953.96
+P02086,CD Leste,Interior,PI,3.14,913.07
+P02087,CD Oeste,Capital,SE,1.7,1033.82
+P02088,CD Oeste,Capital,SP,1.31,908.12
+P02089,CD Leste,Capital,MG,1.17,1140.74
+P02090,Loja,Capital,SP,2.53,638.05
+P02091,Loja,Interior,MS,2.09,779.2
+P02092,CD Leste,Capital,MG,2.83,1029.43
+P02093,CD Leste,Capital,AM,2.0,865.89
+P02094,CD Oeste,Capital,CE,3.23,194.3
+P02095,CD Oeste,Interior,RS,1.95,491.04
+P02096,CD Leste,Interior,SP,3.16,698.9
+P02097,CD Oeste,Interior,RN,3.35,925.28
+P02098,CD Leste,Capital,BA,1.04,688.8
+P02099,CD Leste,Capital,PE,0.51,950.86
+P02100,CD Oeste,Interior,SP,5.37,1018.12
+P02101,CD Oeste,Interior,MS,2.18,376.94
+P02102,Loja,Interior,PE,0.55,770.03
+P02103,CD Leste,Interior,PA,1.11,703.96
+P02104,CD Leste,Capital,RS,3.13,334.6
+P02105,CD Leste,Interior,SC,1.5,628.66
+P02106,CD Leste,Interior,ES,1.27,694.4
+P02107,CD Leste,Interior,MS,4.86,995.42
+P02108,CD Oeste,Interior,MA,0.88,596.31
+P02109,CD Oeste,Capital,RS,1.04,170.63
+P02110,CD Oeste,Capital,SP,2.11,625.77
+P02111,CD Leste,Interior,SP,2.39,1018.51
+P02112,CD Leste,Interior,DF,2.58,719.81
+P02113,CD Oeste,Capital,AL,3.45,437.13
+P02114,CD Leste,Capital,SP,2.09,1111.49
+P02115,Loja,Interior,RJ,2.57,254.33
+P02116,CD Leste,Capital,AM,1.52,446.1
+P02117,CD Oeste,Interior,SC,1.9,569.59
+P02118,Loja,Interior,SP,1.96,906.54
+P02119,CD Oeste,Interior,RJ,2.12,1016.04
+P02120,CD Oeste,Interior,RJ,3.13,145.59
+P02121,CD Oeste,Interior,SP,2.69,967.08
+P02122,CD Leste,Capital,GO,1.88,886.99
+P02123,CD Oeste,Interior,RS,1.03,1082.01
+P02124,Loja,Interior,GO,1.91,1088.5
+P02125,Loja,Interior,DF,1.79,950.83
+P02126,CD Leste,Interior,SP,2.09,293.03
+P02127,CD Leste,Capital,SP,8.54,431.54
+P02128,CD Oeste,Interior,SP,1.26,1128.68
+P02129,CD Oeste,Capital,SP,2.45,749.95
+P02130,CD Leste,Capital,BA,3.85,683.41
+P02131,CD Leste,Interior,SP,1.95,1105.59
+P02132,CD Leste,Capital,GO,9.36,1059.1
+P02133,CD Oeste,Interior,SP,1.4,894.8
+P02134,CD Leste,Capital,SP,2.29,1068.12
+P02135,CD Leste,Capital,SP,1.04,207.5
+P02136,CD Leste,Capital,SC,1.42,928.45
+P02137,Loja,Capital,GO,2.17,1161.52
+P02138,CD Leste,Interior,PE,3.3,134.85
+P02139,CD Leste,Interior,SP,2.28,329.81
+P02140,CD Oeste,Interior,DF,4.4,969.24
+P02141,CD Leste,Interior,BA,1.7,662.45
+P02142,Loja,Interior,MG,1.44,177.01
+P02143,Loja,Interior,SP,12.09,380.11
+P02144,CD Leste,Capital,SP,2.4,442.95
+P02145,CD Leste,Capital,SP,1.1,439.59
+P02146,CD Leste,Interior,RN,1.12,1062.99
+P02147,CD Leste,Interior,RJ,0.94,821.48
+P02148,CD Leste,Interior,SC,3.51,903.11
+P02149,CD Leste,Interior,BA,1.41,95.2
+P02150,CD Leste,Capital,RJ,1.99,558.81
+P02151,CD Oeste,Interior,GO,1.74,435.96
+P02152,CD Leste,Capital,SP,3.04,1034.16
+P02153,CD Leste,Interior,PR,1.01,1148.33
+P02154,CD Oeste,Capital,SP,0.86,554.14
+P02155,CD Leste,Capital,SP,2.13,1169.83
+P02156,CD Leste,Interior,MG,2.78,96.08
+P02157,CD Leste,Capital,MS,2.3,444.81
+P02158,CD Leste,Interior,GO,1.03,947.92
+P02159,CD Leste,Interior,BA,2.93,483.31
+P02160,Loja,Capital,SP,1.08,1111.48
+P02161,Loja,Capital,AP,1.26,324.68
+P02162,CD Leste,Interior,SP,0.94,971.15
+P02163,CD Leste,Interior,CE,4.53,305.91
+P02164,CD Oeste,Interior,BA,2.84,300.76
+P02165,CD Oeste,Capital,RS,2.78,579.24
+P02166,CD Leste,Interior,ES,4.36,1138.33
+P02167,CD Leste,Interior,BA,13.05,735.71
+P02168,CD Leste,Interior,BA,0.55,791.24
+P02169,CD Oeste,Capital,SP,1.09,90.9
+P02170,CD Leste,Capital,PE,1.18,143.41
+P02171,CD Leste,Interior,SP,1.0,154.97
+P02172,CD Leste,Interior,SC,0.86,998.0
+P02173,CD Leste,Capital,GO,1.48,345.27
+P02174,CD Oeste,Interior,CE,0.78,448.3
+P02175,CD Oeste,Capital,PR,2.3,763.15
+P02176,CD Oeste,Capital,SP,1.89,734.03
+P02177,CD Leste,Capital,PR,2.55,539.79
+P02178,CD Leste,Capital,MG,2.6,84.82
+P02179,Loja,Capital,SC,2.78,583.55
+P02180,CD Oeste,Capital,PR,1.4,907.55
+P02181,CD Leste,Capital,PE,8.04,343.47
+P02182,CD Leste,Interior,SP,2.15,873.36
+P02183,Loja,Interior,SP,0.49,96.97
+P02184,CD Oeste,Interior,PR,0.9,1096.97
+P02185,Loja,Capital,SP,0.54,1144.04
+P02186,CD Oeste,Interior,SP,1.84,82.76
+P02187,CD Leste,Capital,RJ,1.67,592.76
+P02188,CD Leste,Interior,PR,1.31,543.48
+P02189,CD Leste,Interior,MG,7.45,1022.91
+P02190,CD Oeste,Capital,RS,2.68,685.61
+P02191,CD Oeste,Capital,SE,3.03,764.73
+P02192,CD Leste,Interior,SC,0.95,306.81
+P02193,Loja,Interior,MG,0.91,166.31
+P02194,CD Leste,Interior,SP,1.87,855.41
+P02195,CD Leste,Interior,SP,2.06,775.16
+P02196,CD Leste,Interior,RS,0.5,1012.21
+P02197,Loja,Capital,MT,1.61,1026.05
+P02198,Loja,Interior,SP,1.84,786.76
+P02199,CD Oeste,Capital,SP,1.57,682.96
+P02200,Loja,Interior,MG,1.03,1103.69
+P02201,Loja,Capital,MG,1.25,977.42
+P02202,Loja,Interior,PA,1.61,1068.32
+P02203,Loja,Interior,SP,1.94,1195.34
+P02204,CD Leste,Capital,SP,2.78,531.93
+P02205,CD Oeste,Capital,RJ,3.88,882.97
+P02206,CD Oeste,Interior,SP,1.48,850.64
+P02207,CD Oeste,Interior,SP,1.32,275.04
+P02208,CD Leste,Interior,RJ,2.48,792.93
+P02209,CD Oeste,Capital,MG,2.79,559.46
+P02210,Loja,Interior,SP,1.34,584.71
+P02211,CD Leste,Interior,RS,3.17,281.75
+P02212,Loja,Capital,SC,3.62,914.11
+P02213,CD Leste,Interior,SP,4.5,861.69
+P02214,CD Leste,Capital,AL,6.33,676.16
+P02215,CD Leste,Capital,MG,0.99,255.53
+P02216,CD Oeste,Interior,PA,1.84,703.69
+P02217,CD Oeste,Interior,AM,1.84,192.15
+P02218,CD Leste,Capital,ES,1.7,460.1
+P02219,CD Oeste,Capital,SP,1.16,497.04
+P02220,CD Leste,Interior,CE,0.64,1069.44
+P02221,CD Leste,Interior,RJ,1.94,545.43
+P02222,Loja,Interior,SP,1.06,750.29
+P02223,CD Oeste,Capital,RS,1.94,1059.75
+P02224,CD Oeste,Interior,PR,1.05,556.85
+P02225,CD Oeste,Interior,CE,0.84,1069.75
+P02226,Loja,Interior,BA,2.15,232.84
+P02227,CD Leste,Capital,SE,2.03,488.62
+P02228,CD Leste,Capital,BA,2.73,186.09
+P02229,CD Leste,Capital,GO,8.42,708.24
+P02230,CD Oeste,Interior,SC,2.21,1152.16
+P02231,CD Oeste,Capital,AC,2.56,815.79
+P02232,CD Oeste,Capital,PA,0.86,781.2
+P02233,CD Leste,Interior,CE,0.74,391.54
+P02234,CD Leste,Interior,BA,5.52,1122.84
+P02235,CD Oeste,Capital,RS,0.95,608.12
+P02236,Loja,Interior,MG,0.88,379.04
+P02237,CD Leste,Interior,SE,1.77,1186.22
+P02238,CD Leste,Capital,SP,1.71,553.9
+P02239,CD Leste,Interior,SP,0.97,496.08
+P02240,CD Leste,Interior,RJ,1.47,119.16
+P02241,CD Leste,Capital,RS,4.31,279.69
+P02242,CD Leste,Capital,RS,1.04,986.29
+P02243,CD Oeste,Capital,SP,0.69,620.62
+P02244,CD Leste,Capital,SP,3.52,1149.46
+P02245,CD Leste,Interior,SP,2.57,173.95
+P02246,CD Leste,Interior,RJ,1.18,769.86
+P02247,Loja,Interior,SP,0.6,886.38
+P02248,CD Leste,Capital,MT,1.08,775.73
+P02249,CD Leste,Interior,SP,1.75,673.46
+P02250,CD Leste,Capital,RJ,4.12,727.69
+P02251,CD Oeste,Interior,MG,0.88,852.3
+P02252,Loja,Capital,SC,1.72,1046.86
+P02253,CD Leste,Interior,CE,2.92,456.71
+P02254,CD Leste,Interior,SP,0.34,594.81
+P02255,CD Leste,Capital,RJ,3.76,792.22
+P02256,CD Oeste,Interior,MT,0.8,431.92
+P02257,Loja,Interior,SP,2.3,280.24
+P02258,CD Leste,Interior,CE,2.17,1162.11
+P02259,CD Leste,Interior,PA,3.89,298.1
+P02260,CD Oeste,Capital,RS,2.68,340.66
+P02261,CD Oeste,Interior,PA,0.35,772.93
+P02262,CD Leste,Capital,RJ,1.05,166.65
+P02263,CD Leste,Interior,RJ,2.01,118.13
+P02264,CD Leste,Capital,SP,1.59,151.7
+P02265,CD Oeste,Interior,SP,2.55,218.06
+P02266,CD Oeste,Interior,SP,3.17,560.7
+P02267,CD Oeste,Capital,PR,2.79,1008.77
+P02268,Loja,Interior,SC,1.57,463.01
+P02269,CD Leste,Interior,SP,0.5,558.84
+P02270,CD Leste,Capital,DF,1.32,752.28
+P02271,CD Leste,Interior,SP,2.44,418.4
+P02272,Loja,Interior,MG,0.85,564.44
+P02273,CD Oeste,Capital,SP,2.83,512.67
+P02274,CD Leste,Interior,MT,3.44,462.91
+P02275,CD Leste,Interior,SC,1.99,515.0
+P02276,CD Oeste,Interior,BA,0.21,92.45
+P02277,CD Oeste,Capital,SP,0.74,1072.61
+P02278,CD Oeste,Capital,ES,6.82,1174.63
+P02279,CD Leste,Capital,TO,1.24,1046.0
+P02280,Loja,Interior,SP,0.45,86.43
+P02281,CD Oeste,Interior,RJ,4.33,920.99
+P02282,CD Oeste,Interior,SP,1.84,721.87
+P02283,CD Oeste,Capital,SP,3.95,185.48
+P02284,Loja,Interior,PR,2.21,1124.8
+P02285,Loja,Interior,SP,2.51,949.36
+P02286,CD Oeste,Interior,SC,2.35,242.73
+P02287,CD Leste,Capital,MA,2.97,1159.73
+P02288,CD Leste,Interior,SP,8.97,221.34
+P02289,Loja,Capital,SP,3.6,589.24
+P02290,CD Oeste,Capital,CE,0.6,258.05
+P02291,CD Leste,Interior,PR,2.49,248.21
+P02292,CD Leste,Interior,RN,4.05,1163.94
+P02293,Loja,Capital,MG,4.23,720.78
+P02294,Loja,Interior,DF,1.35,370.28
+P02295,Loja,Interior,MA,4.12,949.57
+P02296,CD Leste,Capital,SP,3.49,1060.27
+P02297,CD Oeste,Interior,PE,11.03,1107.72
+P02298,Loja,Capital,DF,1.08,1124.94
+P02299,CD Leste,Capital,PE,1.28,1094.25
+P02300,CD Leste,Interior,SP,1.47,795.6
+P02301,Loja,Interior,ES,1.29,463.56
+P02302,CD Leste,Capital,SP,0.98,1116.64
+P02303,CD Oeste,Interior,PA,0.26,217.2
+P02304,CD Oeste,Interior,SP,1.34,269.06
+P02305,CD Oeste,Interior,SP,2.36,565.89
+P02306,CD Leste,Interior,PB,1.29,397.7
+P02307,CD Oeste,Interior,MG,7.06,769.62
+P02308,CD Leste,Interior,RS,1.84,1093.94
+P02309,Loja,Interior,MG,4.5,629.96
+P02310,CD Leste,Interior,GO,2.19,700.34
+P02311,CD Oeste,Interior,SP,3.25,553.91
+P02312,CD Oeste,Capital,PR,2.22,872.48
+P02313,CD Leste,Capital,SC,4.75,192.77
+P02314,CD Leste,Capital,MG,1.89,134.42
+P02315,CD Oeste,Capital,MG,2.58,798.3
+P02316,CD Leste,Interior,SP,2.35,679.06
+P02317,CD Leste,Interior,MS,1.49,536.24
+P02318,CD Oeste,Interior,SP,2.42,454.07
+P02319,Loja,Interior,MG,8.71,138.02
+P02320,CD Oeste,Interior,MG,1.51,842.22
+P02321,CD Leste,Interior,PR,2.44,552.04
+P02322,Loja,Interior,MS,4.39,578.7
+P02323,CD Oeste,Interior,ES,4.05,1080.66
+P02324,CD Leste,Capital,SE,1.84,906.05
+P02325,CD Leste,Interior,GO,0.34,325.78
+P02326,CD Leste,Interior,CE,2.62,816.03
+P02327,CD Leste,Interior,MS,0.39,228.13
+P02328,CD Oeste,Interior,SP,5.1,297.35
+P02329,CD Leste,Interior,RO,2.05,879.85
+P02330,CD Oeste,Interior,PE,3.67,221.0
+P02331,CD Leste,Capital,RS,0.97,393.82
+P02332,CD Leste,Interior,SP,0.61,1085.83
+P02333,CD Leste,Interior,SP,2.19,906.91
+P02334,CD Oeste,Interior,DF,1.78,1120.99
+P02335,CD Oeste,Interior,RJ,1.29,1067.65
+P02336,CD Leste,Capital,GO,1.93,430.09
+P02337,CD Leste,Interior,RJ,12.64,788.26
+P02338,CD Leste,Interior,SC,3.27,504.14
+P02339,Loja,Interior,SP,3.8,860.76
+P02340,CD Leste,Interior,SP,3.29,470.27
+P02341,CD Oeste,Interior,SP,5.13,81.48
+P02342,CD Leste,Interior,PE,1.6,185.21
+P02343,CD Leste,Capital,RS,0.43,943.53
+P02344,CD Oeste,Capital,PA,1.6,174.09
+P02345,CD Oeste,Interior,BA,3.22,751.35
+P02346,CD Leste,Interior,BA,0.92,1040.71
+P02347,Loja,Interior,SC,1.61,910.03
+P02348,CD Leste,Capital,PE,1.12,543.05
+P02349,CD Leste,Capital,AM,5.21,313.64
+P02350,CD Leste,Capital,BA,3.08,1113.24
+P02351,CD Oeste,Interior,SP,2.88,714.37
+P02352,CD Oeste,Interior,GO,2.82,534.07
+P02353,CD Leste,Interior,SP,1.78,1135.1
+P02354,Loja,Capital,SP,2.09,320.82
+P02355,CD Oeste,Interior,MT,0.79,575.36
+P02356,Loja,Interior,CE,0.39,201.68
+P02357,Loja,Capital,SP,2.02,219.87
+P02358,Loja,Interior,SP,2.29,526.43
+P02359,CD Oeste,Interior,RN,4.25,863.62
+P02360,CD Leste,Capital,SP,5.47,459.56
+P02361,CD Leste,Capital,SP,5.47,852.35
+P02362,CD Oeste,Interior,BA,0.91,981.81
+P02363,CD Leste,Interior,CE,1.42,1062.89
+P02364,CD Oeste,Interior,SC,2.55,130.09
+P02365,CD Leste,Interior,SC,10.72,946.58
+P02366,Loja,Interior,MG,5.13,244.8
+P02367,CD Leste,Interior,SP,3.99,862.05
+P02368,Loja,Interior,BA,1.39,496.26
+P02369,CD Leste,Capital,CE,0.98,872.73
+P02370,CD Leste,Interior,MG,3.17,319.48
+P02371,Loja,Capital,MG,0.84,802.39
+P02372,Loja,Capital,MG,1.54,220.58
+P02373,CD Oeste,Interior,SP,1.68,270.12
+P02374,Loja,Interior,MG,5.56,768.2
+P02375,CD Leste,Capital,SP,1.42,457.18
+P02376,Loja,Interior,PE,0.33,868.23
+P02377,CD Leste,Interior,MG,2.59,847.38
+P02378,CD Oeste,Capital,MT,1.12,776.23
+P02379,CD Leste,Interior,SC,1.88,898.21
+P02380,CD Leste,Interior,CE,1.71,969.21
+P02381,CD Oeste,Capital,PA,1.5,1100.79
+P02382,CD Oeste,Capital,RJ,3.17,170.18
+P02383,CD Leste,Interior,SP,0.62,720.13
+P02384,Loja,Capital,BA,1.27,918.63
+P02385,CD Oeste,Capital,SP,2.94,322.97
+P02386,CD Leste,Interior,SP,1.19,375.26
+P02387,CD Oeste,Interior,SP,0.59,379.0
+P02388,CD Leste,Interior,PB,2.91,721.01
+P02389,CD Leste,Interior,SP,4.0,490.11
+P02390,CD Oeste,Interior,PR,1.77,826.03
+P02391,CD Leste,Interior,ES,0.46,763.47
+P02392,CD Leste,Interior,GO,2.99,815.97
+P02393,CD Oeste,Interior,MG,0.57,362.6
+P02394,CD Leste,Interior,SE,2.26,939.46
+P02395,Loja,Interior,BA,0.98,823.72
+P02396,CD Oeste,Capital,ES,0.81,226.33
+P02397,CD Leste,Interior,RJ,1.34,304.19
+P02398,CD Oeste,Interior,PE,1.6,417.08
+P02399,CD Leste,Capital,BA,1.16,1128.37
+P02400,CD Oeste,Interior,RJ,2.75,445.51
+P02401,CD Leste,Interior,RJ,1.33,102.26
+P02402,Loja,Interior,SP,3.62,238.62
+P02403,CD Leste,Capital,SP,2.22,116.03
+P02404,CD Oeste,Capital,SP,1.12,531.18
+P02405,CD Leste,Capital,SP,0.99,972.81
+P02406,CD Leste,Interior,SP,0.58,584.49
+P02407,CD Oeste,Interior,CE,2.23,1019.67
+P02408,CD Oeste,Capital,PE,1.42,133.23
+P02409,Loja,Interior,CE,0.35,606.09
+P02410,CD Leste,Capital,DF,1.25,961.52
+P02411,CD Leste,Capital,DF,0.97,835.69
+P02412,CD Leste,Interior,SP,5.49,1035.16
+P02413,CD Leste,Interior,MT,0.55,386.69
+P02414,Loja,Interior,MG,0.66,640.95
+P02415,Loja,Interior,SC,3.96,838.1
+P02416,Loja,Interior,PA,4.71,268.71
+P02417,CD Leste,Capital,SE,1.08,993.7
+P02418,CD Leste,Interior,SP,1.17,428.85
+P02419,CD Oeste,Interior,BA,2.8,184.5
+P02420,CD Leste,Capital,SP,0.36,937.59
+P02421,CD Oeste,Interior,SP,0.5,869.62
+P02422,CD Leste,Interior,SP,1.5,1069.72
+P02423,CD Leste,Interior,SP,5.39,1079.12
+P02424,Loja,Interior,MT,1.34,391.95
+P02425,CD Leste,Interior,RJ,1.96,798.33
+P02426,Loja,Capital,SP,4.03,1199.02
+P02427,CD Leste,Interior,AC,7.96,353.06
+P02428,CD Leste,Interior,SC,1.22,609.62
+P02429,CD Leste,Capital,RJ,1.8,1099.39
+P02430,CD Leste,Capital,SC,6.52,195.45
+P02431,CD Oeste,Interior,SC,0.63,1119.64
+P02432,CD Leste,Capital,PR,3.74,626.73
+P02433,CD Oeste,Interior,DF,0.89,1080.21
+P02434,Loja,Interior,RN,1.96,775.94
+P02435,CD Leste,Capital,MG,1.54,832.01
+P02436,CD Leste,Interior,PR,0.93,945.74
+P02437,CD Leste,Capital,SP,0.92,155.19
+P02438,CD Oeste,Interior,CE,2.21,783.1
+P02439,CD Oeste,Interior,MG,3.66,1114.81
+P02440,CD Leste,Capital,MG,1.66,1150.86
+P02441,CD Oeste,Interior,RR,1.91,1164.52
+P02442,CD Oeste,Interior,RS,2.72,803.33
+P02443,CD Leste,Interior,SP,0.92,789.28
+P02444,CD Leste,Capital,MG,3.06,698.76
+P02445,Loja,Interior,RJ,3.23,760.46
+P02446,CD Leste,Interior,AC,11.27,765.57
+P02447,CD Leste,Capital,ES,1.4,127.5
+P02448,CD Leste,Interior,SP,1.32,179.54
+P02449,CD Oeste,Capital,RS,3.12,773.75
+P02450,CD Leste,Interior,RJ,3.23,431.92
+P02451,CD Leste,Capital,SP,1.25,417.6
+P02452,CD Leste,Interior,AL,1.37,296.65
+P02453,CD Oeste,Interior,SP,2.66,977.2
+P02454,CD Leste,Capital,PB,1.02,1160.05
+P02455,Loja,Interior,PE,1.37,783.09
+P02456,CD Leste,Interior,SP,1.94,1138.87
+P02457,CD Leste,Interior,BA,3.66,1069.95
+P02458,Loja,Interior,BA,1.19,324.08
+P02459,Loja,Capital,RS,0.5,251.95
+P02460,CD Leste,Interior,RS,0.48,316.98
+P02461,Loja,Capital,SP,0.75,187.75
+P02462,CD Oeste,Capital,SP,0.73,732.82
+P02463,CD Leste,Interior,BA,1.64,396.57
+P02464,Loja,Interior,SP,0.79,1102.47
+P02465,CD Oeste,Capital,SP,1.11,767.02
+P02466,CD Leste,Capital,PR,1.06,482.76
+P02467,CD Oeste,Interior,SP,1.34,1182.8
+P02468,CD Leste,Capital,PE,4.6,1147.58
+P02469,CD Leste,Capital,PE,2.9,952.05
+P02470,Loja,Capital,CE,1.84,966.69
+P02471,CD Oeste,Capital,SP,1.32,1174.54
+P02472,CD Oeste,Capital,ES,1.35,752.51
+P02473,CD Oeste,Interior,CE,2.29,1065.62
+P02474,CD Oeste,Capital,RJ,2.74,152.61
+P02475,CD Leste,Interior,MT,0.97,700.55
+P02476,Loja,Interior,RS,1.87,642.82
+P02477,CD Oeste,Interior,RJ,0.44,122.25
+P02478,CD Oeste,Interior,MG,2.11,177.39
+P02479,CD Oeste,Interior,GO,3.11,104.46
+P02480,CD Leste,Interior,SP,1.5,409.3
+P02481,CD Leste,Interior,AL,6.5,139.93
+P02482,CD Leste,Interior,RS,0.98,553.94
+P02483,CD Leste,Interior,SP,2.12,990.28
+P02484,CD Oeste,Interior,MS,1.78,767.49
+P02485,Loja,Capital,ES,1.7,834.64
+P02486,CD Leste,Interior,SP,1.68,115.29
+P02487,CD Leste,Interior,PA,1.96,1020.27
+P02488,CD Oeste,Capital,MS,3.3,243.73
+P02489,CD Leste,Interior,RS,4.78,418.97
+P02490,Loja,Capital,CE,1.82,658.81
+P02491,CD Leste,Capital,SC,3.22,1121.59
+P02492,CD Leste,Interior,PR,1.11,1197.93
+P02493,CD Leste,Capital,SP,3.11,956.58
+P02494,Loja,Interior,SP,1.07,896.83
+P02495,CD Leste,Capital,ES,3.91,671.0
+P02496,CD Oeste,Interior,PR,8.56,825.5
+P02497,CD Leste,Interior,BA,1.67,241.76
+P02498,CD Leste,Interior,PR,0.39,381.5
+P02499,Loja,Interior,RS,1.24,1182.8
+P02500,CD Leste,Interior,CE,4.32,1177.17
+P02501,CD Leste,Interior,AP,2.68,441.73
+P02502,CD Oeste,Interior,MG,2.17,349.97
+P02503,Loja,Interior,PI,3.69,337.06
+P02504,CD Leste,Interior,PE,2.56,623.05
+P02505,CD Leste,Interior,SP,4.27,330.62
+P02506,Loja,Capital,MG,3.47,806.32
+P02507,CD Oeste,Capital,SP,5.29,163.8
+P02508,Loja,Interior,GO,2.34,196.12
+P02509,CD Oeste,Capital,RS,3.43,390.17
+P02510,CD Oeste,Interior,PR,1.47,950.74
+P02511,CD Leste,Capital,BA,1.2,442.08
+P02512,CD Leste,Interior,MG,6.02,607.31
+P02513,CD Oeste,Capital,RJ,2.12,815.42
+P02514,CD Oeste,Interior,AL,3.2,963.16
+P02515,Loja,Capital,TO,1.99,423.96
+P02516,CD Oeste,Capital,BA,1.21,898.69
+P02517,CD Leste,Interior,SP,1.84,400.4
+P02518,CD Oeste,Interior,SP,4.98,801.8
+P02519,CD Oeste,Interior,SP,2.69,584.99
+P02520,CD Leste,Interior,ES,0.55,1117.82
+P02521,CD Oeste,Capital,SP,1.57,1179.94
+P02522,CD Oeste,Interior,PI,6.34,947.02
+P02523,CD Leste,Interior,GO,1.57,1105.32
+P02524,CD Oeste,Capital,RJ,0.52,232.88
+P02525,CD Oeste,Interior,MG,6.86,813.0
+P02526,Loja,Interior,RJ,2.94,302.17
+P02527,CD Leste,Interior,PR,1.73,390.2
+P02528,CD Oeste,Interior,MS,1.4,665.56
+P02529,CD Oeste,Interior,SP,3.89,911.03
+P02530,CD Oeste,Interior,CE,1.25,888.07
+P02531,CD Leste,Capital,SP,4.07,1053.79
+P02532,Loja,Capital,MG,2.66,706.39
+P02533,Loja,Interior,AP,2.16,1117.5
+P02534,CD Oeste,Interior,SP,2.02,1074.44
+P02535,CD Oeste,Interior,SP,1.61,1030.94
+P02536,CD Leste,Capital,DF,3.79,337.06
+P02537,CD Oeste,Interior,RJ,0.99,675.22
+P02538,CD Leste,Capital,SP,0.59,904.58
+P02539,CD Oeste,Capital,SP,2.8,1173.23
+P02540,CD Leste,Capital,SP,2.83,93.04
+P02541,CD Oeste,Interior,SC,2.55,446.37
+P02542,CD Leste,Interior,SP,2.42,463.43
+P02543,CD Oeste,Capital,BA,1.46,403.16
+P02544,CD Oeste,Capital,CE,3.16,995.52
+P02545,CD Leste,Interior,SP,1.76,130.48
+P02546,CD Leste,Interior,MG,1.3,482.57
+P02547,Loja,Interior,SP,1.46,877.09
+P02548,CD Oeste,Capital,MG,7.5,535.55
+P02549,CD Leste,Interior,SP,0.54,241.35
+P02550,CD Leste,Interior,PE,2.59,764.15
+P02551,CD Leste,Interior,RJ,0.56,665.32
+P02552,CD Oeste,Capital,PR,1.69,1179.66
+P02553,CD Oeste,Interior,GO,1.35,918.35
+P02554,CD Leste,Capital,CE,0.42,1184.52
+P02555,CD Oeste,Capital,MG,2.39,288.71
+P02556,CD Oeste,Capital,SP,1.4,932.99
+P02557,CD Oeste,Interior,RO,0.42,697.83
+P02558,CD Leste,Interior,MG,3.28,878.01
+P02559,CD Leste,Interior,GO,4.98,603.66
+P02560,CD Leste,Interior,GO,5.17,317.88
+P02561,CD Leste,Interior,SC,2.34,131.23
+P02562,CD Leste,Capital,SP,1.88,1018.88
+P02563,CD Leste,Interior,SP,4.62,992.59
+P02564,CD Leste,Capital,PR,5.92,262.04
+P02565,CD Oeste,Interior,SC,4.03,802.6
+P02566,CD Leste,Capital,BA,0.94,906.26
+P02567,CD Oeste,Capital,MS,2.1,704.54
+P02568,CD Leste,Interior,MA,2.48,435.3
+P02569,CD Oeste,Capital,TO,0.51,1066.66
+P02570,CD Leste,Capital,BA,2.53,799.53
+P02571,CD Oeste,Interior,SP,8.94,886.64
+P02572,CD Oeste,Capital,RJ,2.85,810.37
+P02573,CD Leste,Capital,RS,5.11,887.84
+P02574,CD Oeste,Capital,RS,2.07,242.48
+P02575,CD Leste,Capital,SP,1.73,1113.31
+P02576,CD Oeste,Interior,RS,2.38,400.11
+P02577,CD Leste,Capital,RJ,1.03,1016.94
+P02578,CD Leste,Interior,MG,0.93,1080.59
+P02579,CD Leste,Interior,CE,4.42,809.37
+P02580,Loja,Capital,ES,4.76,750.1
+P02581,CD Leste,Interior,SC,0.91,202.13
+P02582,CD Oeste,Interior,RS,3.59,568.57
+P02583,CD Leste,Capital,RS,1.71,765.04
+P02584,CD Leste,Capital,SP,2.31,171.69
+P02585,CD Leste,Capital,RS,2.51,204.84
+P02586,Loja,Capital,MG,3.65,1192.7
+P02587,CD Oeste,Interior,GO,1.93,452.1
+P02588,CD Leste,Interior,SP,4.89,471.7
+P02589,CD Oeste,Interior,AP,2.26,361.71
+P02590,CD Leste,Capital,BA,2.82,803.54
+P02591,CD Leste,Capital,RJ,1.02,609.84
+P02592,CD Oeste,Interior,MG,8.26,965.28
+P02593,CD Leste,Interior,RJ,2.53,653.99
+P02594,CD Leste,Capital,BA,3.0,97.27
+P02595,CD Oeste,Interior,GO,0.59,620.61
+P02596,CD Leste,Interior,MS,1.02,141.81
+P02597,Loja,Interior,RN,4.33,1006.0
+P02598,CD Oeste,Interior,PR,2.23,207.3
+P02599,Loja,Interior,GO,0.48,322.99
+P02600,CD Oeste,Capital,PR,3.77,595.16
+P02601,Loja,Capital,DF,1.25,298.61
+P02602,CD Leste,Interior,PR,4.89,683.93
+P02603,CD Oeste,Capital,BA,1.71,595.98
+P02604,CD Oeste,Capital,SP,2.1,1146.83
+P02605,Loja,Interior,SP,4.16,178.98
+P02606,CD Leste,Interior,MG,0.97,725.94
+P02607,CD Oeste,Interior,PA,0.91,886.85
+P02608,CD Oeste,Interior,SC,1.59,222.94
+P02609,CD Leste,Interior,RJ,3.25,792.84
+P02610,Loja,Capital,RJ,0.72,1047.95
+P02611,CD Leste,Interior,PR,0.57,962.06
+P02612,CD Leste,Interior,AL,3.24,1127.39
+P02613,CD Oeste,Interior,PA,1.19,887.06
+P02614,CD Leste,Capital,CE,1.38,521.27
+P02615,CD Leste,Capital,CE,0.5,1110.91
+P02616,CD Leste,Interior,SP,1.13,332.4
+P02617,CD Leste,Capital,MG,1.81,733.75
+P02618,CD Oeste,Capital,RS,3.49,937.54
+P02619,Loja,Interior,GO,1.06,1056.95
+P02620,CD Oeste,Interior,SP,5.81,1106.53
+P02621,CD Leste,Capital,BA,1.13,175.17
+P02622,CD Oeste,Capital,SP,1.13,893.19
+P02623,Loja,Capital,MG,5.34,308.6
+P02624,CD Oeste,Interior,MG,2.11,952.61
+P02625,CD Leste,Interior,CE,1.24,864.77
+P02626,CD Leste,Capital,BA,1.63,283.11
+P02627,Loja,Capital,SC,4.7,1012.77
+P02628,Loja,Capital,PE,5.09,597.2
+P02629,CD Leste,Capital,PE,1.03,689.12
+P02630,Loja,Capital,RJ,1.77,1167.97
+P02631,CD Leste,Interior,PE,1.94,815.42
+P02632,CD Leste,Capital,SP,0.91,739.19
+P02633,CD Oeste,Capital,SC,1.75,98.77
+P02634,CD Oeste,Interior,SP,1.83,303.12
+P02635,CD Leste,Interior,ES,4.05,109.75
+P02636,Loja,Capital,SC,4.24,453.31
+P02637,Loja,Capital,SP,1.45,465.85
+P02638,CD Leste,Capital,PR,1.57,673.97
+P02639,CD Oeste,Capital,GO,2.9,852.54
+P02640,CD Oeste,Interior,DF,1.21,280.87
+P02641,CD Oeste,Capital,SP,2.75,753.85
+P02642,Loja,Interior,SP,1.71,1107.01
+P02643,CD Oeste,Interior,RJ,0.92,287.21
+P02644,CD Leste,Capital,CE,0.93,818.18
+P02645,CD Leste,Capital,AL,5.02,131.06
+P02646,Loja,Capital,MG,1.63,674.89
+P02647,Loja,Capital,MS,5.74,910.52
+P02648,CD Leste,Interior,RS,1.27,118.13
+P02649,CD Leste,Capital,RO,2.23,453.71
+P02650,CD Oeste,Interior,SP,9.73,1063.31
+P02651,CD Leste,Interior,SC,0.87,332.54
+P02652,CD Leste,Interior,RS,0.48,889.62
+P02653,Loja,Interior,MG,4.48,765.71
+P02654,Loja,Interior,SP,1.02,263.33
+P02655,Loja,Interior,SP,1.8,910.71
+P02656,CD Oeste,Interior,PR,1.21,675.93
+P02657,CD Leste,Capital,MT,2.2,205.47
+P02658,Loja,Capital,MS,0.94,1143.3
+P02659,CD Leste,Capital,SP,1.61,631.0
+P02660,CD Leste,Capital,CE,2.5,914.49
+P02661,Loja,Interior,RJ,0.9,323.82
+P02662,CD Oeste,Capital,PA,1.12,233.65
+P02663,Loja,Interior,SP,1.43,910.26
+P02664,CD Leste,Interior,CE,0.67,834.68
+P02665,Loja,Capital,PI,1.36,387.0
+P02666,CD Oeste,Interior,CE,1.98,915.84
+P02667,CD Oeste,Capital,PE,1.38,645.59
+P02668,Loja,Interior,RJ,1.51,470.43
+P02669,CD Leste,Interior,MS,1.8,961.32
+P02670,CD Oeste,Capital,RS,1.15,770.8
+P02671,CD Oeste,Interior,ES,2.96,648.14
+P02672,CD Oeste,Capital,AP,4.98,945.88
+P02673,Loja,Interior,MG,1.32,690.21
+P02674,CD Oeste,Interior,RJ,2.56,1131.16
+P02675,CD Leste,Interior,PI,1.54,996.22
+P02676,CD Leste,Interior,MG,2.35,481.17
+P02677,Loja,Interior,SP,5.45,600.71
+P02678,Loja,Interior,MG,2.6,1152.21
+P02679,Loja,Interior,BA,0.53,1082.63
+P02680,CD Leste,Interior,CE,2.5,294.13
+P02681,CD Leste,Interior,SP,4.32,387.22
+P02682,CD Oeste,Interior,DF,1.56,488.15
+P02683,CD Oeste,Interior,RS,3.66,1065.43
+P02684,CD Leste,Capital,GO,1.12,1118.71
+P02685,CD Oeste,Capital,GO,0.64,978.62
+P02686,CD Leste,Capital,PA,2.01,388.79
+P02687,CD Oeste,Capital,RJ,0.53,1073.51
+P02688,CD Leste,Capital,MG,1.54,116.83
+P02689,CD Leste,Capital,RS,4.49,553.54
+P02690,CD Leste,Interior,ES,0.48,502.94
+P02691,Loja,Capital,PR,0.74,679.47
+P02692,CD Oeste,Capital,SP,0.88,707.92
+P02693,Loja,Interior,SP,1.74,332.45
+P02694,CD Oeste,Capital,AM,1.41,309.1
+P02695,CD Leste,Interior,SP,4.85,979.99
+P02696,CD Leste,Interior,RS,3.55,165.34
+P02697,CD Oeste,Interior,BA,2.58,632.48
+P02698,CD Leste,Interior,SP,2.02,294.64
+P02699,CD Oeste,Capital,SP,2.4,437.92
+P02700,Loja,Capital,RJ,1.0,390.57
+P02701,Loja,Interior,SC,3.32,873.54
+P02702,CD Leste,Interior,RJ,0.84,590.74
+P02703,CD Oeste,Interior,GO,3.27,415.37
+P02704,CD Leste,Interior,SP,4.18,1011.11
+P02705,CD Leste,Capital,SP,2.11,176.09
+P02706,CD Oeste,Interior,SP,1.61,938.32
+P02707,CD Oeste,Interior,RJ,2.41,358.11
+P02708,CD Oeste,Interior,RJ,0.25,1108.18
+P02709,CD Leste,Capital,PA,2.25,86.23
+P02710,Loja,Interior,SP,1.68,703.46
+P02711,Loja,Capital,SC,1.76,776.94
+P02712,CD Oeste,Interior,RS,2.99,726.58
+P02713,Loja,Capital,MT,1.73,992.82
+P02714,CD Leste,Interior,DF,0.82,205.62
+P02715,CD Oeste,Capital,SP,1.65,545.42
+P02716,Loja,Interior,DF,1.91,1047.39
+P02717,Loja,Interior,MG,1.97,1075.38
+P02718,Loja,Capital,BA,2.04,638.15
+P02719,CD Oeste,Interior,SP,3.77,704.92
+P02720,Loja,Interior,MS,0.85,935.58
+P02721,CD Oeste,Interior,DF,2.06,953.16
+P02722,CD Leste,Capital,GO,4.49,1074.65
+P02723,CD Leste,Interior,SP,0.54,1025.12
+P02724,CD Oeste,Interior,GO,2.07,544.15
+P02725,CD Oeste,Interior,BA,1.21,807.72
+P02726,CD Oeste,Interior,PR,1.41,621.22
+P02727,Loja,Interior,RJ,0.97,212.12
+P02728,CD Oeste,Capital,SP,1.62,1000.28
+P02729,CD Leste,Interior,MG,6.61,753.98
+P02730,CD Leste,Capital,BA,0.75,144.97
+P02731,CD Oeste,Capital,RJ,0.8,838.09
+P02732,CD Oeste,Capital,MS,0.73,397.07
+P02733,CD Oeste,Capital,BA,6.11,157.58
+P02734,CD Oeste,Interior,GO,1.32,759.38
+P02735,CD Oeste,Interior,GO,1.79,900.07
+P02736,CD Oeste,Capital,DF,1.37,659.36
+P02737,Loja,Interior,SC,0.94,86.33
+P02738,CD Leste,Interior,SP,1.55,726.11
+P02739,CD Oeste,Interior,CE,10.18,87.4
+P02740,CD Oeste,Interior,PA,4.83,1117.58
+P02741,CD Leste,Interior,PR,1.0,379.38
+P02742,CD Oeste,Interior,AM,2.87,1055.53
+P02743,CD Oeste,Interior,RR,1.02,93.56
+P02744,CD Oeste,Interior,PR,0.53,188.88
+P02745,CD Oeste,Capital,BA,3.72,585.58
+P02746,CD Leste,Interior,GO,4.1,929.64
+P02747,CD Leste,Interior,SP,3.79,1135.67
+P02748,CD Leste,Interior,SP,1.31,663.63
+P02749,CD Leste,Interior,PR,1.62,478.12
+P02750,CD Oeste,Capital,PE,3.08,129.9
+P02751,Loja,Interior,MG,2.4,733.75
+P02752,CD Oeste,Interior,PE,1.38,505.65
+P02753,CD Leste,Interior,GO,0.59,1098.23
+P02754,CD Leste,Interior,MT,1.97,617.67
+P02755,CD Leste,Interior,MG,3.88,937.3
+P02756,CD Oeste,Interior,PR,0.79,1030.0
+P02757,CD Leste,Interior,SP,2.85,190.07
+P02758,CD Oeste,Capital,SP,2.3,573.75
+P02759,CD Oeste,Interior,SP,3.08,1080.96
+P02760,CD Oeste,Capital,SP,3.35,555.39
+P02761,CD Leste,Interior,SP,1.12,712.97
+P02762,CD Leste,Capital,RS,0.59,1057.88
+P02763,CD Oeste,Interior,PR,1.25,340.5
+P02764,CD Oeste,Capital,MG,3.4,1081.93
+P02765,CD Leste,Capital,AL,1.25,524.67
+P02766,Loja,Interior,SC,1.12,744.2
+P02767,CD Oeste,Interior,MA,0.51,447.4
+P02768,CD Oeste,Capital,DF,6.21,670.37
+P02769,CD Leste,Interior,SP,3.25,135.2
+P02770,CD Leste,Capital,MA,3.12,153.09
+P02771,CD Leste,Capital,CE,3.59,544.49
+P02772,CD Leste,Capital,DF,2.73,455.15
+P02773,CD Oeste,Interior,SC,1.54,769.69
+P02774,CD Oeste,Interior,PR,1.62,122.46
+P02775,Loja,Interior,PR,1.35,267.79
+P02776,Loja,Interior,BA,11.52,314.74
+P02777,CD Leste,Interior,SC,2.69,573.35
+P02778,CD Leste,Interior,SP,1.32,356.45
+P02779,CD Oeste,Interior,SP,2.52,234.18
+P02780,Loja,Capital,SP,0.9,749.28
+P02781,Loja,Capital,MG,5.22,913.14
+P02782,CD Leste,Capital,RJ,1.15,847.5
+P02783,CD Leste,Interior,PB,2.59,389.32
+P02784,CD Leste,Interior,SP,3.84,1036.98
+P02785,Loja,Capital,MG,2.39,765.24
+P02786,CD Oeste,Interior,SP,1.95,768.43
+P02787,CD Oeste,Interior,SC,1.84,318.39
+P02788,CD Oeste,Capital,DF,1.75,351.28
+P02789,CD Leste,Capital,SC,1.22,611.72
+P02790,CD Oeste,Capital,PA,1.33,346.36
+P02791,CD Leste,Capital,RR,5.13,850.65
+P02792,CD Oeste,Interior,CE,1.69,425.58
+P02793,CD Oeste,Interior,PE,1.05,250.15
+P02794,CD Oeste,Capital,RJ,1.27,249.81
+P02795,CD Leste,Interior,RS,3.94,222.5
+P02796,Loja,Capital,RJ,2.92,572.52
+P02797,CD Oeste,Interior,PE,2.7,83.4
+P02798,CD Leste,Interior,SP,1.52,687.46
+P02799,CD Leste,Interior,SP,2.72,414.1
+P02800,CD Oeste,Interior,SP,1.16,698.78
+P02801,CD Leste,Interior,RS,1.52,1127.68
+P02802,CD Leste,Capital,MT,3.59,1053.33
+P02803,CD Leste,Interior,SP,3.36,725.6
+P02804,CD Leste,Capital,SC,0.92,548.24
+P02805,CD Oeste,Capital,RJ,1.0,862.17
+P02806,CD Oeste,Interior,PE,1.97,1113.92
+P02807,CD Leste,Interior,SP,6.1,628.29
+P02808,CD Oeste,Capital,SP,0.48,191.22
+P02809,CD Leste,Interior,DF,2.21,938.02
+P02810,CD Leste,Interior,RS,0.7,91.74
+P02811,CD Leste,Interior,CE,1.17,936.4
+P02812,CD Oeste,Interior,RS,1.41,175.11
+P02813,Loja,Capital,PA,1.36,199.41
+P02814,CD Oeste,Interior,MG,1.25,955.51
+P02815,CD Leste,Capital,RJ,1.83,852.26
+P02816,CD Leste,Capital,RO,1.25,709.33
+P02817,CD Leste,Interior,SP,0.65,999.06
+P02818,Loja,Interior,PE,3.15,1033.53
+P02819,CD Leste,Capital,SP,3.09,592.41
+P02820,Loja,Interior,PR,3.29,1195.85
+P02821,CD Oeste,Interior,SP,0.62,480.49
+P02822,CD Oeste,Interior,RS,2.25,272.09
+P02823,Loja,Capital,PE,2.92,1027.49
+P02824,CD Leste,Capital,SP,0.89,545.44
+P02825,CD Oeste,Capital,SP,1.83,1059.44
+P02826,CD Leste,Capital,RJ,1.68,148.51
+P02827,Loja,Capital,MG,6.62,204.38
+P02828,CD Oeste,Capital,RJ,7.01,125.11
+P02829,CD Leste,Capital,PA,0.57,754.25
+P02830,Loja,Capital,SP,10.44,1011.69
+P02831,CD Leste,Interior,ES,0.96,530.98
+P02832,CD Leste,Interior,PR,3.62,181.58
+P02833,CD Oeste,Capital,MG,3.59,498.29
+P02834,CD Oeste,Interior,MG,0.91,469.81
+P02835,Loja,Capital,MS,2.57,800.69
+P02836,CD Oeste,Interior,DF,1.69,810.41
+P02837,CD Oeste,Interior,PE,2.69,195.39
+P02838,CD Leste,Interior,RJ,2.14,550.6
+P02839,CD Leste,Capital,RS,4.21,799.62
+P02840,Loja,Capital,PB,1.92,369.92
+P02841,CD Leste,Interior,CE,1.62,535.93
+P02842,CD Oeste,Interior,MA,3.92,767.34
+P02843,CD Leste,Interior,MG,2.74,531.22
+P02844,CD Leste,Interior,AC,3.04,114.56
+P02845,CD Oeste,Capital,PE,1.14,329.33
+P02846,CD Oeste,Interior,PE,0.88,949.21
+P02847,CD Oeste,Capital,GO,1.22,358.32
+P02848,Loja,Interior,RO,1.18,995.84
+P02849,CD Leste,Interior,PR,3.16,602.94
+P02850,CD Oeste,Interior,BA,3.61,609.67
+P02851,CD Leste,Interior,MT,1.63,942.98
+P02852,CD Oeste,Capital,BA,4.96,509.29
+P02853,CD Leste,Capital,BA,4.75,347.1
+P02854,CD Oeste,Interior,SP,2.16,197.64
+P02855,CD Leste,Interior,RJ,1.02,832.54
+P02856,Loja,Interior,RJ,5.49,606.34
+P02857,Loja,Interior,BA,1.75,986.54
+P02858,Loja,Capital,MS,1.99,592.6
+P02859,CD Leste,Capital,CE,1.44,544.59
+P02860,Loja,Interior,PE,0.98,414.71
+P02861,CD Leste,Capital,RS,0.65,303.36
+P02862,CD Leste,Capital,SP,2.84,1010.09
+P02863,CD Leste,Interior,DF,1.05,186.64
+P02864,CD Leste,Interior,RN,15.0,1090.38
+P02865,CD Oeste,Interior,GO,0.85,110.14
+P02866,CD Leste,Capital,PB,0.76,664.92
+P02867,CD Leste,Capital,RR,2.6,145.33
+P02868,CD Oeste,Interior,RJ,5.31,953.16
+P02869,Loja,Interior,BA,1.91,316.88
+P02870,CD Oeste,Capital,SC,2.72,713.83
+P02871,CD Oeste,Capital,PR,0.5,1106.42
+P02872,CD Leste,Capital,SP,1.13,807.17
+P02873,Loja,Interior,SP,0.86,279.72
+P02874,CD Leste,Interior,SP,0.48,972.28
+P02875,CD Leste,Interior,DF,1.98,574.46
+P02876,CD Leste,Capital,SP,0.38,94.76
+P02877,CD Oeste,Interior,ES,0.72,625.18
+P02878,CD Leste,Interior,SC,1.25,989.98
+P02879,CD Oeste,Capital,ES,1.02,561.55
+P02880,CD Leste,Capital,CE,2.4,929.44
+P02881,CD Oeste,Interior,PR,2.26,870.19
+P02882,CD Oeste,Capital,SP,3.41,591.74
+P02883,CD Leste,Interior,AP,3.09,442.08
+P02884,CD Leste,Interior,CE,4.05,893.72
+P02885,CD Oeste,Capital,GO,1.82,493.19
+P02886,CD Oeste,Interior,BA,2.25,270.5
+P02887,CD Leste,Interior,SP,2.61,439.37
+P02888,CD Oeste,Capital,BA,2.01,1062.06
+P02889,CD Leste,Interior,SP,1.38,397.4
+P02890,CD Leste,Capital,PR,1.44,343.16
+P02891,CD Leste,Capital,SP,1.03,229.43
+P02892,CD Oeste,Interior,BA,2.45,141.8
+P02893,CD Leste,Interior,SP,1.71,1173.9
+P02894,CD Oeste,Capital,MG,1.15,681.19
+P02895,CD Leste,Capital,SP,1.15,897.2
+P02896,CD Oeste,Interior,BA,0.78,945.73
+P02897,CD Leste,Capital,MG,3.62,474.6
+P02898,CD Oeste,Interior,SC,1.93,974.77
+P02899,CD Oeste,Interior,MG,1.0,1156.86
+P02900,CD Leste,Interior,BA,3.21,910.77
+P02901,CD Leste,Capital,SP,1.23,877.14
+P02902,CD Oeste,Interior,AM,0.68,564.1
+P02903,Loja,Capital,MG,3.72,1022.28
+P02904,Loja,Capital,SP,1.25,179.5
+P02905,CD Leste,Capital,SP,1.37,919.65
+P02906,CD Oeste,Capital,SP,1.88,485.43
+P02907,CD Leste,Interior,PR,4.05,713.89
+P02908,CD Leste,Interior,MG,1.85,1080.12
+P02909,CD Oeste,Interior,RN,0.79,757.62
+P02910,CD Oeste,Interior,SC,2.67,108.65
+P02911,CD Oeste,Interior,SP,1.3,889.32
+P02912,Loja,Interior,PR,6.83,1120.51
+P02913,CD Leste,Interior,SP,1.82,799.05
+P02914,CD Oeste,Interior,SP,0.38,1044.79
+P02915,CD Leste,Interior,MG,2.34,1004.33
+P02916,CD Leste,Capital,SP,7.11,1044.65
+P02917,CD Leste,Interior,SP,5.49,465.39
+P02918,Loja,Capital,AM,6.56,611.06
+P02919,CD Oeste,Capital,GO,0.89,1029.8
+P02920,CD Leste,Interior,MA,3.45,1099.65
+P02921,CD Oeste,Capital,MG,1.1,244.46
+P02922,Loja,Capital,CE,2.13,283.32
+P02923,Loja,Capital,RJ,0.75,468.45
+P02924,CD Oeste,Interior,SP,1.16,942.73
+P02925,CD Leste,Interior,PE,1.13,1059.98
+P02926,CD Oeste,Interior,SP,3.42,729.87
+P02927,Loja,Interior,RJ,3.19,206.86
+P02928,Loja,Interior,PE,2.21,420.2
+P02929,Loja,Interior,DF,0.71,1039.87
+P02930,CD Oeste,Interior,SC,1.46,469.26
+P02931,CD Leste,Capital,RJ,1.08,195.14
+P02932,CD Oeste,Interior,SP,3.35,418.32
+P02933,CD Leste,Capital,AP,4.16,983.51
+P02934,CD Leste,Capital,SP,3.82,632.7
+P02935,CD Oeste,Interior,MG,1.07,272.16
+P02936,CD Oeste,Capital,SP,0.27,430.15
+P02937,Loja,Interior,PI,0.53,1148.01
+P02938,CD Oeste,Interior,BA,4.93,563.79
+P02939,Loja,Capital,PR,1.38,574.59
+P02940,CD Oeste,Interior,PA,1.08,251.44
+P02941,CD Oeste,Interior,SP,5.75,421.1
+P02942,CD Leste,Interior,PB,4.42,992.45
+P02943,CD Oeste,Capital,SP,1.85,960.54
+P02944,CD Leste,Interior,RJ,1.48,567.76
+P02945,CD Leste,Interior,SP,1.66,1080.89
+P02946,CD Leste,Interior,RR,2.14,505.89
+P02947,Loja,Capital,MA,5.58,1048.05
+P02948,CD Oeste,Interior,RS,2.45,115.35
+P02949,Loja,Interior,SP,3.03,468.9
+P02950,Loja,Capital,MG,4.13,1037.68
+P02951,Loja,Interior,PR,0.8,1089.47
+P02952,CD Leste,Interior,MG,3.09,927.19
+P02953,Loja,Interior,SP,1.48,830.25
+P02954,Loja,Interior,GO,0.31,993.37
+P02955,Loja,Interior,DF,0.41,872.47
+P02956,CD Leste,Interior,PI,0.89,364.73
+P02957,CD Leste,Interior,PR,2.64,602.19
+P02958,Loja,Capital,RJ,1.97,819.99
+P02959,CD Leste,Capital,SC,2.07,738.34
+P02960,CD Leste,Capital,SP,7.14,1071.31
+P02961,CD Oeste,Interior,DF,0.75,610.71
+P02962,CD Leste,Capital,BA,1.79,279.35
+P02963,CD Leste,Interior,SP,2.25,320.33
+P02964,Loja,Interior,MG,1.09,1027.58
+P02965,Loja,Capital,AL,1.86,89.77
+P02966,Loja,Interior,SC,0.59,1053.43
+P02967,CD Leste,Interior,SC,4.89,142.26
+P02968,CD Leste,Capital,BA,1.13,518.66
+P02969,CD Leste,Capital,RS,7.55,976.2
+P02970,CD Oeste,Capital,SP,1.78,536.53
+P02971,CD Leste,Capital,PE,3.74,1001.03
+P02972,CD Oeste,Capital,MA,1.76,192.33
+P02973,Loja,Interior,SP,1.78,652.93
+P02974,CD Oeste,Capital,SP,1.21,732.37
+P02975,CD Leste,Capital,MS,1.98,1077.77
+P02976,CD Leste,Capital,RS,2.28,184.86
+P02977,CD Leste,Interior,RJ,1.05,459.23
+P02978,CD Leste,Interior,SC,1.67,818.47
+P02979,CD Oeste,Capital,MS,1.19,1177.52
+P02980,CD Leste,Capital,SC,9.11,1030.07
+P02981,CD Oeste,Interior,SP,1.71,1028.07
+P02982,Loja,Interior,SP,5.37,659.24
+P02983,CD Leste,Interior,ES,1.59,712.02
+P02984,CD Leste,Interior,MA,2.18,1041.61
+P02985,CD Leste,Interior,RS,0.72,1053.98
+P02986,CD Leste,Interior,RJ,1.33,978.55
+P02987,CD Oeste,Interior,PI,2.11,996.8
+P02988,Loja,Capital,RJ,5.53,1065.19
+P02989,Loja,Interior,SC,2.13,207.44
+P02990,CD Oeste,Interior,SP,4.8,407.76
+P02991,CD Leste,Interior,BA,2.85,1173.25
+P02992,CD Leste,Interior,MS,5.69,690.15
+P02993,CD Leste,Interior,PE,1.75,277.64
+P02994,CD Leste,Capital,MG,9.71,643.42
+P02995,Loja,Interior,ES,1.3,803.28
+P02996,CD Oeste,Capital,SP,1.07,1007.61
+P02997,CD Leste,Interior,PA,0.78,989.64
+P02998,CD Leste,Interior,SP,9.32,135.15
+P02999,CD Leste,Capital,GO,3.23,587.95
+P03000,Loja,Capital,MS,1.44,103.04

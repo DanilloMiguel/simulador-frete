@@ -1,25 +1,121 @@
-transportadora,origem,destino_tipo,custo_base,custo_por_kg,prazo_dias
-Transportadora Alfa,CD Norte,Capital,9.0,2.2,2
-Transportadora Alfa,CD Norte,Interior,12.15,2.97,5
-Transportadora Alfa,CD Sul,Capital,9.9,2.42,2
-Transportadora Alfa,CD Sul,Interior,13.37,3.27,5
-Transportadora Alfa,Loja,Capital,7.2,1.76,1
-Transportadora Alfa,Loja,Interior,9.72,2.38,4
-Transportadora Beta,CD Norte,Capital,12.0,1.4,3
-Transportadora Beta,CD Norte,Interior,16.2,1.89,6
-Transportadora Beta,CD Sul,Capital,13.2,1.54,3
-Transportadora Beta,CD Sul,Interior,17.82,2.08,6
-Transportadora Beta,Loja,Capital,9.6,1.12,2
-Transportadora Beta,Loja,Interior,12.96,1.51,5
-Transportadora Gama,CD Norte,Capital,15.0,0.9,1
-Transportadora Gama,CD Norte,Interior,20.25,1.22,4
-Transportadora Gama,CD Sul,Capital,16.5,0.99,1
-Transportadora Gama,CD Sul,Interior,22.28,1.34,4
-Transportadora Gama,Loja,Capital,12.0,0.72,1
-Transportadora Gama,Loja,Interior,16.2,0.97,3
-Transportadora Delta,CD Norte,Capital,7.5,2.8,5
-Transportadora Delta,CD Norte,Interior,10.12,3.78,8
-Transportadora Delta,CD Sul,Capital,8.25,3.08,5
-Transportadora Delta,CD Sul,Interior,11.14,4.16,8
-Transportadora Delta,Loja,Capital,6.0,2.24,4
-Transportadora Delta,Loja,Interior,8.1,3.02,7
+transportadora,origem,regiao,destino_tipo,custo_base,custo_por_kg,prazo_dias
+Transportadora Alfa,CD Leste,Sudeste,Capital,8.1,1.98,2
+Transportadora Alfa,CD Leste,Sudeste,Interior,10.53,2.57,4
+Transportadora Alfa,CD Leste,Sul,Capital,10.87,2.66,3
+Transportadora Alfa,CD Leste,Sul,Interior,14.13,3.45,5
+Transportadora Alfa,CD Leste,Centro-Oeste,Capital,12.38,3.03,4
+Transportadora Alfa,CD Leste,Centro-Oeste,Interior,16.09,3.93,6
+Transportadora Alfa,CD Leste,Nordeste,Capital,15.01,3.67,6
+Transportadora Alfa,CD Leste,Nordeste,Interior,19.51,4.77,8
+Transportadora Alfa,CD Leste,Norte,Capital,19.44,4.75,9
+Transportadora Alfa,CD Leste,Norte,Interior,25.27,6.18,11
+Transportadora Alfa,CD Oeste,Sudeste,Capital,8.75,2.14,2
+Transportadora Alfa,CD Oeste,Sudeste,Interior,11.37,2.78,4
+Transportadora Alfa,CD Oeste,Sul,Capital,11.74,2.87,3
+Transportadora Alfa,CD Oeste,Sul,Interior,15.26,3.73,5
+Transportadora Alfa,CD Oeste,Centro-Oeste,Capital,13.37,3.27,4
+Transportadora Alfa,CD Oeste,Centro-Oeste,Interior,17.37,4.25,6
+Transportadora Alfa,CD Oeste,Nordeste,Capital,16.21,3.96,6
+Transportadora Alfa,CD Oeste,Nordeste,Interior,21.07,5.15,8
+Transportadora Alfa,CD Oeste,Norte,Capital,21.0,5.13,9
+Transportadora Alfa,CD Oeste,Norte,Interior,27.29,6.67,11
+Transportadora Alfa,Loja,Sudeste,Capital,6.88,1.68,1
+Transportadora Alfa,Loja,Sudeste,Interior,8.95,2.19,3
+Transportadora Alfa,Loja,Sul,Capital,9.24,2.26,2
+Transportadora Alfa,Loja,Sul,Interior,12.01,2.94,4
+Transportadora Alfa,Loja,Centro-Oeste,Capital,10.52,2.57,3
+Transportadora Alfa,Loja,Centro-Oeste,Interior,13.67,3.34,5
+Transportadora Alfa,Loja,Nordeste,Capital,12.76,3.12,5
+Transportadora Alfa,Loja,Nordeste,Interior,16.58,4.05,7
+Transportadora Alfa,Loja,Norte,Capital,16.52,4.04,8
+Transportadora Alfa,Loja,Norte,Interior,21.48,5.25,10
+Transportadora Beta,CD Leste,Sudeste,Capital,12.6,1.47,3
+Transportadora Beta,CD Leste,Sudeste,Interior,16.38,1.91,5
+Transportadora Beta,CD Leste,Sul,Capital,12.14,1.42,4
+Transportadora Beta,CD Leste,Sul,Interior,15.79,1.84,6
+Transportadora Beta,CD Leste,Centro-Oeste,Capital,15.0,1.75,5
+Transportadora Beta,CD Leste,Centro-Oeste,Interior,19.5,2.27,7
+Transportadora Beta,CD Leste,Nordeste,Capital,19.14,2.23,7
+Transportadora Beta,CD Leste,Nordeste,Interior,24.88,2.9,9
+Transportadora Beta,CD Leste,Norte,Capital,24.84,2.9,10
+Transportadora Beta,CD Leste,Norte,Interior,32.29,3.77,12
+Transportadora Beta,CD Oeste,Sudeste,Capital,13.61,1.59,3
+Transportadora Beta,CD Oeste,Sudeste,Interior,17.69,2.06,5
+Transportadora Beta,CD Oeste,Sul,Capital,13.12,1.53,4
+Transportadora Beta,CD Oeste,Sul,Interior,17.05,1.99,6
+Transportadora Beta,CD Oeste,Centro-Oeste,Capital,16.2,1.89,5
+Transportadora Beta,CD Oeste,Centro-Oeste,Interior,21.06,2.46,7
+Transportadora Beta,CD Oeste,Nordeste,Capital,20.67,2.41,7
+Transportadora Beta,CD Oeste,Nordeste,Interior,26.87,3.14,9
+Transportadora Beta,CD Oeste,Norte,Capital,26.83,3.13,10
+Transportadora Beta,CD Oeste,Norte,Interior,34.88,4.07,12
+Transportadora Beta,Loja,Sudeste,Capital,10.71,1.25,2
+Transportadora Beta,Loja,Sudeste,Interior,13.92,1.62,4
+Transportadora Beta,Loja,Sul,Capital,10.32,1.2,3
+Transportadora Beta,Loja,Sul,Interior,13.42,1.57,5
+Transportadora Beta,Loja,Centro-Oeste,Capital,12.75,1.49,4
+Transportadora Beta,Loja,Centro-Oeste,Interior,16.58,1.93,6
+Transportadora Beta,Loja,Nordeste,Capital,16.27,1.9,6
+Transportadora Beta,Loja,Nordeste,Interior,21.15,2.47,8
+Transportadora Beta,Loja,Norte,Capital,21.11,2.46,9
+Transportadora Beta,Loja,Norte,Interior,27.45,3.2,11
+Transportadora Gama,CD Leste,Sudeste,Capital,16.5,0.99,1
+Transportadora Gama,CD Leste,Sudeste,Interior,21.45,1.29,3
+Transportadora Gama,CD Leste,Sul,Capital,17.25,1.03,2
+Transportadora Gama,CD Leste,Sul,Interior,22.42,1.35,4
+Transportadora Gama,CD Leste,Centro-Oeste,Capital,15.0,0.9,3
+Transportadora Gama,CD Leste,Centro-Oeste,Interior,19.5,1.17,5
+Transportadora Gama,CD Leste,Nordeste,Capital,22.84,1.37,5
+Transportadora Gama,CD Leste,Nordeste,Interior,29.69,1.78,7
+Transportadora Gama,CD Leste,Norte,Capital,28.35,1.7,8
+Transportadora Gama,CD Leste,Norte,Interior,36.86,2.21,10
+Transportadora Gama,CD Oeste,Sudeste,Capital,17.82,1.07,1
+Transportadora Gama,CD Oeste,Sudeste,Interior,23.17,1.39,3
+Transportadora Gama,CD Oeste,Sul,Capital,18.63,1.12,2
+Transportadora Gama,CD Oeste,Sul,Interior,24.22,1.45,4
+Transportadora Gama,CD Oeste,Centro-Oeste,Capital,16.2,0.97,3
+Transportadora Gama,CD Oeste,Centro-Oeste,Interior,21.06,1.26,5
+Transportadora Gama,CD Oeste,Nordeste,Capital,24.66,1.48,5
+Transportadora Gama,CD Oeste,Nordeste,Interior,32.06,1.92,7
+Transportadora Gama,CD Oeste,Norte,Capital,30.62,1.84,8
+Transportadora Gama,CD Oeste,Norte,Interior,39.8,2.39,10
+Transportadora Gama,Loja,Sudeste,Capital,14.03,0.84,1
+Transportadora Gama,Loja,Sudeste,Interior,18.23,1.09,2
+Transportadora Gama,Loja,Sul,Capital,14.66,0.88,1
+Transportadora Gama,Loja,Sul,Interior,19.06,1.14,3
+Transportadora Gama,Loja,Centro-Oeste,Capital,12.75,0.77,2
+Transportadora Gama,Loja,Centro-Oeste,Interior,16.58,0.99,4
+Transportadora Gama,Loja,Nordeste,Capital,19.41,1.16,4
+Transportadora Gama,Loja,Nordeste,Interior,25.24,1.51,6
+Transportadora Gama,Loja,Norte,Capital,24.1,1.45,7
+Transportadora Gama,Loja,Norte,Interior,31.33,1.88,9
+Transportadora Delta,CD Leste,Sudeste,Capital,7.5,2.8,5
+Transportadora Delta,CD Leste,Sudeste,Interior,9.75,3.64,7
+Transportadora Delta,CD Leste,Sul,Capital,9.49,3.54,6
+Transportadora Delta,CD Leste,Sul,Interior,12.33,4.6,8
+Transportadora Delta,CD Leste,Centro-Oeste,Capital,9.84,3.67,7
+Transportadora Delta,CD Leste,Centro-Oeste,Interior,12.8,4.78,9
+Transportadora Delta,CD Leste,Nordeste,Capital,9.24,3.45,9
+Transportadora Delta,CD Leste,Nordeste,Interior,12.02,4.49,11
+Transportadora Delta,CD Leste,Norte,Capital,11.88,4.44,12
+Transportadora Delta,CD Leste,Norte,Interior,15.44,5.77,14
+Transportadora Delta,CD Oeste,Sudeste,Capital,8.1,3.02,5
+Transportadora Delta,CD Oeste,Sudeste,Interior,10.53,3.93,7
+Transportadora Delta,CD Oeste,Sul,Capital,10.25,3.83,6
+Transportadora Delta,CD Oeste,Sul,Interior,13.32,4.97,8
+Transportadora Delta,CD Oeste,Centro-Oeste,Capital,10.63,3.97,7
+Transportadora Delta,CD Oeste,Centro-Oeste,Interior,13.82,5.16,9
+Transportadora Delta,CD Oeste,Nordeste,Capital,9.98,3.73,9
+Transportadora Delta,CD Oeste,Nordeste,Interior,12.98,4.85,11
+Transportadora Delta,CD Oeste,Norte,Capital,12.83,4.79,12
+Transportadora Delta,CD Oeste,Norte,Interior,16.68,6.23,14
+Transportadora Delta,Loja,Sudeste,Capital,6.38,2.38,4
+Transportadora Delta,Loja,Sudeste,Interior,8.29,3.09,6
+Transportadora Delta,Loja,Sul,Capital,8.06,3.01,5
+Transportadora Delta,Loja,Sul,Interior,10.48,3.91,7
+Transportadora Delta,Loja,Centro-Oeste,Capital,8.37,3.12,6
+Transportadora Delta,Loja,Centro-Oeste,Interior,10.88,4.06,8
+Transportadora Delta,Loja,Nordeste,Capital,7.86,2.93,8
+Transportadora Delta,Loja,Nordeste,Interior,10.21,3.81,10
+Transportadora Delta,Loja,Norte,Capital,10.1,3.77,11
+Transportadora Delta,Loja,Norte,Interior,13.13,4.9,13
