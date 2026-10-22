@@ -151,12 +151,13 @@ def secao_ranking(pedidos, tabela) -> None:
         st.info("Nenhuma transportadora da tabela atende os pedidos.")
         return
 
+    # --- Filtros ---
     f1, f2, f3 = st.columns(3)
     transportadoras = sorted(opcoes["transportadora"].unique())
     selecionadas = f1.multiselect("Transportadora", transportadoras, default=transportadoras)
     origem = f2.selectbox("Origem da coleta", ["Todas"] + sorted(opcoes["origem"].unique()))
     regioes_presentes = set(opcoes["regiao"])
-    regiao = f3.selectbox(
+    regiao_filtro = f3.selectbox(
         "Região de destino",
         ["Todas"] + [r for r in frete.ORDEM_REGIOES if r in regioes_presentes],
     )
@@ -164,39 +165,65 @@ def secao_ranking(pedidos, tabela) -> None:
     filtrado = opcoes[opcoes["transportadora"].isin(selecionadas)]
     if origem != "Todas":
         filtrado = filtrado[filtrado["origem"] == origem]
-    if regiao != "Todas":
-        filtrado = filtrado[filtrado["regiao"] == regiao]
+    if regiao_filtro != "Todas":
+        filtrado = filtrado[filtrado["regiao"] == regiao_filtro]
     if filtrado.empty:
         st.info("Nenhuma opção de frete com esses filtros.")
         return
 
-    st.caption(f"Top 3 considerando {vz.num_br(filtrado['pedido_id'].nunique(), 0)} pedidos no filtro atual.")
+    n_pedidos = filtrado["pedido_id"].nunique()
+    st.caption(f"Top 3 considerando {vz.num_br(n_pedidos, 0)} pedidos no filtro atual.")
+
+    # --- Top 3 geral com cards redesenhados ---
     geral = frete.ranking(filtrado, [])
-    for coluna, (_, linha) in zip(st.columns(3), geral.iterrows()):
+    colunas_top = st.columns(min(3, len(geral)))
+    for coluna, (_, linha) in zip(colunas_top, geral.iterrows()):
         coluna.markdown(vz.cartao(linha), unsafe_allow_html=True)
 
-    col_esq, col_dir = st.columns([5, 6])
+    st.divider()
+
+    # --- Detalhamento: abas por região + tabela UF ---
     por_uf = frete.ranking(filtrado, ["regiao", "uf"])
     por_regiao = frete.ranking(filtrado, ["regiao"])
+    regioes = [r for r in frete.ORDEM_REGIOES if r in set(por_regiao["regiao"])]
 
-    with col_esq:
-        st.markdown("**Detalhamento: ranking de frete por UF**")
+    sub_ranking, sub_uf = st.tabs(["🏆 Top 3 por região", "📊 Ranking por UF"])
+
+    with sub_ranking:
+        if len(regioes) > 1:
+            abas_regiao = st.tabs(regioes)
+            for aba, nome in zip(abas_regiao, regioes):
+                with aba:
+                    dados_regiao = por_regiao[por_regiao["regiao"] == nome]
+                    col_p, col_g = st.columns([3, 5])
+                    with col_p:
+                        st.markdown(vz.painel_regiao(nome, dados_regiao), unsafe_allow_html=True)
+                        n_ped_reg = filtrado[filtrado["regiao"] == nome]["pedido_id"].nunique()
+                        st.caption(f"{vz.num_br(n_ped_reg, 0)} pedidos nessa região")
+                    with col_g:
+                        grafico = vz.grafico_ranking_regiao(por_regiao, nome)
+                        if grafico:
+                            st.altair_chart(grafico)
+        else:
+            nome = regioes[0]
+            dados_regiao = por_regiao[por_regiao["regiao"] == nome]
+            col_p, col_g = st.columns([3, 5])
+            with col_p:
+                st.markdown(vz.painel_regiao(nome, dados_regiao), unsafe_allow_html=True)
+            with col_g:
+                grafico = vz.grafico_ranking_regiao(por_regiao, nome)
+                if grafico:
+                    st.altair_chart(grafico)
+
+    with sub_uf:
+        st.markdown("**Transportadora mais barata de cada UF**")
+        st.caption("Mapa de calor: verde = menor valor, vermelho = maior. O prazo é o da transportadora mais barata daquela UF.")
         st.dataframe(vz.tabela_ranking_uf(por_uf), hide_index=True, height=620)
-
-    with col_dir:
-        st.markdown("**Top 3 por região**")
-        regioes = [r for r in frete.ORDEM_REGIOES if r in set(por_regiao["regiao"])]
-        for i in range(0, len(regioes), 2):
-            for coluna, nome in zip(st.columns(2), regioes[i : i + 2]):
-                coluna.markdown(
-                    vz.painel_regiao(nome, por_regiao[por_regiao["regiao"] == nome]),
-                    unsafe_allow_html=True,
-                )
 
     st.caption(
         "Cada transportadora é aplicada aos mesmos pedidos de cada grupo. Frete e prazo (LT) são "
         "médias ponderadas (total ÷ pedidos), não médias das médias. A variação compara cada "
-        "colocado com o seguinte. O prazo da tabela por UF é o da transportadora mais barata."
+        "colocado com o seguinte."
     )
 
 

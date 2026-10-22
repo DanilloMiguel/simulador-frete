@@ -18,11 +18,34 @@ ESTILO = """
 .topo {background: #1F4E9C; padding: 1.2rem 1.5rem; border-radius: 10px; margin-bottom: 1.2rem;}
 .topo h1 {color: #FFFFFF !important; font-size: 1.7rem !important; margin: 0 !important; padding: 0 !important;}
 .topo p {color: #DCE6F5 !important; margin: 0.3rem 0 0 0 !important; font-size: 0.95rem !important;}
-.med {background: #E8EEF7; border: 1px solid #D3DCEB; border-radius: 8px; overflow: hidden; margin-bottom: 8px;}
-.med-t {background: #1B2A41; color: #FFFFFF !important; font-weight: 700; font-size: 0.9rem; text-align: center; padding: 6px 8px;}
-.med-c {color: #1F2933 !important; font-size: 0.85rem; line-height: 1.55; text-align: center; padding: 6px 10px;}
-.painel {background: #F1F3F6; border-radius: 10px; padding: 8px; margin-bottom: 12px;}
-.painel-t {background: #1B2A41; color: #FFFFFF !important; font-weight: 700; text-align: center; padding: 7px; border-radius: 8px; margin-bottom: 8px;}
+
+/* --- Ranking: card Top 3 geral --- */
+.rk-card {border-radius: 10px; overflow: hidden; margin-bottom: 10px; border-left: 5px solid #CCC;}
+.rk-card.pos1 {border-left-color: #D4A017; background: linear-gradient(135deg, #FFF8E1 0%, #FFFFFF 60%);}
+.rk-card.pos2 {border-left-color: #9E9E9E; background: linear-gradient(135deg, #F5F5F5 0%, #FFFFFF 60%);}
+.rk-card.pos3 {border-left-color: #B87333; background: linear-gradient(135deg, #FBF0E8 0%, #FFFFFF 60%);}
+.rk-head {padding: 10px 14px 2px; display: flex; align-items: center; gap: 8px;}
+.rk-medal {font-size: 1.5rem;}
+.rk-nome {font-weight: 700; font-size: 1.0rem; color: #1B2A41 !important;}
+.rk-body {padding: 4px 14px 12px;}
+.rk-valor {font-size: 1.6rem; font-weight: 800; color: #1F4E9C !important; margin: 2px 0;}
+.rk-sub {font-size: 0.82rem; color: #4A5568 !important; line-height: 1.5;}
+.rk-var {display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 0.78rem; font-weight: 600; margin-top: 4px;}
+.rk-var.neg {background: #E8F5E9; color: #2E7D32 !important;}
+.rk-var.pos {background: #FFEBEE; color: #C62828 !important;}
+
+/* --- Ranking: painéis de região (dentro das abas) --- */
+.rk-reg {background: #F8F9FB; border: 1px solid #E5E8EE; border-radius: 10px; padding: 12px; margin-bottom: 10px;}
+.rk-reg-t {font-weight: 700; font-size: 0.95rem; color: #1F4E9C !important; margin-bottom: 8px; padding-bottom: 6px; border-bottom: 2px solid #1F4E9C;}
+.rk-mini {display: flex; align-items: center; gap: 8px; padding: 6px 0; border-bottom: 1px solid #EEE;}
+.rk-mini:last-child {border-bottom: none;}
+.rk-mini-pos {width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.82rem; color: #FFF !important; flex-shrink: 0;}
+.rk-mini-pos.p1 {background: #D4A017;}
+.rk-mini-pos.p2 {background: #9E9E9E;}
+.rk-mini-pos.p3 {background: #B87333;}
+.rk-mini-info {flex: 1; font-size: 0.84rem; color: #1F2933 !important; line-height: 1.4;}
+.rk-mini-nome {font-weight: 600;}
+.rk-mini-vals {color: #4A5568 !important;}
 </style>
 """
 
@@ -133,25 +156,91 @@ def tabela_ranking_uf(por_uf: pd.DataFrame):
 
 # ------------------------------------------------------------------ cards HTML
 def cartao(linha: pd.Series) -> str:
-    """Card de uma transportadora no ranking (medalha, frete, prazo e variação)."""
+    """Card grande de uma transportadora no ranking geral (Top 3)."""
+    pos = int(linha["posicao"])
+    medal = MEDALHAS.get(pos, "")
+    nome = html.escape(str(linha["transportadora"]))
+
     if pd.notna(linha["var_pct"]):
-        variacao = f"<b>% Var vs Top{int(linha['posicao']) + 1}:</b> {num_br(linha['var_pct'], 1)}%"
+        v = linha["var_pct"]
+        cls = "neg" if v < 0 else "pos"
+        sinal = "" if v < 0 else "+"
+        var_html = f'<span class="rk-var {cls}">{sinal}{num_br(v, 1)}% vs Top {pos + 1}</span>'
     else:
-        variacao = "&nbsp;"
+        var_html = ""
+
     texto = (
-        '<div class="med">'
-        f'<div class="med-t">{MEDALHAS[int(linha["posicao"])]} {html.escape(str(linha["transportadora"]))}</div>'
-        f'<div class="med-c"><b>Frete:</b> {brl(linha["frete"])} &nbsp;·&nbsp; '
-        f'<b>LT:</b> {num_br(linha["prazo"], 1)} dias<br>{variacao}</div>'
-        "</div>"
+        f'<div class="rk-card pos{pos}">'
+        f'<div class="rk-head"><span class="rk-medal">{medal}</span>'
+        f'<span class="rk-nome">{nome}</span></div>'
+        f'<div class="rk-body">'
+        f'<div class="rk-valor">R&#36; {num_br(linha["frete"], 2)}</div>'
+        f'<div class="rk-sub">Prazo médio: {num_br(linha["prazo"], 1)} dias &nbsp;·&nbsp; '
+        f'{num_br(linha["pedidos"], 0)} pedidos</div>'
+        f'{var_html}</div></div>'
     )
-    # "$" vira entidade para o markdown não tratá-lo como fórmula.
-    return texto.replace("$", "&#36;")
+    return texto
+
+
+def mini_card_regiao(linha: pd.Series) -> str:
+    """Card compacto de uma transportadora dentro do painel de região."""
+    pos = int(linha["posicao"])
+    nome = html.escape(str(linha["transportadora"]))
+    return (
+        f'<div class="rk-mini">'
+        f'<div class="rk-mini-pos p{pos}">{pos}º</div>'
+        f'<div class="rk-mini-info">'
+        f'<div class="rk-mini-nome">{nome}</div>'
+        f'<div class="rk-mini-vals">R&#36; {num_br(linha["frete"], 2)} &nbsp;·&nbsp; '
+        f'{num_br(linha["prazo"], 1)} dias</div>'
+        f'</div></div>'
+    )
 
 
 def painel_regiao(nome: str, ranking_regiao: pd.DataFrame) -> str:
-    cartoes = "".join(cartao(linha) for _, linha in ranking_regiao.sort_values("posicao").iterrows())
-    return f'<div class="painel"><div class="painel-t">{html.escape(nome)}</div>{cartoes}</div>'
+    """Painel de Top 3 de uma região, para uso dentro de abas."""
+    linhas = "".join(
+        mini_card_regiao(linha)
+        for _, linha in ranking_regiao.sort_values("posicao").iterrows()
+    )
+    return f'<div class="rk-reg"><div class="rk-reg-t">{html.escape(nome)}</div>{linhas}</div>'
+
+
+def grafico_ranking_regiao(ranking_df: pd.DataFrame, regiao: str):
+    """Barras horizontais comparando frete das transportadoras de uma região."""
+    dados = ranking_df[ranking_df["regiao"] == regiao].copy()
+    if dados.empty:
+        return None
+    dados["rotulo"] = dados["frete"].map(lambda v: f"R$ {num_br(v, 2)}")
+    dados["cor"] = dados["posicao"].map({1: "#D4A017", 2: "#9E9E9E", 3: "#B87333"})
+
+    limite = float(dados["frete"].max()) * 1.25 or 1.0
+    base = alt.Chart(dados).encode(
+        y=alt.Y(
+            "transportadora:N",
+            sort=alt.EncodingSortField(field="frete", order="ascending"),
+            title=None,
+            axis=alt.Axis(labelLimit=260, labelFontSize=12),
+        ),
+        x=alt.X("frete:Q", title="Frete médio (R$)", scale=alt.Scale(domain=[0, limite])),
+    )
+    cores = dict(zip(dados["transportadora"], dados["cor"]))
+    barras = base.mark_bar(cornerRadiusEnd=4, size=26).encode(
+        color=alt.Color(
+            "transportadora:N",
+            scale=alt.Scale(domain=list(cores.keys()), range=list(cores.values())),
+            legend=None,
+        ),
+    )
+    textos = base.mark_text(align="left", dx=5, color=CINZA, fontSize=12, fontWeight="bold").encode(
+        text="rotulo:N",
+    )
+    return (
+        (barras + textos)
+        .properties(width="container", height=alt.Step(38))
+        .configure_axis(gridColor=CINZA_CLARO, domain=False, labelColor=CINZA, titleColor=CINZA)
+        .configure_view(stroke=None)
+    )
 
 
 # -------------------------------------------------------------------- gráficos
