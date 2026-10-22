@@ -1,5 +1,7 @@
 # 🚚 Simulador de Frete
 
+🔗 **Demonstração online:** https://simulador-frete-eaobrqw25lon7caztx9qsh.streamlit.app/
+
 App em **Streamlit** que escolhe, para cada pedido, a transportadora mais barata dentro do prazo, e permite alterar custos e prazos da tabela de frete direto na tela para ver o impacto.
 
 > **Todos os dados deste repositório são fictícios.** Transportadoras, preços e pedidos foram gerados por `gerar_dados.py`.

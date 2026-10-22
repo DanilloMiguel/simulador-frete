@@ -1,6 +1,7 @@
 """Simulador de frete: app Streamlit (dados fictícios de exemplo)."""
 from pathlib import Path
 
+import altair as alt
 import pandas as pd
 import streamlit as st
 
@@ -8,15 +9,39 @@ import frete
 
 DATA = Path(__file__).parent / "data"
 AZUL = "#1F4E9C"
+AZUL_CLARO = "#E8EEF7"
+CINZA = "#4A5568"
+CINZA_CLARO = "#E5E8EE"
 XLSX = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
 
 st.set_page_config(page_title="Simulador de Frete", page_icon="🚚", layout="wide")
 
+ESTILO = """
+<style>
+.topo {background: #1F4E9C; padding: 1.2rem 1.5rem; border-radius: 10px; margin-bottom: 1.2rem;}
+.topo h1 {color: #FFFFFF !important; font-size: 1.7rem !important; margin: 0 !important; padding: 0 !important;}
+.topo p {color: #DCE6F5 !important; margin: 0.3rem 0 0 0 !important; font-size: 0.95rem !important;}
+</style>
+"""
 
-def brl(valor: float) -> str:
+CABECALHO = """
+<div class="topo">
+<h1>🚚 Simulador de Frete</h1>
+<p>Escolhe a transportadora mais barata de cada pedido, dentro do prazo. Os dados de exemplo são fictícios.</p>
+</div>
+"""
+
+
+# ------------------------------------------------------------------ formatação
+def num_br(valor: float, casas: int = 2) -> str:
+    """Número no padrão brasileiro: 1.234,56."""
     if pd.isna(valor):
         return "-"
-    return "R$ " + f"{valor:,.2f}".replace(",", "X").replace(".", ",").replace("X", ".")
+    return f"{valor:,.{casas}f}".replace(",", "X").replace(".", ",").replace("X", ".")
+
+
+def brl(valor: float) -> str:
+    return "-" if pd.isna(valor) else "R$ " + num_br(valor, 2)
 
 
 def delta_brl(atual: float, base: float) -> str | None:
@@ -26,6 +51,65 @@ def delta_brl(atual: float, base: float) -> str | None:
     return ("-" if dif < 0 else "+") + brl(abs(dif))
 
 
+FORMATOS = {
+    "Peso (kg)": lambda v: num_br(v, 2),
+    "Valor do pedido (R$)": lambda v: num_br(v, 2),
+    "Frete (R$)": lambda v: num_br(v, 2),
+    "Prazo (dias)": lambda v: num_br(v, 0),
+    "Custo total (R$)": lambda v: num_br(v, 2),
+    "Custo médio (R$)": lambda v: num_br(v, 2),
+    "Prazo médio (dias)": lambda v: num_br(v, 1),
+}
+
+
+def estilizar(df: pd.DataFrame, destacar_total: bool = False):
+    """Rótulos amigáveis, números no padrão brasileiro e linha TOTAL em destaque."""
+    tabela = frete.rotular(df)
+    estilo = tabela.style.format({c: f for c, f in FORMATOS.items() if c in tabela.columns})
+    if destacar_total:
+        estilo = estilo.apply(
+            lambda linha: [
+                f"font-weight: 700; background-color: {AZUL_CLARO}" if linha["Origem"] == "TOTAL" else ""
+                for _ in linha
+            ],
+            axis=1,
+        )
+    return estilo
+
+
+def grafico_barras(df: pd.DataFrame, categoria: str, valor: str, rotulo: str, titulo: str):
+    """Barras horizontais em azul, com o valor escrito na ponta de cada barra."""
+    limite = float(df[valor].max()) * 1.2 or 1.0
+    base = alt.Chart(df).encode(
+        y=alt.Y(
+            f"{categoria}:N",
+            sort="-x",
+            title=None,
+            axis=alt.Axis(labelLimit=260, labelFontSize=12),
+        ),
+        x=alt.X(
+            f"{valor}:Q",
+            title=titulo,
+            scale=alt.Scale(domain=[0, limite]),
+            axis=alt.Axis(grid=True, tickCount=5),
+        ),
+    )
+    barras = base.mark_bar(color=AZUL, cornerRadiusEnd=3, size=22)
+    textos = base.mark_text(align="left", dx=5, color=CINZA, fontSize=12).encode(text=f"{rotulo}:N")
+    return (
+        (barras + textos)
+        .properties(width="container", height=alt.Step(34))
+        .configure_axis(gridColor=CINZA_CLARO, domain=False, labelColor=CINZA, titleColor=CINZA)
+        .configure_view(stroke=None)
+    )
+
+
+def card(coluna, titulo: str, valor, **kwargs) -> None:
+    with coluna.container(border=True):
+        st.metric(titulo, valor, **kwargs)
+
+
+# ----------------------------------------------------------------------- dados
 def ler_arquivo(arquivo) -> pd.DataFrame:
     if arquivo.name.lower().endswith(".csv"):
         return pd.read_csv(arquivo)
@@ -84,11 +168,7 @@ except ValueError as erro:
     st.stop()
 
 # ------------------------------------------------------------------- conteúdo
-st.title("🚚 Simulador de Frete")
-st.caption(
-    "Escolhe a transportadora mais barata para cada pedido, dentro do prazo. "
-    "Os dados de exemplo são fictícios."
-)
+st.markdown(ESTILO + CABECALHO, unsafe_allow_html=True)
 
 st.subheader("1. Tabela de frete")
 st.caption(
@@ -101,6 +181,7 @@ tabela = st.data_editor(
     tabela_original[frete.COLUNAS_TABELA],
     num_rows="dynamic",
     hide_index=True,
+    height=320,
     key=f"editor_{chave_editor}",
     column_config={
         "transportadora": st.column_config.TextColumn("Transportadora", required=True),
@@ -133,15 +214,17 @@ if not saida:
 
 k, kb = saida["kpis"], saida["kpis_base"]
 c1, c2, c3, c4, c5 = st.columns(5)
-c1.metric("Pedidos", f"{k['pedidos']:,}".replace(",", "."))
-c2.metric(
+card(c1, "Pedidos", num_br(k["pedidos"], 0))
+card(
+    c2,
     "Custo total",
     brl(k["custo_total"]),
     delta=delta_brl(k["custo_total"], kb["custo_total"]),
     delta_color="inverse",
     help="Variação em relação à tabela original.",
 )
-c3.metric(
+card(
+    c3,
     "Custo médio por pedido",
     brl(k["custo_medio"]),
     delta=delta_brl(k["custo_medio"], kb["custo_medio"]),
@@ -149,39 +232,54 @@ c3.metric(
     help="Média ponderada: total de frete ÷ pedidos cobertos. "
     "Não é a média das médias dos grupos.",
 )
-c4.metric("Prazo médio (dias)", f"{k['prazo_medio']:.1f}".replace(".", ","))
-c5.metric(
+card(c4, "Prazo médio", num_br(k["prazo_medio"], 1) + " dias")
+card(
+    c5,
     "Sem cobertura",
     k["sem_cobertura"],
     delta=(k["sem_cobertura"] - kb["sem_cobertura"]) or None,
     delta_color="inverse",
+    help="Pedidos para os quais nenhuma transportadora atende dentro das regras.",
 )
 
 aba_resumo, aba_transp, aba_pedidos = st.tabs(["Resumo", "Transportadoras", "Pedidos"])
 
 with aba_resumo:
     resumo_df = saida["resumo"]
-    st.dataframe(
-        resumo_df,
-        hide_index=True,
-        column_config={
-            "custo_total": st.column_config.NumberColumn("custo_total", format="R$ %.2f"),
-            "custo_medio": st.column_config.NumberColumn("custo_medio", format="R$ %.2f"),
-        },
-    )
-    st.caption(
-        "A linha TOTAL é calculada a partir dos pedidos, não pela média das linhas acima."
-    )
+    st.dataframe(estilizar(resumo_df, destacar_total=True), hide_index=True)
+    st.caption("A linha TOTAL é calculada a partir dos pedidos, não pela média das linhas acima.")
     grupos = resumo_df[resumo_df["origem"] != "TOTAL"].copy()
-    grupos["grupo"] = grupos["origem"] + " → " + grupos["destino_tipo"]
-    st.bar_chart(grupos.set_index("grupo")["custo_medio"], color=AZUL)
+    if not grupos.empty:
+        grupos["grupo"] = grupos["origem"] + " → " + grupos["destino_tipo"]
+        grupos["texto"] = grupos["custo_medio"].map(brl)
+        st.altair_chart(
+            grafico_barras(grupos, "grupo", "custo_medio", "texto", "Custo médio por pedido (R$)")
+        )
 
 with aba_transp:
-    st.dataframe(saida["transportadoras"], hide_index=True)
-    st.bar_chart(saida["transportadoras"].set_index("transportadora")["pedidos"], color=AZUL)
+    transp = saida["transportadoras"]
+    if transp.empty:
+        st.info("Nenhum pedido foi atendido com as regras atuais.")
+    else:
+        st.dataframe(
+            estilizar(transp),
+            hide_index=True,
+            column_config={
+                "Participação (%)": st.column_config.ProgressColumn(
+                    "Participação (%)", min_value=0, max_value=100, format="%.1f"
+                )
+            },
+        )
+        transp = transp.copy()
+        transp["texto"] = transp["participacao_pct"].map(lambda v: num_br(v, 1) + "%")
+        st.altair_chart(
+            grafico_barras(
+                transp, "transportadora", "participacao_pct", "texto", "Participação nos pedidos (%)"
+            )
+        )
 
 with aba_pedidos:
-    st.dataframe(saida["resultado"], hide_index=True)
+    st.dataframe(estilizar(saida["resultado"]), hide_index=True)
 
 st.download_button(
     "⬇ Baixar resultado (.xlsx)",

@@ -85,3 +85,14 @@ def test_excel_tem_as_quatro_abas():
     dados = frete.exportar_excel(r, frete.resumo(r), frete.por_transportadora(r), t)
     wb = openpyxl.load_workbook(io.BytesIO(dados))
     assert wb.sheetnames == ["Resultado", "Resumo", "Transportadoras", "Parametros"]
+
+
+def test_excel_usa_rotulos_e_mantem_parametros_reutilizaveis():
+    t = tabela(("A", "CD", "Capital", 10, 2, 5))
+    r = frete.simular(pedidos(P1), t)
+    dados = frete.exportar_excel(r, frete.resumo(r), frete.por_transportadora(r), t)
+    wb = openpyxl.load_workbook(io.BytesIO(dados))
+    cabecalho = lambda aba: [c.value for c in wb[aba][1]]
+    assert "Frete (R$)" in cabecalho("Resultado")
+    assert "Custo médio (R$)" in cabecalho("Resumo")
+    assert cabecalho("Parametros") == frete.COLUNAS_TABELA  # pode voltar como entrada

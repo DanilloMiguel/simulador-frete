@@ -8,6 +8,7 @@ from __future__ import annotations
 import io
 
 import pandas as pd
+from openpyxl.styles import Font, PatternFill
 
 COLUNAS_PEDIDOS = ["pedido_id", "origem", "destino_tipo", "uf", "peso_kg", "valor_pedido"]
 COLUNAS_TABELA = [
@@ -20,6 +21,32 @@ COLUNAS_TABELA = [
 ]
 SEM_COBERTURA = "Sem cobertura"
 CHAVE = ["origem", "destino_tipo"]
+
+# Nomes amigáveis para exibição (tela e Excel). Internamente as colunas
+# mantêm os nomes originais.
+ROTULOS = {
+    "pedido_id": "Pedido",
+    "origem": "Origem",
+    "destino_tipo": "Destino",
+    "uf": "UF",
+    "peso_kg": "Peso (kg)",
+    "valor_pedido": "Valor do pedido (R$)",
+    "transportadora": "Transportadora",
+    "custo_frete": "Frete (R$)",
+    "prazo_dias": "Prazo (dias)",
+    "pedidos": "Pedidos",
+    "cobertos": "Cobertos",
+    "sem_cobertura": "Sem cobertura",
+    "custo_total": "Custo total (R$)",
+    "custo_medio": "Custo médio (R$)",
+    "prazo_medio": "Prazo médio (dias)",
+    "participacao_pct": "Participação (%)",
+}
+
+
+def rotular(df: pd.DataFrame) -> pd.DataFrame:
+    """Troca os nomes internos das colunas pelos nomes de exibição."""
+    return df.rename(columns=ROTULOS)
 
 
 def validar_colunas(df: pd.DataFrame, esperadas: list[str], nome: str) -> None:
@@ -130,13 +157,24 @@ def exportar_excel(
     """Gera o .xlsx de saída. A aba Parametros guarda a tabela usada na rodada."""
     buffer = io.BytesIO()
     with pd.ExcelWriter(buffer, engine="openpyxl") as escritor:
-        resultado.to_excel(escritor, sheet_name="Resultado", index=False)
-        resumo_df.to_excel(escritor, sheet_name="Resumo", index=False)
-        transportadoras.to_excel(escritor, sheet_name="Transportadoras", index=False)
+        rotular(resultado).to_excel(escritor, sheet_name="Resultado", index=False)
+        rotular(resumo_df).to_excel(escritor, sheet_name="Resumo", index=False)
+        rotular(transportadoras).to_excel(escritor, sheet_name="Transportadoras", index=False)
+        # Parametros mantém os nomes originais: a aba pode ser reaproveitada como entrada.
         tabela.to_excel(escritor, sheet_name="Parametros", index=False)
         for aba in escritor.book.worksheets:
             aba.freeze_panes = "A2"
+            for celula in aba[1]:
+                celula.font = Font(bold=True, color="FFFFFF")
+                celula.fill = PatternFill("solid", fgColor="1F4E9C")
+            for linha in aba.iter_rows(min_row=2):
+                if linha[0].value == "TOTAL":
+                    for celula in linha:
+                        celula.font = Font(bold=True)
             for coluna in aba.columns:
+                if str(coluna[0].value).endswith("(R$)"):
+                    for celula in coluna[1:]:
+                        celula.number_format = "#,##0.00"
                 largura = max(len(str(c.value)) if c.value is not None else 0 for c in coluna)
                 aba.column_dimensions[coluna[0].column_letter].width = min(largura + 2, 40)
     return buffer.getvalue()
