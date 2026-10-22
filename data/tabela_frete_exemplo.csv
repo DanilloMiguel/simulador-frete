@@ -1,0 +1,25 @@
+transportadora,origem,destino_tipo,custo_base,custo_por_kg,prazo_dias
+Transportadora Alfa,CD Norte,Capital,9.0,2.2,2
+Transportadora Alfa,CD Norte,Interior,12.15,2.97,5
+Transportadora Alfa,CD Sul,Capital,9.9,2.42,2
+Transportadora Alfa,CD Sul,Interior,13.37,3.27,5
+Transportadora Alfa,Loja,Capital,7.2,1.76,1
+Transportadora Alfa,Loja,Interior,9.72,2.38,4
+Transportadora Beta,CD Norte,Capital,12.0,1.4,3
+Transportadora Beta,CD Norte,Interior,16.2,1.89,6
+Transportadora Beta,CD Sul,Capital,13.2,1.54,3
+Transportadora Beta,CD Sul,Interior,17.82,2.08,6
+Transportadora Beta,Loja,Capital,9.6,1.12,2
+Transportadora Beta,Loja,Interior,12.96,1.51,5
+Transportadora Gama,CD Norte,Capital,15.0,0.9,1
+Transportadora Gama,CD Norte,Interior,20.25,1.22,4
+Transportadora Gama,CD Sul,Capital,16.5,0.99,1
+Transportadora Gama,CD Sul,Interior,22.28,1.34,4
+Transportadora Gama,Loja,Capital,12.0,0.72,1
+Transportadora Gama,Loja,Interior,16.2,0.97,3
+Transportadora Delta,CD Norte,Capital,7.5,2.8,5
+Transportadora Delta,CD Norte,Interior,10.12,3.78,8
+Transportadora Delta,CD Sul,Capital,8.25,3.08,5
+Transportadora Delta,CD Sul,Interior,11.14,4.16,8
+Transportadora Delta,Loja,Capital,6.0,2.24,4
+Transportadora Delta,Loja,Interior,8.1,3.02,7
