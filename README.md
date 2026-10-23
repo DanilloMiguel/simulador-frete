@@ -1,10 +1,32 @@
 # 🚚 Simulador de Frete
 
+[![Testes](https://github.com/DanilloMiguel/simulador-frete/actions/workflows/tests.yml/badge.svg)](https://github.com/DanilloMiguel/simulador-frete/actions/workflows/tests.yml)
+![Python](https://img.shields.io/badge/python-3.11%2B-blue)
+![Licença](https://img.shields.io/badge/licença-MIT-lightgrey)
+
 🔗 **Demonstração online:** https://simulador-frete-eaobrqw25lon7caztx9qsh.streamlit.app/
 
 App em **Streamlit** que compara transportadoras: escolhe, para cada pedido, a mais barata dentro do prazo, e mostra o ranking por região e por UF. Custos e prazos da tabela de frete podem ser alterados direto na tela para ver o impacto.
 
 > **Todos os dados deste repositório são fictícios.** Transportadoras, preços e pedidos foram gerados por `gerar_dados.py`.
+
+<!--
+Para deixar o README mais atraente, salve 2 ou 3 prints do app em docs/img/ e
+descomente as linhas abaixo (ajuste os nomes dos arquivos):
+
+![Mapa do Brasil por UF](docs/img/mapa.png)
+![Ranking por região](docs/img/ranking.png)
+-->
+
+## Que problema ele resolve
+
+Quando uma operação de e-commerce trabalha com várias transportadoras, cada uma com tabela própria por origem, região e tipo de destino, é difícil responder perguntas como:
+
+- Qual transportadora é a mais barata em cada região, e por quanto?
+- Quanto o custo total muda se eu limitar o prazo máximo de entrega?
+- Se uma transportadora reajustar a tabela em 5%, quantos pedidos trocam de mãos e qual o impacto no custo?
+
+O simulador responde a essas perguntas sobre uma base de pedidos, sem planilha manual.
 
 ## O que ele faz
 
@@ -29,7 +51,23 @@ App em **Streamlit** que compara transportadoras: escolhe, para cada pedido, a m
 - Filtros por transportadora, origem da coleta e região de destino.
 - Variação de cada colocado em relação ao seguinte (Top 1 vs Top 2, Top 2 vs Top 3).
 
-Frete e prazo são **médias ponderadas** (total ÷ pedidos). A linha TOTAL do resumo e o custo médio são calculados a partir dos pedidos, não pela média das médias dos grupos.
+## Decisões e premissas
+
+- **Chave de cruzamento:** cada pedido encontra as opções da tabela por `origem + região + tipo de destino`. A região vem da UF de destino (as 27 UFs são reconhecidas).
+- **Escolha da vencedora:** menor custo; empate decidido pelo menor prazo e, persistindo, pelo nome da transportadora (ordem alfabética), para o resultado ser sempre reproduzível.
+- **Prazo máximo:** opções com prazo acima do limite são descartadas. Pedido sem nenhuma opção restante (ou sem linha na tabela) aparece como **"Sem cobertura"**, e fica fora dos custos médios.
+- **Médias ponderadas, não médias das médias:** frete e prazo por grupo são `total ÷ pedidos`. A linha TOTAL e o custo médio saem dos pedidos, não das linhas dos grupos, porque grupos de tamanhos diferentes não podem pesar igual. Há testes automatizados para isso.
+- **% custo de frete:** a tela mostra a média simples dos percentuais (cada pedido pesa igual) e, para comparação, o percentual ponderado (soma do frete ÷ soma do valor de mercadoria). Os dois contam histórias diferentes e é útil ver ambos.
+- **Sensibilidade:** o ajuste em % é aplicado ao `custo_base` e ao `custo_por_kg` da transportadora escolhida; o prazo não muda. Depois disso, toda a simulação é refeita.
+- **Ranking:** cada transportadora é avaliada aplicando a tabela dela aos pedidos do grupo (região ou UF), não só aos que ela venceria na simulação.
+- **Onde o prazo máximo vale:** na simulação, na análise de sensibilidade e na distribuição dos pedidos. As abas de ranking e de cobertura comparam todas as opções da tabela, sem o limite.
+
+## Limitações
+
+- O custo é linear em peso (`base + por_kg × peso`). Não considera peso cubado, frete mínimo, ad valorem, taxas adicionais nem faixas de CEP.
+- A tabela de frete é por origem, região e tipo de destino (Capital ou Interior), não por CEP.
+- Não há restrição de capacidade: uma transportadora pode "ganhar" todos os pedidos de uma região.
+- Os dados de exemplo são sintéticos (`gerar_dados.py`, seed fixa). O desenho de quem é mais barata onde é uma premissa do gerador, **não uma conclusão sobre o mercado real**.
 
 ## Como rodar
 
@@ -72,3 +110,11 @@ A região é derivada da UF (as 27 UFs são reconhecidas).
 ## Publicar
 
 No [Streamlit Community Cloud](https://share.streamlit.io) dá para publicar direto deste repositório, **somente com dados fictícios**, pois o app fica público e roda fora de qualquer rede corporativa. Para dados reais, a recomendação é hospedar em servidor interno da empresa.
+
+## Sobre o desenvolvimento
+
+Projeto desenvolvido com o apoio do Claude (Anthropic). Os testes em `tests/` cobrem a lógica de cálculo e rodam automaticamente a cada push.
+
+## Licença
+
+[MIT](LICENSE)
