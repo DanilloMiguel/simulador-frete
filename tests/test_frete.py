@@ -387,3 +387,14 @@ def test_linha_repetida_mostra_as_linhas_do_excel():
     t = tabela_nova(*FAIXAS_A, FAIXAS_A[1])
     with pytest.raises(ValueError, match="linhas 3 e 5"):
         frete.simular(pedidos(P1), t)
+
+
+# ------------------------------------------------------------ tabela grande
+def test_tabela_grande_nao_usa_styler_acima_do_limite():
+    import visual
+    pequeno = pd.DataFrame({"custo_frete": [1.5] * 10})
+    grande = pd.DataFrame({"custo_frete": [1.5] * (pd.get_option("styler.render.max_elements") + 1)})
+    _, numericas = visual.tabela_grande(pequeno)
+    assert numericas is None  # estilo brasileiro de sempre
+    dados, numericas = visual.tabela_grande(grande)
+    assert isinstance(dados, pd.DataFrame) and numericas == ["Frete (R$)"]
