@@ -8,7 +8,7 @@ from pathlib import Path
 import numpy as np
 import pandas as pd
 
-from frete import ORDEM_REGIOES, REGIAO_POR_UF
+from frete import COLUNAS_TABELA, ORDEM_REGIOES, REGIAO_POR_UF
 
 DATA = Path(__file__).parent / "data"
 SEED = 42
@@ -47,6 +47,25 @@ AJUSTE_PRAZO_ORIGEM = {"CD Leste": 0, "CD Oeste": 0, "Loja": -1}
 MULT_DESTINO = {"Capital": 1.0, "Interior": 1.30}
 PRAZO_DESTINO = {"Capital": 0, "Interior": 2}
 
+# Faixas de peso (kg) até 30 kg + linha de excedente (peso_max vazio = sem limite).
+# Tabelas reais costumam ter mais faixas (0–0,250, 0,251–0,500…); aqui são menos para
+# a tabela de exemplo caber no editor.
+FAIXAS = [(0.0, 1.0), (1.001, 2.0), (2.001, 5.0), (5.001, 10.0), (10.001, 20.0), (20.001, 30.0)]
+PESO_EXCEDENTE = 30.0
+# GRIS + Ad valorem (% do valor de mercadoria): 0,30 = 0,30%.
+GRIS_ADV = {
+    "Transportadora Alfa": 0.30,
+    "Transportadora Beta": 0.40,
+    "Transportadora Gama": 0.25,
+    "Transportadora Delta": 0.50,
+}
+# Exceções por UF: o preço da UF sobrepõe o da região (multiplicador sobre o preço da região).
+EXCECOES_UF = {
+    ("Transportadora Alfa", "SP"): 0.90,
+    ("Transportadora Delta", "BA"): 0.90,
+    ("Transportadora Gama", "AM"): 1.20,
+}
+
 
 def gerar_pedidos(rng: np.random.Generator) -> pd.DataFrame:
     ufs = list(PESO_UF)
@@ -64,36 +83,51 @@ def gerar_pedidos(rng: np.random.Generator) -> pd.DataFrame:
     )
 
 
+def _linhas_rota(nome, origem, uf, regiao, destino, mult_extra=1.0) -> list[dict]:
+    """Faixas de peso + excedente de uma rota. Preço da faixa = base + R$/kg × fim da faixa."""
+    base, por_kg, ajuste = TRANSPORTADORAS[nome]
+    mult = (
+        MULT_ORIGEM[origem] * MULT_REGIAO[regiao] * AFINIDADE[nome][regiao] * MULT_DESTINO[destino] * mult_extra
+    )
+    prazo = max(1, PRAZO_REGIAO[regiao] + PRAZO_DESTINO[destino] + ajuste + AJUSTE_PRAZO_ORIGEM[origem])
+    comum = {
+        "transportadora": nome,
+        "origem": origem,
+        "uf": uf,
+        "regiao": regiao if uf is None else None,
+        "destino_tipo": destino,
+        "gris_adv_pct": GRIS_ADV[nome],
+        "prazo_dias": prazo,
+    }
+    linhas = [
+        {**comum, "peso_min": ini, "peso_max": fim, "custo_base": round((base + por_kg * fim) * mult, 2), "custo_por_kg": 0.0}
+        for ini, fim in FAIXAS
+    ]
+    linhas.append(
+        {
+            **comum,
+            "peso_min": PESO_EXCEDENTE,
+            "peso_max": None,
+            "custo_base": round((base + por_kg * PESO_EXCEDENTE) * mult, 2),
+            "custo_por_kg": round(por_kg * mult, 2),
+        }
+    )
+    return linhas
+
+
 def gerar_tabela() -> pd.DataFrame:
+    """Linhas por região (valem para todas as UFs da região) + algumas exceções por UF."""
     linhas = []
-    for nome, (base, por_kg, ajuste) in TRANSPORTADORAS.items():
+    for nome in TRANSPORTADORAS:
         for origem in ORIGENS:
             for regiao in ORDEM_REGIOES:
                 for destino in DESTINOS:
-                    mult = (
-                        MULT_ORIGEM[origem]
-                        * MULT_REGIAO[regiao]
-                        * AFINIDADE[nome][regiao]
-                        * MULT_DESTINO[destino]
-                    )
-                    prazo = (
-                        PRAZO_REGIAO[regiao]
-                        + PRAZO_DESTINO[destino]
-                        + ajuste
-                        + AJUSTE_PRAZO_ORIGEM[origem]
-                    )
-                    linhas.append(
-                        {
-                            "transportadora": nome,
-                            "origem": origem,
-                            "regiao": regiao,
-                            "destino_tipo": destino,
-                            "custo_base": round(base * mult, 2),
-                            "custo_por_kg": round(por_kg * mult, 2),
-                            "prazo_dias": max(1, prazo),
-                        }
-                    )
-    return pd.DataFrame(linhas)
+                    linhas += _linhas_rota(nome, origem, None, regiao, destino)
+    for (nome, uf), mult in EXCECOES_UF.items():
+        for origem in ORIGENS:
+            for destino in DESTINOS:
+                linhas += _linhas_rota(nome, origem, uf, REGIAO_POR_UF[uf], destino, mult)
+    return pd.DataFrame(linhas, columns=COLUNAS_TABELA)
 
 
 if __name__ == "__main__":

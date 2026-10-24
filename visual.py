@@ -87,6 +87,7 @@ FORMATOS = {
     "Peso (kg)": lambda v: num_br(v, 2),
     "Valor de mercadoria (R$)": lambda v: num_br(v, 2),
     "Frete (R$)": lambda v: num_br(v, 2),
+    "GRIS + Ad valorem (R$)": lambda v: num_br(v, 2),
     "Prazo (dias)": lambda v: num_br(v, 0),
     "Custo total (R$)": lambda v: num_br(v, 2),
     "Custo médio (R$)": lambda v: num_br(v, 2),
