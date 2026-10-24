@@ -318,7 +318,7 @@ def legenda_cobertura() -> str:
 
 # --------------------------------------------------------- sensibilidade
 def grafico_sensibilidade(dados: pd.DataFrame):
-    """Gráfico de barras comparando custo antes × depois por transportadora."""
+    """Gráfico de barras comparando pedidos atendidos antes × depois por transportadora."""
     base = alt.Chart(dados).encode(
         y=alt.Y("transportadora:N", sort="-x", title=None, axis=alt.Axis(labelLimit=260, labelFontSize=12)),
     )

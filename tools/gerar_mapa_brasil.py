@@ -2,6 +2,9 @@
 
 Uso: python tools/gerar_mapa_brasil.py <geojson_de_origem>   (requer: pip install shapely)
 Mantém só sigla, nome e um ponto central (lon/lat) para colocar rótulos e bolhas.
+
+O GeoJSON de origem espera as propriedades `sigla` e `name`. O arquivo usado no projeto foi o
+`brazil-states.geojson` do repositório codeforamerica/click_that_hood (ver README, seção "Fonte do mapa").
 """
 import json
 import sys
