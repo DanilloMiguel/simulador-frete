@@ -10,11 +10,11 @@ App em **Streamlit** que compara transportadoras: escolhe, para cada pedido, a m
 
 > **Todos os dados deste repositório são fictícios.** Transportadoras, preços e pedidos foram gerados por `gerar_dados.py`.
 
-Mapa do Brasil por UF 
+### Mapa do Brasil por UF 
 
 <img width="1544" height="625" alt="image" src="https://github.com/user-attachments/assets/5c336a42-7e19-4334-8311-a8850f7a66d5" />
 
-Ranking por região
+### Ranking por região
 
 <img width="1566" height="688" alt="image" src="https://github.com/user-attachments/assets/bca9e7cc-250c-4023-8d54-22325d4d3f6b" />
 
