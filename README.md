@@ -83,18 +83,32 @@ streamlit run app.py
 
 O app abre em `http://localhost:8501`.
 
-Para regerar os dados de exemplo: `python gerar_dados.py`. Para rodar os testes: `pytest`.
+Para regerar os dados de exemplo: `python gerar_dados.py`.
+
+Para rodar os testes (instala também o `pytest`):
+
+```bash
+pip install -r requirements-dev.txt
+pytest
+```
 
 ## Estrutura
 
 ```
-app.py            interface (Streamlit): fluxo e abas
-visual.py         formatação, cards, mapa de calor, mapa do Brasil e gráficos
-frete.py          lógica de cálculo e ranking, sem dependência de Streamlit
-gerar_dados.py    gera os dados fictícios em data/
-data/             pedidos_exemplo.csv, tabela_frete_exemplo.csv e brasil_ufs.geojson (contorno das UFs)
-tools/            gerar_mapa_brasil.py: gera o brasil_ufs.geojson a partir de um GeoJSON de estados
-tests/            testes automatizados da lógica
+app.py                interface (Streamlit): fluxo e abas
+visual.py             formatação, cards, mapa de calor, mapa do Brasil e gráficos
+frete.py              lógica de cálculo e ranking, sem dependência de Streamlit
+gerar_dados.py        gera os dados fictícios em data/
+data/                 pedidos_exemplo.csv, tabela_frete_exemplo.csv e brasil_ufs.geojson (contorno das UFs)
+tools/                gerar_mapa_brasil.py: gera o brasil_ufs.geojson a partir de um GeoJSON de estados
+tests/                testes automatizados da lógica
+requirements.txt      dependências para rodar o app
+requirements-dev.txt  dependências do app + pytest
+pytest.ini            configuração do pytest
+.streamlit/           tema do app (cores)
+.devcontainer/        ambiente pronto para GitHub Codespaces
+.github/workflows/    CI: roda os testes no Python 3.11 e 3.12 a cada push e pull request
+LICENSE               licença do código
 ```
 
 A lógica fica em `frete.py` de propósito: o mesmo código pode ser chamado por um script agendado, sem a interface.
@@ -115,6 +129,10 @@ No [Streamlit Community Cloud](https://share.streamlit.io) dá para publicar dir
 ## Sobre o desenvolvimento
 
 Projeto desenvolvido com o apoio do Claude (Anthropic). Os testes em `tests/` cobrem a lógica de cálculo e rodam automaticamente a cada push.
+
+## Fonte do mapa
+
+O arquivo `data/brasil_ufs.geojson` foi gerado por `tools/gerar_mapa_brasil.py` a partir do `brazil-states.geojson` do repositório público [codeforamerica/click_that_hood](https://github.com/codeforamerica/click_that_hood), com os contornos simplificados (tolerância de 0,03°, cerca de 3 km) para o app carregar rápido. O projeto de origem é MIT, mas **não informa de onde vêm os dados dos contornos nem a licença deles**; por isso a origem original não está documentada aqui. O mapa serve só para ilustrar a distribuição dos pedidos fictícios e não é adequado para medições ou limites oficiais.
 
 ## Licença
 
