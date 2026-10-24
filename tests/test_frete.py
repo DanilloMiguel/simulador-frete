@@ -362,3 +362,28 @@ def test_planilha_modelo_roda_no_simulador():
     xls = pd.read_excel(io.BytesIO(frete.gerar_template_excel()), sheet_name=None)
     r = frete.simular(xls["Pedidos"], xls["Tabela de frete"])
     assert len(r) == 2
+
+
+def test_faixa_faltando_gera_erro_com_as_linhas():
+    t = tabela_nova(FAIXAS_A[0], FAIXAS_A[2])  # falta 0,251 a 0,500
+    with pytest.raises(ValueError, match=r"falta faixa de peso entre 0,25 kg e 0,501 kg.*linhas 2 e 3"):
+        frete.simular(pedidos(P1), t)
+
+
+def test_buraco_pequeno_entre_faixas_e_aceito():
+    t = tabela_nova(*FAIXAS_A)  # 0,250 → 0,251: 0,001 kg
+    assert frete.simular(pedidos(P1), t).loc[0, "transportadora"] == "A"
+
+
+def test_uf_com_faixas_incompletas_nao_herda_da_regiao():
+    """Linha da UF substitui a região: se a UF tiver só parte das faixas, a tabela é recusada."""
+    regiao = [(t, o, None, "Sudeste", d, a, b, c, k, g, p) for (t, o, _, _, d, a, b, c, k, g, p) in FAIXAS_A]
+    so_sp = ("A", "CD", "SP", None, "Capital", 20.0, 30.0, 40.0, 0, 0, 3)
+    with pytest.raises(ValueError, match="falta faixa"):
+        frete.simular(pedidos(P1), tabela_nova(*regiao, so_sp))
+
+
+def test_linha_repetida_mostra_as_linhas_do_excel():
+    t = tabela_nova(*FAIXAS_A, FAIXAS_A[1])
+    with pytest.raises(ValueError, match="linhas 3 e 5"):
+        frete.simular(pedidos(P1), t)

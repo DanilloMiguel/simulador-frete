@@ -510,7 +510,8 @@ with st.expander("Como a tabela é lida"):
         "todas as UFs da região. Se existirem as duas para a mesma transportadora, origem e destino, "
         "**vale a da UF**.\n"
         "- **Faixa de peso:** o pedido cai na menor faixa cujo *Peso até* comporta o peso. "
-        "*Peso até* vazio = sem limite.\n"
+        "*Peso até* vazio = sem limite. "
+        "Cada UF (ou região) precisa do bloco completo de faixas, começando em 0: se faltar faixa, a tabela é recusada.\n"
         "- **Frete** = Valor da faixa + R\\$/kg × (peso − *Peso de*) + GRIS + Ad valorem (%) × valor de mercadoria. "
         "Com faixas, deixe o R\\$/kg em 0 e use-o só na linha de excedente (ex.: *Peso de* 30, *Peso até* vazio).\n"
         "- **GRIS + Ad valorem:** digite 0,30 para 0,30%.\n"
@@ -523,8 +524,26 @@ if ((gris > 0) & (gris < 0.05)).any():
         "como % no Excel, 0,30% vira 0,003 no arquivo. Digite 0,30 para 0,30%."
     )
 ufs = sorted(frete.REGIAO_POR_UF, key=lambda u: (frete.ORDEM_REGIOES.index(frete.REGIAO_POR_UF[u]), u))
-origens = sorted(pedidos["origem"].dropna().astype(str).unique())
-destinos = sorted(pedidos["destino_tipo"].dropna().astype(str).unique())
+
+
+def _valores(*series) -> list[str]:
+    """Valores distintos (sem vazios) de várias colunas, para as listas do editor."""
+    juntos = pd.concat([s.dropna().astype(str).str.strip() for s in series])
+    return sorted(v for v in juntos.unique() if v)
+
+
+# As listas do editor juntam pedidos e tabela: um valor que só existe na tabela
+# (ex.: uma origem sem pedidos) apareceria em branco se a lista viesse só dos pedidos.
+origens = _valores(pedidos["origem"], tabela_original["origem"])
+destinos = _valores(pedidos["destino_tipo"], tabela_original["destino_tipo"])
+for coluna, rotulo in [("origem", "origens"), ("destino_tipo", "tipos de destino")]:
+    sem_tabela = sorted(set(_valores(pedidos[coluna])) - set(_valores(tabela_original[coluna])))
+    if sem_tabela:
+        st.warning(
+            f"Há {rotulo} nos pedidos que não aparecem na tabela de frete: {', '.join(sem_tabela)}. "
+            "Esses pedidos ficam como **Sem cobertura**. Confira se o nome está igual nos dois arquivos "
+            "(maiúsculas, espaços e acentos contam)."
+        )
 tabela = st.data_editor(
     tabela_original[frete.COLUNAS_TABELA],
     num_rows="dynamic",

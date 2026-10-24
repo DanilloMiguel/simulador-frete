@@ -46,6 +46,9 @@ PADRAO_OPCIONAIS = {
     "gris_adv_pct": 0.0,
 }
 SEM_COBERTURA = "Sem cobertura"
+# Maior intervalo aceito entre o fim de uma faixa e o início da seguinte (ex.: 0,250 → 0,251).
+# Acima disso, a tabela é recusada: faltaria uma faixa e o pedido cairia na faixa de cima.
+TOLERANCIA_FAIXA_KG = 0.01
 # Uma "rota" da tabela: cada pedido é comparado com as rotas da sua origem, UF e destino.
 ROTA = ["transportadora", "origem", "uf", "destino_tipo"]
 
@@ -157,6 +160,7 @@ def preparar_tabela(tabela: pd.DataFrame) -> pd.DataFrame:
     """
     nome = "Tabela de frete"
     tab = normalizar_tabela(tabela).reset_index(drop=True)
+    tab["_linha"] = tab.index + 2  # linha no Excel (cabeçalho na linha 1)
     # Linhas totalmente vazias (por exemplo, adicionadas no editor e não preenchidas).
     preenchidas = ~tab[COLUNAS_TABELA_OBRIGATORIAS + ["uf", "regiao", "peso_max"]].apply(_vazio).all(axis=1)
     tab = tab[preenchidas].copy()
@@ -221,13 +225,35 @@ def preparar_tabela(tabela: pd.DataFrame) -> pd.DataFrame:
     marcada = tab.merge(com_uf.assign(_tem_uf=1), on=ROTA, how="left")["_tem_uf"].notna().to_numpy()
     tab = tab[(tab["nivel"] == "uf").to_numpy() | ~marcada].drop(columns="nivel").reset_index(drop=True)
 
+    def _rota_txt(linha) -> str:
+        return f"{linha['transportadora']}, {linha['origem']}, {linha['uf']}, {linha['destino_tipo']}"
+
+    def _kg(valor) -> str:
+        return "sem limite" if np.isinf(valor) else f"{valor:g} kg".replace(".", ",")
+
     repetida = tab.duplicated(ROTA + ["peso_max"], keep=False)
     if repetida.any():
         ex = tab[repetida].iloc[0]
-        teto = "sem limite" if np.isinf(ex["peso_max"]) else f"{ex['peso_max']:g} kg"
+        mesmas = tab[repetida & (tab[ROTA + ["peso_max"]] == ex[ROTA + ["peso_max"]]).all(axis=1)]
+        linhas = " e ".join(str(n) for n in sorted(mesmas["_linha"].unique()))
         raise ValueError(f"{nome}: há linhas repetidas para a mesma rota e faixa de peso "
-                         f"(ex.: {ex['transportadora']}, {ex['origem']}, {ex['uf']}, {ex['destino_tipo']}, "
-                         f"faixa até {teto}).")
+                         f"({_rota_txt(ex)}, faixa até {_kg(ex['peso_max'])}): linhas {linhas}.")
+
+    # Faixa faltando: a primeira faixa começa em 0 e cada faixa encosta no fim da anterior.
+    ordenada = tab.sort_values(ROTA + ["peso_max"])
+    anterior = ordenada.groupby(ROTA)[["peso_max", "_linha"]].shift()
+    buraco = (ordenada["peso_min"] - anterior["peso_max"].fillna(0)) > TOLERANCIA_FAIXA_KG
+    if buraco.any():
+        ex = ordenada[buraco].iloc[0]
+        ant = anterior[buraco].iloc[0]
+        if pd.isna(ant["_linha"]):
+            onde = f"primeira faixa na linha {int(ex['_linha'])}"
+            de = 0.0
+        else:
+            onde = f"linhas {int(ant['_linha'])} e {int(ex['_linha'])}"
+            de = ant["peso_max"]
+        raise ValueError(f"{nome}: falta faixa de peso entre {_kg(de)} e {_kg(ex['peso_min'])} "
+                         f"({_rota_txt(ex)}; {onde}). Cada UF precisa do bloco completo de faixas, começando em 0.")
     tab["prazo_dias"] = tab["prazo_dias"].astype(float)
     return tab[COLUNAS_TABELA]
 
@@ -254,8 +280,9 @@ def _opcoes(ped: pd.DataFrame, tab: pd.DataFrame, prazo_max: float | None) -> pd
 
     Faixa: a de menor peso_max que comporta o peso do pedido. Assim um peso que cai
     entre duas faixas (ex.: 0,2505 entre 0,250 e 0,251) vai para a faixa de cima.
-    Pedido mais leve que o menor peso_min da rota não é atendido; mais pesado que
-    a maior faixa também não (a não ser que exista uma faixa com peso_max vazio).
+    Pedido mais pesado que a maior faixa não é atendido, a não ser que exista uma
+    faixa com peso_max vazio (excedente). Faixas faltando já foram recusadas em
+    preparar_tabela.
     """
     rotas = tab[ROTA].drop_duplicates()
     rotas = rotas.merge(
