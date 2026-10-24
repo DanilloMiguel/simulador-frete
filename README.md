@@ -21,7 +21,7 @@ App em **Streamlit** que compara transportadoras: escolhe, para cada pedido, a m
 
 ## Que problema ele resolve
 
-Quando uma operação de e-commerce trabalha com várias transportadoras, cada uma com tabela própria por origem, região e tipo de destino, é difícil responder perguntas como:
+Quando uma operação de e-commerce trabalha com várias transportadoras, cada uma com tabela própria por origem, UF ou região, tipo de destino e faixa de peso, é difícil responder perguntas como:
 
 - Qual transportadora é a mais barata em cada região, e por quanto?
 - Quanto o custo total muda se eu limitar o prazo máximo de entrega?
@@ -33,7 +33,7 @@ O simulador responde a essas perguntas sobre uma base de pedidos, sem planilha m
 
 **Simulação de pedidos**
 - Lê uma base de pedidos e uma tabela de frete (CSV ou Excel).
-- Calcula o custo de cada opção: `custo_base + custo_por_kg × peso_kg`.
+- Calcula o custo de cada opção: valor da faixa de peso + excedente por kg + GRIS e Ad valorem (% do valor de mercadoria).
 - Escolhe a transportadora mais barata; em caso de empate, a de menor prazo.
 - Permite **editar custos e prazos** e **limitar o prazo máximo**.
 - Mostra o impacto frente à tabela original (custo total e custo médio).
@@ -54,19 +54,21 @@ O simulador responde a essas perguntas sobre uma base de pedidos, sem planilha m
 
 ## Decisões e premissas
 
-- **Chave de cruzamento:** cada pedido encontra as opções da tabela por `origem + região + tipo de destino`. A região vem da UF de destino (as 27 UFs são reconhecidas).
+- **Chave de cruzamento:** cada pedido encontra as opções da tabela por `origem + UF + tipo de destino` e depois pela faixa de peso. Uma linha da tabela pode ser de uma UF ou de uma região inteira (vale para todas as UFs dela); se houver as duas para a mesma transportadora, origem e destino, **vale a da UF**. Assim dá para preencher por região e corrigir só as exceções.
+- **Faixa de peso:** o pedido cai na menor faixa cujo `peso_max` comporta o peso. Um peso entre duas faixas (0,2505 kg entre 0,250 e 0,251, por exemplo) vai para a faixa de cima. Acima da última faixa, só há cobertura se existir uma linha de excedente (`peso_max` vazio).
+- **Cálculo do frete:** `custo_base + custo_por_kg × (peso_kg − peso_min) + gris_adv_pct% × valor_mercadoria`. Com faixas, `custo_base` é o valor da faixa e `custo_por_kg` fica 0; na linha de excedente (ex.: `peso_min` 30, `peso_max` vazio), `custo_por_kg` é o R$ por kg acima de 30. Sem faixas (`peso_min` 0), volta a ser `custo_base + custo_por_kg × peso_kg`.
 - **Escolha da vencedora:** menor custo; empate decidido pelo menor prazo e, persistindo, pelo nome da transportadora (ordem alfabética), para o resultado ser sempre reproduzível.
 - **Prazo máximo:** opções com prazo acima do limite são descartadas. Pedido sem nenhuma opção restante (ou sem linha na tabela) aparece como **"Sem cobertura"**, e fica fora dos custos médios.
 - **Médias ponderadas, não médias das médias:** frete e prazo por grupo são `total ÷ pedidos`. A linha TOTAL e o custo médio saem dos pedidos, não das linhas dos grupos, porque grupos de tamanhos diferentes não podem pesar igual. Há testes automatizados para isso.
 - **% custo de frete:** a tela mostra a média simples dos percentuais (cada pedido pesa igual) e, para comparação, o percentual ponderado (soma do frete ÷ soma do valor de mercadoria). Os dois contam histórias diferentes e é útil ver ambos.
-- **Sensibilidade:** o ajuste em % é aplicado ao `custo_base` e ao `custo_por_kg` da transportadora escolhida; o prazo não muda. Depois disso, toda a simulação é refeita.
+- **Sensibilidade:** o ajuste em % é aplicado ao `custo_base`, ao `custo_por_kg` e ao `gris_adv_pct` da transportadora escolhida, ou seja, ao frete inteiro; o prazo não muda. Depois disso, toda a simulação é refeita.
 - **Ranking:** cada transportadora é avaliada aplicando a tabela dela aos pedidos do grupo (região ou UF), não só aos que ela venceria na simulação.
 - **Onde o prazo máximo vale:** na simulação, na análise de sensibilidade e na distribuição dos pedidos. As abas de ranking e de cobertura comparam todas as opções da tabela, sem o limite.
 
 ## Limitações
 
-- O custo é linear em peso (`base + por_kg × peso`). Não considera peso cubado, frete mínimo, ad valorem, taxas adicionais nem faixas de CEP.
-- A tabela de frete é por origem, região e tipo de destino (Capital ou Interior), não por CEP.
+- Não considera peso cubado, frete mínimo, pedágio, TDA/TRT nem outras taxas adicionais. GRIS e Ad valorem entram juntos em um único percentual.
+- A tabela de frete é por UF (ou região) e tipo de destino (Capital ou Interior), não por faixa de CEP. Quem tem tabela por CEP pode usar a média da UF.
 - Não há restrição de capacidade: uma transportadora pode "ganhar" todos os pedidos de uma região.
 - Os dados de exemplo são sintéticos (`gerar_dados.py`, seed fixa). O desenho de quem é mais barata onde é uma premissa do gerador, **não uma conclusão sobre o mercado real**.
 
@@ -119,8 +121,20 @@ A lógica fica em `frete.py` de propósito: o mesmo código pode ser chamado por
 `valor_mercadoria` é o valor da mercadoria do pedido em R$, sem o frete. O nome antigo `valor_pedido` ainda é aceito.
 A região é derivada da UF (as 27 UFs são reconhecidas).
 
-**Tabela de frete:** `transportadora, origem, regiao, destino_tipo, custo_base, custo_por_kg, prazo_dias`
-`regiao` deve ser `Sudeste`, `Sul`, `Centro-Oeste`, `Nordeste` ou `Norte`.
+**Tabela de frete:** `transportadora, origem, uf, regiao, destino_tipo, peso_min, peso_max, custo_base, custo_por_kg, gris_adv_pct, prazo_dias`
+
+| Coluna | Obrigatória | O que é |
+|---|---|---|
+| `transportadora`, `origem`, `destino_tipo` | sim | `origem` e `destino_tipo` devem bater com os do pedido |
+| `uf` | `uf` ou `regiao` | UF de destino; vazio = a linha vale para a região inteira |
+| `regiao` | `uf` ou `regiao` | `Sudeste`, `Sul`, `Centro-Oeste`, `Nordeste` ou `Norte` |
+| `peso_min`, `peso_max` | não | faixa de peso em kg; `peso_min` vazio = 0, `peso_max` vazio = sem limite |
+| `custo_base` | sim | valor da faixa em R$ (ou custo fixo por envio, sem faixas) |
+| `custo_por_kg` | sim (pode ser 0) | R$ por kg acima de `peso_min` |
+| `gris_adv_pct` | não | GRIS + Ad valorem em % do valor de mercadoria: `0.30` = 0,30% (não formate a célula como %); vazio = 0 |
+| `prazo_dias` | sim | prazo em dias úteis |
+
+O formato antigo (`transportadora, origem, regiao, destino_tipo, custo_base, custo_por_kg, prazo_dias`) continua aceito e dá o mesmo resultado. A planilha modelo do app tem um exemplo com faixas, excedente e uma linha por região.
 
 ## Publicar
 

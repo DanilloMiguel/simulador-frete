@@ -9,13 +9,19 @@ import frete
 import gerar_dados
 
 
+# Formato original da tabela (só região, sem faixa de peso e sem %): continua aceito.
+COLUNAS_FORMATO_ANTIGO = [
+    "transportadora", "origem", "regiao", "destino_tipo", "custo_base", "custo_por_kg", "prazo_dias",
+]
+
+
 def tabela(*linhas, regiao="Sudeste"):
     """(transportadora, origem, destino_tipo, custo_base, custo_por_kg, prazo_dias).
 
     A região é a mesma para todas as linhas (por padrão, Sudeste, a de SP e MG).
     """
     dados = [(t, o, regiao, d, b, k, p) for (t, o, d, b, k, p) in linhas]
-    return pd.DataFrame(dados, columns=frete.COLUNAS_TABELA)
+    return pd.DataFrame(dados, columns=COLUNAS_FORMATO_ANTIGO)
 
 
 def pedidos(*linhas):
@@ -150,7 +156,11 @@ def test_dados_de_exemplo_sao_coerentes():
     ped = gerar_dados.gerar_pedidos(np.random.default_rng(1))
     tab = gerar_dados.gerar_tabela()
     assert set(gerar_dados.PESO_UF) == set(frete.REGIAO_POR_UF)
-    assert len(tab) == 120
+    faixas = len(gerar_dados.FAIXAS) + 1  # + linha de excedente
+    por_regiao = 4 * 3 * 5 * 2 * faixas  # transportadoras × origens × regiões × destinos × faixas
+    por_uf = len(gerar_dados.EXCECOES_UF) * 3 * 2 * faixas
+    assert len(tab) == por_regiao + por_uf
+    assert tab["peso_max"].dropna().max() == 30  # faixas até 30 kg + excedente
     assert (frete.simular(ped, tab)["transportadora"] != frete.SEM_COBERTURA).all()
 
 
@@ -237,3 +247,118 @@ def test_indicadores_sem_pedidos_nao_quebram():
     t = tabela(("A", "OUTRO", "Capital", 10, 0, 2))
     ind = frete.indicadores_pct_frete(frete.pct_custo_frete(frete.simular(pedidos(P1), t)))
     assert all(pd.isna(v) for v in ind.values())
+
+
+# ------------------------------------------- UF, faixas de peso e GRIS + ADV
+def tabela_nova(*linhas):
+    """(transportadora, origem, uf, regiao, destino_tipo, peso_min, peso_max,
+    custo_base, custo_por_kg, gris_adv_pct, prazo_dias). None = célula vazia."""
+    return pd.DataFrame(linhas, columns=frete.COLUNAS_TABELA)
+
+
+FAIXAS_A = [  # transportadora A, CD → SP capital, no formato da GEOCOM
+    ("A", "CD", "SP", None, "Capital", 0.000, 0.250, 10.0, 0, 0, 3),
+    ("A", "CD", "SP", None, "Capital", 0.251, 0.500, 12.0, 0, 0, 3),
+    ("A", "CD", "SP", None, "Capital", 0.501, 30.000, 50.0, 0, 0, 3),
+]
+
+
+def frete_de(peso, *linhas, valor=100.0):
+    r = frete.simular(pedidos(("P1", "CD", "Capital", "SP", peso, valor)), tabela_nova(*linhas))
+    return r.loc[0, "custo_frete"], r.loc[0, "transportadora"]
+
+
+def test_faixa_de_peso_escolhe_a_faixa_certa():
+    assert frete_de(0.250, *FAIXAS_A)[0] == 10.0
+    assert frete_de(0.300, *FAIXAS_A)[0] == 12.0
+    assert frete_de(0.000, *FAIXAS_A)[0] == 10.0
+
+
+def test_peso_entre_duas_faixas_vai_para_a_de_cima():
+    assert frete_de(0.2505, *FAIXAS_A)[0] == 12.0  # entre 0,250 e 0,251
+
+
+def test_acima_da_ultima_faixa_sem_excedente_fica_sem_cobertura():
+    assert frete_de(31.0, *FAIXAS_A)[1] == frete.SEM_COBERTURA
+
+
+def test_linha_de_excedente_cobra_por_kg_acima_de_30():
+    excedente = ("A", "CD", "SP", None, "Capital", 30.0, None, 50.0, 2.0, 0, 3)
+    assert frete_de(32.5, *FAIXAS_A, excedente)[0] == 55.0  # 50 + 2 × 2,5
+    assert frete_de(30.0, *FAIXAS_A, excedente)[0] == 50.0  # ainda na faixa até 30
+
+
+def test_gris_adv_e_percentual_do_valor_de_mercadoria():
+    linha = ("A", "CD", "SP", None, "Capital", 0, None, 10.0, 0, 0.5, 3)  # 0,5%
+    custo, _ = frete_de(2.0, linha, valor=400.0)
+    assert custo == 12.0  # 10 + 0,5% × 400
+    r = frete.simular(pedidos(("P1", "CD", "Capital", "SP", 2.0, 400.0)), tabela_nova(linha))
+    assert r.loc[0, "gris_adv_valor"] == 2.0
+
+
+def test_linha_da_uf_tem_prioridade_sobre_a_da_regiao():
+    t = tabela_nova(
+        ("A", "CD", None, "Sudeste", "Capital", 0, None, 20.0, 0, 0, 3),
+        ("A", "CD", "SP", None, "Capital", 0, None, 15.0, 0, 0, 3),
+    )
+    ped = pedidos(("P1", "CD", "Capital", "SP", 1.0, 100.0), ("P2", "CD", "Capital", "MG", 1.0, 100.0))
+    r = frete.simular(ped, t).set_index("pedido_id")
+    assert r.loc["P1", "custo_frete"] == 15.0  # SP usa a linha da UF
+    assert r.loc["P2", "custo_frete"] == 20.0  # MG continua com a da região
+
+
+def test_linha_so_com_regiao_vale_para_todas_as_ufs_da_regiao():
+    t = tabela_nova(("A", "CD", None, "Norte", "Capital", 0, None, 30.0, 0, 0, 9))
+    prep = frete.preparar_tabela(t)
+    assert sorted(prep["uf"]) == sorted(u for u, r in frete.REGIAO_POR_UF.items() if r == "Norte")
+
+
+def test_formato_novo_e_antigo_dao_o_mesmo_frete():
+    antigo = tabela(("A", "CD", "Capital", 10, 2, 5))
+    novo = tabela_nova(("A", "CD", None, "Sudeste", "Capital", None, None, 10, 2, None, 5))
+    assert frete.simular(pedidos(P1), antigo).equals(frete.simular(pedidos(P1), novo))
+
+
+def test_sensibilidade_ajusta_tambem_o_gris_adv():
+    linha = ("A", "CD", "SP", None, "Capital", 0, None, 10.0, 0, 1.0, 3)  # 10 + 1% × 100 = 11
+    r = frete.sensibilidade(pedidos(P1), tabela_nova(linha), "A", 10)
+    assert r.loc[0, "custo_frete"] == 12.1  # tudo +10%
+
+
+@pytest.mark.parametrize(
+    "linha, trecho",
+    [
+        (("A", "CD", None, None, "Capital", 0, None, 10, 0, 0, 3), "preencha uf ou regiao"),
+        (("A", "CD", "SP", "Sul", "Capital", 0, None, 10, 0, 0, 3), "não combinam"),
+        (("A", "CD", "XX", None, "Capital", 0, None, 10, 0, 0, 3), "UF não reconhecida"),
+        (("A", "CD", "SP", None, "Capital", 0, None, 10, 0, "0,3%", 3), "gris_adv_pct"),
+        (("A", "CD", "SP", None, "Capital", 5, 1, 10, 0, 0, 3), "peso_min maior"),
+        (("A", "CD", "SP", None, "Capital", 0, None, None, 0, 0, 3), "Se não houver custo, use 0"),
+    ],
+)
+def test_erros_de_preenchimento_da_tabela(linha, trecho):
+    with pytest.raises(ValueError, match=trecho):
+        frete.simular(pedidos(P1), tabela_nova(linha))
+
+
+def test_faixa_repetida_gera_erro():
+    t = tabela_nova(*FAIXAS_A, FAIXAS_A[0])
+    with pytest.raises(ValueError, match="repetidas"):
+        frete.simular(pedidos(P1), t)
+
+
+def test_tabela_sem_uf_nem_regiao_gera_erro():
+    t = tabela(("A", "CD", "Capital", 10, 2, 5)).drop(columns="regiao")
+    with pytest.raises(ValueError, match="uf, a coluna regiao"):
+        frete.simular(pedidos(P1), t)
+
+
+def test_regiao_aceita_maiusculas_e_minusculas():
+    t = tabela_nova(("A", "CD", None, "sudeste", "Capital", 0, None, 10, 0, 0, 3))
+    assert frete_de(1.0, *t.itertuples(index=False))[1] == "A"
+
+
+def test_planilha_modelo_roda_no_simulador():
+    xls = pd.read_excel(io.BytesIO(frete.gerar_template_excel()), sheet_name=None)
+    r = frete.simular(xls["Pedidos"], xls["Tabela de frete"])
+    assert len(r) == 2

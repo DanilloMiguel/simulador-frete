@@ -306,7 +306,7 @@ def secao_sensibilidade(pedidos, tabela, prazo_max) -> None:
         value=0,
         step=1,
         key="sens_slider",
-        help="Negativo = desconto, positivo = aumento.",
+        help="Negativo = desconto, positivo = aumento. Vale para o frete inteiro: valor da faixa, R$/kg e GRIS + Ad valorem.",
     )
 
     if variacao == 0:
@@ -490,7 +490,8 @@ pedidos = frete.normalizar_pedidos(pedidos)  # aceita o nome antigo valor_pedido
 
 try:
     frete.validar_colunas(pedidos, frete.COLUNAS_PEDIDOS, "Pedidos")
-    frete.validar_colunas(tabela_original, frete.COLUNAS_TABELA, "Tabela de frete")
+    # Cria as colunas opcionais que faltarem (uf/regiao, faixas de peso, % GRIS + ADV).
+    tabela_original = frete.normalizar_tabela(tabela_original)
 except ValueError as erro:
     st.error(str(erro))
     st.stop()
@@ -503,6 +504,25 @@ st.caption(
     "Edite custos e prazos ou adicione linhas. A tabela original fica guardada "
     "como base para medir o impacto das mudanças."
 )
+with st.expander("Como a tabela é lida"):
+    st.markdown(
+        "- **UF ou região:** a linha com UF vale só para aquela UF. A linha só com região vale para "
+        "todas as UFs da região. Se existirem as duas para a mesma transportadora, origem e destino, "
+        "**vale a da UF**.\n"
+        "- **Faixa de peso:** o pedido cai na menor faixa cujo *Peso até* comporta o peso. "
+        "*Peso até* vazio = sem limite.\n"
+        "- **Frete** = Valor da faixa + R\\$/kg × (peso − *Peso de*) + GRIS + Ad valorem (%) × valor de mercadoria. "
+        "Com faixas, deixe o R\\$/kg em 0 e use-o só na linha de excedente (ex.: *Peso de* 30, *Peso até* vazio).\n"
+        "- **GRIS + Ad valorem:** digite 0,30 para 0,30%.\n"
+        "- Células vazias aparecem como *None*."
+    )
+gris = pd.to_numeric(tabela_original["gris_adv_pct"], errors="coerce")
+if ((gris > 0) & (gris < 0.05)).any():
+    st.warning(
+        "Alguns valores de GRIS + Ad valorem estão abaixo de 0,05%. Se a célula estava formatada "
+        "como % no Excel, 0,30% vira 0,003 no arquivo. Digite 0,30 para 0,30%."
+    )
+ufs = sorted(frete.REGIAO_POR_UF, key=lambda u: (frete.ORDEM_REGIOES.index(frete.REGIAO_POR_UF[u]), u))
 origens = sorted(pedidos["origem"].dropna().astype(str).unique())
 destinos = sorted(pedidos["destino_tipo"].dropna().astype(str).unique())
 tabela = st.data_editor(
@@ -514,15 +534,30 @@ tabela = st.data_editor(
     column_config={
         "transportadora": st.column_config.TextColumn("Transportadora", required=True),
         "origem": st.column_config.SelectboxColumn("Origem", options=origens, required=True),
+        "uf": st.column_config.SelectboxColumn(
+            "UF", options=ufs, help="Vazio = vale para todas as UFs da região."
+        ),
         "regiao": st.column_config.SelectboxColumn(
-            "Região", options=frete.ORDEM_REGIOES, required=True
+            "Região", options=frete.ORDEM_REGIOES, help="Use quando a linha vale para a região inteira."
         ),
         "destino_tipo": st.column_config.SelectboxColumn("Destino", options=destinos, required=True),
+        "peso_min": st.column_config.NumberColumn(
+            "Peso de (kg)", min_value=0.0, format="%.3f", help="Início da faixa. Vazio = 0."
+        ),
+        "peso_max": st.column_config.NumberColumn(
+            "Peso até (kg)", min_value=0.0, format="%.3f", help="Fim da faixa. Vazio = sem limite."
+        ),
         "custo_base": st.column_config.NumberColumn(
-            "Custo base (R$)", min_value=0.0, format="%.2f", required=True
+            "Valor da faixa (R$)", min_value=0.0, format="%.2f", required=True,
+            help="Valor da faixa de peso ou custo fixo por envio.",
         ),
         "custo_por_kg": st.column_config.NumberColumn(
-            "Custo por kg (R$)", min_value=0.0, format="%.2f", required=True
+            "R$/kg acima do Peso de", min_value=0.0, format="%.2f", required=True,
+            help="Com faixas, use 0. Na linha de excedente, o R$ por kg excedente.",
+        ),
+        "gris_adv_pct": st.column_config.NumberColumn(
+            "GRIS + Ad valorem (%)", min_value=0.0, format="%.2f",
+            help="Percentual sobre o valor de mercadoria: 0,30 = 0,30%. Vazio = 0.",
         ),
         "prazo_dias": st.column_config.NumberColumn(
             "Prazo (dias)", min_value=1, step=1, required=True
