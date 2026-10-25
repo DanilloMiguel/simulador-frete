@@ -110,6 +110,21 @@ def estilizar(df: pd.DataFrame, destacar_total: bool = False):
     return estilo
 
 
+def tabela_grande(df: pd.DataFrame) -> tuple:
+    """Prepara uma tabela que pode passar do limite do Styler do pandas.
+
+    O Styler (usado em estilizar) só renderiza até
+    pd.get_option("styler.render.max_elements") células (262.144 por padrão);
+    acima disso o Streamlit dá erro. Até o limite, devolve (estilizar(df), None):
+    padrão brasileiro fixo, ex.: 1.234,50. Acima, devolve os dados sem estilo e
+    a lista de colunas numéricas, para o app formatar pelo column_config.
+    """
+    if df.size <= pd.get_option("styler.render.max_elements"):
+        return estilizar(df), None
+    tabela = frete.rotular(df)
+    return tabela, [c for c in FORMATOS if c in tabela.columns]
+
+
 # ------------------------------------------------------------- mapa de calor
 def _mix(a: tuple, b: tuple, t: float) -> tuple:
     return tuple(round(x + (y - x) * t) for x, y in zip(a, b))

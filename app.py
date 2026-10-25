@@ -130,7 +130,12 @@ def secao_simulacao(pedidos, tabela_original, tabela, prazo_max) -> None:
             )
 
     with aba_pedidos:
-        st.dataframe(vz.estilizar(saida["resultado"]), hide_index=True)
+        dados, numericas = vz.tabela_grande(saida["resultado"])
+        config = None
+        if numericas is not None:  # muitos pedidos: formatação pelo navegador, sem Styler
+            config = {c: st.column_config.NumberColumn(c, format="localized") for c in numericas}
+            st.caption("Muitos pedidos: os números seguem o formato do idioma do seu navegador.")
+        st.dataframe(dados, hide_index=True, column_config=config)
 
     st.download_button(
         "⬇ Baixar resultado (.xlsx)",
